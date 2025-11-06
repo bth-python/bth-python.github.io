@@ -33,10 +33,23 @@ const { src, alt, caption, width = 800, height = 400 } = Astro.props;
     const captionText = document.getElementById("caption");
     const closeBtn = document.getElementById("closeModal");
 
+    let modalMoved = false;
+
     if (!figures.length || !modal || !modalImg || !captionText || !closeBtn)
       return;
 
+    const moveModal = () => {
+      if (modalMoved) {
+        return;
+      }
+
+      modal.parentNode.removeChild(modal);
+      document.body.appendChild(modal);
+      modalMoved = true;
+    };
+
     const openModal = (imgSrc, caption) => {
+      moveModal();
       modal.classList.add("show");
       modal.setAttribute("aria-hidden", "false");
       modalImg.src = imgSrc;
