@@ -12,8 +12,8 @@ body:
     attributes:
       label: Link to the error
       description: You should not need to edit this if you used the report button.
-      placeholder: https://dbwebb.se
-      value: "https://dbwebb.se"
+      placeholder: https://bth-python.github.io/
+      value: "https://bth-python.github.io/"
     validations:
       required: true
   - type: textarea

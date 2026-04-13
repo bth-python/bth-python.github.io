@@ -1,35 +1,249 @@
 ---
 title: Välkommen till kursen Python
-description: Lär dig Programmering och Problemlösning i Python.
-template: splash
-hero:
-  tagline: Lär dig grunderna i strukturerad programmering och problemlösning med programmeringsspråket Python
-  image:
-    file: ../../assets/leaf_256x256.png
-  actions:
-    - text: Introduktion
-      link: ./intro
-      icon: right-arrow
-    - text: Kursmoment
-      link: ./kmom
-      icon: right-arrow
+description: Kursplats för kursen Programmering och Problemlösning i Python vid BTH.
+template: doc
+head:
+  - tag: style
+    content: | # tar bort sidebaren och gör content bredare. För att jag vill ha ToC i index-sidan. Vilket inte går att få med template splash
+      nav.sidebar { display: none; }
+      .main-frame { margin-inline-start: 0 !important; padding-inline-start: 0 !important; }
+      :root { --sl-content-width: 73rem; }
+      @media (min-width: 72rem) {
+        .main-pane {
+          width: 100%;};}
+      @media (min-width: 50rem) {
+        nav {
+          inset-inline-start: 0px;};}
 ---
-{/* 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { YouTube } from 'astro-embed';
+import { Image } from 'astro:assets'
 
-## Next steps
+import aarImage from '@assets/teacher/aar.jpg';
+import grmImage from '@assets/teacher/grm.jpg';
+import bbeImage from '@assets/teacher/bbe.jpg';
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
-</CardGrid> */}
+
+Detta är en grundkurs i programmering vilket innebär att vi startar med att skapa rutiner för problemlösning och felsökning via enkla grundkonstruktioner i Python. Vi bygger en utvecklingsmiljö som hjälper oss med utveckling och felsökning. Stegvis bygger vi mer och mer avancerade konstruktioner i Python.
+
+
+
+## Kursmoment
+
+<CardGrid>
+
+<LinkCard
+  title="kmom01 - Kom igång"
+  href="/kmom/kmom01"
+  description="Vi startar igång kursen genom att lära oss om grunderna i Python."
+/>
+
+<LinkCard
+  title="kmom02 - Loopar"
+  href="/kmom/kmom02"
+  description="Vi tar en titt på loopar och hur vi kan använda dem för att upprepa kod."
+/>
+
+<LinkCard
+  title="kmom03 - Funktioner och moduler"
+  href="/kmom/kmom03"
+  description="Vi lär oss att skapa och använda funktioner och moduler för att strukturera vår kod."
+/>
+
+<LinkCard
+  title="kmom04 - Listor"
+  href="/kmom/kmom04"
+  description="Vi tittar på hur vi kan använda listor för att lagra och hantera data i Python."
+/>
+
+<LinkCard
+  title="kmom05 - Dictionaries och Tupler"
+  href="/kmom/kmom05"
+  description="Vi lär oss att använda dictionaries och tupler för att lagra och hantera data i Python."
+/>
+
+<LinkCard
+  title="kmom06 - Filer"
+  href="/kmom/kmom06"
+  description="Vi tittar på hur vi kan läsa och skriva filer i Python."
+/>
+
+<LinkCard
+  title="kmom10 - Projekt"
+  href="/kmom/kmom10"
+  description="Vi arbetar med ett projekt där vi tillämpar allt vi har lärt oss i kursen."
+/>
+
+</CardGrid>
+
+{/* TODO 
+Skapa en intro video för kursen:
+<YouTube id="fBps6BcwrD4" posterQuality="max" />
+
+*/}
+
+
+
+
+
+## Kurslitteratur
+
+I kursen används [Python for Everybody - Exploring data using Python3](laromaterial/böcker) skriven av Charles R Severance som kurslitteratur. Varje vecka finns det läshänvisningar till relevanta kapitel. Boken är tillgänglig gratis online, i länken hittar du mer info om boken och hur du kan komma åt den.
+
+### Läsanvisningar
+
+Här följer en sammanställning av de läsanvisningar till kurslitteraturen som ges i varje kursmoment.
+
+| Kursmoment | Designing Interfaces   |
+|------------|------------------------|
+| Kmom01     | Ch1 Why should you learn to write programs?, Ch2 Variables, expressions and statements, Ch3 Conditional execution |
+| Kmom02     | Ch5 Iteration, Ch6 Strings |
+| Kmom03     | Ch4 Function |
+| Kmom04     | Ch8 Lists |
+| Kmom05     | Ch9 Dictionaries, Ch10 Tuples |
+| Kmom06     | Ch7 Files |
+| Kmom10     | Om du har tid över, läs för att förbereda dig inför nästa kurs: Ch14 Object-Oriented Programming |
+
+
+
+## Handledning och stöd
+
+Förutom synkrona lärarledda tillfällen på måndagar (spelas in), onsdagar (spelas in) och torsdagar finns det möjlighet för asynkron handledning via Discord.
+
+
+
+## Fusk och disciplinnämnden
+
+I dokumentet [Fusk och disciplinnämnden](studieguide/fusk) beskrivs förhållningsreglar till plagiarism, fusk och medvetet vilseledande till exempel med AI.
+
+
+
+## Rekommenderad studieplan
+
+Kursen har en [rekommenderad studieplan](https://docs.google.com/spreadsheets/d/1TqqJzgdR0QayB5OmxhTbkFod1XgitcCOZkhdvwp2Ukk/edit?gid=1260617726#gid=1260617726) som visar en översikt över kursens olika moment och när de i tiden bör utföras för att studenten skall ligga i fas med kursens planering.
+
+I studieplanen visas när rättning sker av respektive inlämnat moment samt när det finns möjligheter att göra restinlämningar.
+
+
+
+## Kursplan
+
+Kursplanen är kursens formella dokument som fastställts av högskolan. När kursen utvärderas görs det mot kursplanen. I kursplanen kan du läsa om kursens klassificering, syfte, innehåll, mål, generella förmågor, lärande och undervisning, bedömning och examination.
+
+Du hittar [kursplanen genom att söka på kurskoden DV1670 via BTH’s hemsida](https://plan.bth.se/courses/DV1670).
+
+
+Du hittar tidigare versioner av kursplanen i [versioner av kursen](ovrigt/versioner) där du även hittar tidigare versioner av kursmaterialet.
+
+
+
+
+## Betygsättning
+
+Nedan beskrivs betygsättning i kursen.
+
+
+### Betyg A eller B (VG)
+
+Projektet fungerar i stort sett felfritt med så gott som all funktionalitet implementerad, inklusive optionella krav.
+
+Kursmomenten är utförda med utmärkt resultat och redovisade enligt instruktionen. Inget saknas eller är bristfälligt utfört.
+
+Redovisningstexterna är kompletta, väl strukturerade och insiktsfulla. Via redovisningarna ger studenten en utomordentligt god bild av att förstå övningarna och dess innebörd. Studenten har mycket god förmåga att reflektera över kursmomenten, dess innehåll och sitt eget lärande.
+
+
+
+### Betyg C, D eller E (G)
+
+Projektet fungerar väl med grundläggande funktionalitet implementerad. Kanske även något av de optionella kraven implementerade.
+
+Kursmomenten är utförda och redovisade enligt instruktionerna. Inget är undermåligt utfört.
+
+Redovisningstexterna är välskrivna, kompletta och ger en god bild av att studenten har förstått de olika övningarna. Studenten har god förmåga att reflektera över innehållet i övningarna och sin egen insats i kursmomentet.
+
+
+
+### Poängbedömning
+
+Poängfördelningen är uppdelad för projektet 60% och för övriga delar i kursen på 40%.
+
+
+#### Kursmoment & Redovisningstexter
+
+Följande tabell används vid bedömning av genomförda kursmoment och redovisningstexterna. Underlaget är din kompletta me-sida.
+
+| Bedömningspunkt | Poäng | Din poäng |
+|-----------------|-------|-----------|
+| Kursmomenten är utförda enligt instruktion och redovisningstexterna är kompletta. | 30 | |	
+| Kursmomenten är mycket väl utförda och har det lilla extra. Redovisningstexterna är mycket välskrivna, insiktsfulla och visar på en mycket god förmåga att reflektera över kursmomenten, dess innehåll och studentens eget lärande. Denna del används endast om ett betyg står och väger mellan två betyg. | 10 | |	
+| TOTALT | 40 | |	
+
+
+
+#### Projektarbete
+
+Följande tabell används vid bedömning av projektet.
+
+| Bedömningspunkt                                | Poäng | Din poäng |
+| ---------------------------------------------- | ----- | --------- |
+| Krav 1 är implementerat och fungerar felfritt. | 10    |           |
+| Krav 2 är implementerat och fungerar felfritt. | 10    |           |
+| Krav 3 är implementerat och fungerar felfritt. | 10    |           |
+| Krav 4 är implementerat och fungerar felfritt. | 20    |           |
+| Krav 5 är implementerat och fungerar felfritt. | 10    |           |
+| TOTALT                                         | 60    |           |
+
+
+
+
+#### Slutbetyg
+
+Ditt slutbetyg redovisas i tabellen nedan.
+
+| A-F, ECTS | Definition | Poäng nivå |
+|------|------------|------------|
+| A | UTMÄRKT – enastående resultat. | 90+ |
+| B | MYCKET BRA – klart över medelstandard. | 80+ | 
+| C | BÄTTRE ÄN BRA – allmänt bra arbete. | 70+ | 
+| D | BRA – en fullgod prestation. | 60+ | 
+| E | GODKÄNT – resultatet uppfyller minimikriterierna. | 55+ | 
+| FX | KOMPLETTERA – mer arbete krävs innan betyg kan sättas. | 54- | 
+| F | OTILLRÄCKLIGT – (avsevärt) mer arbete krävs. | 50- | 
+
+
+## Ladok
+
+Enligt kursplanen finns ett antal ladokmoment och de är kopplade till kursens kursmoment enligt följande.
+
+| Kursens moment  | Ladok moment enligt kursplan  |
+|-----------------|-------------------------------|
+| Kmom01 + kmom02 + kmom03 | Uppgift 1 á 2.5hp             |
+| Kmom04 + kmom05 + kmom06 | Uppgift 2 á 2.5hp             |
+| kmom10 | Projekt á 2.5hp               |
+
+Den sista inlämningen bestämmer kursens slutbetyg vilket utfärdas när samtliga moment godkänts.
+
+
+
+
+## Lärarteam
+
+Följande är lärarteamet för kursen.
+
+| Bild    | Vem         | Roll | Kontakt och info |
+|---------|-------------|-------|------------------|
+| <Image src={aarImage} alt="Andreas Arnesson" width="150" height="150" /> | Andreas&nbsp;Arnesson (aar) | Examinator, kursansvarig, lärare | aar@bth.se, [BTH](https://www.bth.se/staff/andreas-arnesson-aar/), [GitHub](https://github.com/AndreasArne) |
+| <Image src={grmImage} alt="Marie Grahn" width="150" height="150" /> | Marie&nbsp;Grahn (grm) |  lärare    | grm@bth.se, [BTH](https://www.bth.se/staff/marie-grahn-grm/) |
+| <Image src={bbeImage} alt="Betty Bergqvist" width="150" height="150" /> | Betty&nbsp;Bergqvist (bbe) |  lärare    | bbe@bth.se, [BTH](https://www.bth.se/staff/betty-bergqvist-bbe/) |
+
+
+
+## Institution
+
+Detta kurstillfälle ägs av [institutionen för datavetenskap (DIDA)](https://www.bth.se/om-bth/institutioner/institutionen-for-datavetenskap).
+
+
+
+## Studentkår och utbildningsförening
+
+Denna kurs ligger inom ramen för [utbildningsföreningen BITS](https://bits.bthstudent.se/) arbete inom [Blekinge Studentkår](https://www.bthstudent.se/). Utbildningsföreningen jobbar med kvalitetssäkring och uppföljning av kvalitet på kurser och program och kan vara samtalspart för studenter.

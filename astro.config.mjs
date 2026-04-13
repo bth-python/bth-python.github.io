@@ -8,8 +8,8 @@ import starlightAutoSidebar from 'starlight-auto-sidebar'
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://bth-python.github.io/website/',
-	base: '/website/',
+	site: 'https://bth-python.github.io/',
+	base: '/',
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 	},
@@ -30,27 +30,27 @@ export default defineConfig({
 				'./src/styles/dbwebb.css',
 			],
 			editLink: {
-				baseUrl: 'https://github.com/bth-python/website/tree/main',
+				baseUrl: 'https://github.com/bth-python/bth-python.github.io/tree/main',
 			},
 			social: [
 				{
 					icon: 'github',
           			label: 'GitHub',
-					href: 'https://github.com/bth-python/website'
+					href: 'https://github.com/bth-python/bth-python.github.io'
 				}
 			],
 			head: [
 				{
 					tag: 'script',
 					attrs: {
-						src: '/website/js/OpenDetailsFromHash.js',
+						src: '/js/OpenDetailsFromHash.js',
 						defer: true,
 					},
 				},
 				{
 					tag: 'script',
 					attrs: {
-						src: '/website/js/openIssue.js',
+						src: '/js/openIssue.js',
 						defer: true,
 					},
 				},
@@ -62,11 +62,6 @@ export default defineConfig({
 				}
 			],
 			sidebar: [
-				{
-					label: 'Introduktion',
-					collapsed: true,
-					autogenerate: { directory: 'intro' },
-				},
 				{
 					label: 'Kursmoment',
 					autogenerate: { directory: 'kmom' },
@@ -89,7 +84,9 @@ export default defineConfig({
 					collapsed: true,
 					autogenerate: { directory: 'ovrigt' },
 				},
+				
 			],
+			pagination: false,
 		}),
 	],
 });
