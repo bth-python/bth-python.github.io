@@ -19,7 +19,7 @@ Här publiceras även större meddelanden rörande kursen.
 
 En stor del av kursmaterialet finns tillgängligt via kurssidan på den öppna webbplatsen för kursen.
 
-- [Kursmaterial](https://bth-python.github.io/website/)
+- [Kursmaterial](https://bth-python.github.io/)
 
 ## Kursrepo GitHub
 

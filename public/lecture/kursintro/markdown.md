@@ -23,7 +23,7 @@ Andreas Arnesson
 <hr style="color:green">
 
 * Gå in på [canvas.bth.se](https://canvas.bth.se) och klicka på länkar
-* Gå till [bth-python.github.io/website/](https://bth-python.github.io/website/)
+* Gå till [bth-python.github.io/](https://bth-python.github.io/)
 
 
 
@@ -32,7 +32,7 @@ Andreas Arnesson
 ## Översikt av kursen
 <hr style="color:green">
 
-* [bth-python.github.io/website/intro](https://bth-python.github.io/website/intro)
+* [bth-python.github.io/intro](https://bth-python.github.io/intro)
 
 Läs igenom artiklarna under "introduktion" så har du koll. Det är din innehållsförteckning av kursen.
 
@@ -135,7 +135,7 @@ Läs igenom artiklarna under "introduktion" så har du koll. Det är din innehå
 ## Planering
 <hr style="color:green">
 
-* [https://bth-python.github.io/website/intro/studieplan/](https://bth-python.github.io/website/intro/studieplan/)
+* [https://bth-python.github.io/intro/studieplan/](https://bth-python.github.io/intro/studieplan/)
     * Rekommenderad studieplan
     * BTH Schema
 
@@ -146,7 +146,7 @@ Läs igenom artiklarna under "introduktion" så har du koll. Det är din innehå
 <hr style="color:green">
 
 * [Canvas](https://bth.instructure.com/)
-* [https://bth-python.github.io/website/](https://bth-python.github.io/website/)
+* [https://bth-python.github.io/](https://bth-python.github.io/)
 * [Kursrepo GitHub](https://github.com/orgs/bth-python/repositories)
 * Discord
 * Zoom
@@ -212,7 +212,7 @@ Läs igenom artiklarna under "introduktion" så har du koll. Det är din innehå
 - Diskutera med studiekollegor kring problem och lösningar på de övningar och uppgifter som finns
 - Tveka inte att starta egna studiegrupper där ni kan stödja varandra.
 - **Kopiera inte kod av varandra**
-- [Fusk, AI och medvetet vilseledande](https://bth-python.github.io/website/studieguide/fusk/)
+- [Fusk, AI och medvetet vilseledande](https://bth-python.github.io/studieguide/fusk/)
 <p class="footnote">Allt misstänkt fusk anmäls.</p>
 
 
