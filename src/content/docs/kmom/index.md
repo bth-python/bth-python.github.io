@@ -3,6 +3,10 @@ title: "Kom igång"
 description: Hur du förbereder dig för att påbörja det första kursmomentet.
 ---
 
+:::danger
+Materialet är inte klart. Påbörjar inte arbete. 
+:::
+
 Utför följande instruktioner för att förbereda dig inför kursen.
 
 ## Om kursmoment (kmom) (tisdag)
