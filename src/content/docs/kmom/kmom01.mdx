@@ -18,6 +18,7 @@ Så här kan det se ut när du är klar med kmom01 uppgiften Convert.
 Materialet är inte klart. Påbörjar inte arbete. 
 :::
 
+{/* TODO: spela in ny video med nya uppgift */}
 <YouTube
     id="WG5OTNbyj3o"
     title="Exempel på hur det kan se ut när du är klar med kmom01 uppgiften Convert."
@@ -25,28 +26,37 @@ Materialet är inte klart. Påbörjar inte arbete.
 
 
 :::note
-Öppna terminalen och flytta dig till din kursmapp och kör följande kommando för att skapa katalogerna som används i kmom01. Ladda också ner de senaste testerna:
+Öppna terminalen och flytta dig till din kursmapp och kör följande kommando för att skapa katalogerna som används i kmom01 och ladda ner de senaste filerna:
 
 ```bash
 cd dbwebb-kurser/python-<akronym> # ersätt <akronym> med din akronym
-uv run task download-taskfile
-uv run task create-src-dirs
-uv run task download-tests
+uv run task setup
 ```
 :::
 
 
 ## Förberedelser
-Innan du börjar med kmom01 så behöver du ha jobbat igenom [Kom igång](../) och installerat labbmiljö, kursrepo och utvecklingsmiljö.
+Innan du börjar med kmom01 så behöver du ha jobbat igenom [Kom igång](../) och installerat labbmiljö, kursrepo och utvecklingsmiljö. Om du jobba med i introveckan har du redan gjort det. Om inte, gör det nu innan du börjar med kmom01. Det är viktigt att du har en fungerande utvecklingsmiljö och att du kan jobba i kursrepot innan du börjar med kmom01.
 <br/>
 
 
+## Intro till programmering
+
+Vi börjar med att kika på vad programmering är och hur det fungerar. Vi kommer att jobba med Python som är ett av de mest populära programmeringsspråken idag. Python används inom många områden, allt från webbutveckling till datavetenskap och maskininlärning.
+{/* <Steps> */}
+
+### Att göra
+Som en generell introduktion till programming och vissa av de tekniker och konstruktioner vi går igenom, kolla på följande video från Harvards CS50 kurs.
+<YouTube
+    id="qDbsiVWA2Ag" 
+/>
 
 
-<details>
-<summary>
-## Måndag vecka 1
-</summary>
+
+## Intro till Python
+
+Efter att ha kollat på videon ovan har du fått en allmän orientering om programmering och vad det handlar om. Nu är det dags att börja med Python.
+
 
 :::tip
 När du ska jobba med kursen är det lättast om du öppnar VSCode från terminalen innan du börjar jobba.
@@ -59,182 +69,70 @@ code .
 Använd `practice` mappen i kmom01 katalogen för att skriva övningskod.
 :::
 
-### Intro till programmering
-
-Vi börjar med att kika på vad programmering är och hur det fungerar. Vi kommer att jobba med Python som är ett av de mest populära programmeringsspråken idag. Python används inom många områden, allt från webbutveckling till datavetenskap och maskininlärning.
-{/* <Steps> */}
-
-#### Att göra
-Som en generell introduktion till programming och vissa av de tekniker och konstruktioner vi går igenom, kolla på följande video från Harvards CS50 kurs.
-<YouTube
-    id="qDbsiVWA2Ag" 
-/>
-
-
-
-### Intro till Python
-
-Efter att ha kollat på videon ovan har du fått en allmän orientering om programmering och vad det handlar om. Nu är det dags att börja med Python.
+### Kurslitteratur
 
 I kursen kommer vi använda boken [Python for Everybody: Exploring data in Python3](../../laromaterial/böcker/).
 
 Boken kommer inte passa allas lärandestil eller så förklaras sakerna inte på det sättet att du förstår det. Det är helt okej. Det finns många andra resurser och böcker som du kan använda för att lära dig Python. Det är OK att använda andra resurser och böcker. Det viktiga är att du hittar något som passar dig och din lärande stil. 
 
-:::tip
-När du läser boken så är det viktigt att ha en terminal öppen och köra koden i boken parallellt. Det är ett bra sätt att lära sig och förstå hur Python fungerar. Att **endast** läsa boken utan att köra koden är inte tillräckligt. Det är viktigt att du kör koden och testar den själva så du förstår den.
-:::
 
+#### Att göra
+:::tip
+När du läser boken så är det viktigt att ha en terminal och texteditor öppen. Du behöver testa köra och ändra i koden för att förstå den. Att **endast** läsa boken utan att köra koden är inte tillräckligt. Det är viktigt att du kör koden, testar den själva och ändrar den så du förstår den.
+:::
+<Steps>
+1. Ch1 Why should you learn to write programs?
+
+1. Ch2 Variables, expressions and statements
+
+1. Ch3 Conditional execution
+</Steps>
+
+
+
+### Dokumentation och referensmaterial
 
 En viktig del av programmering är att läsa dokumentation. Du kommer att behöva läsa dokumentation för att förstå hur olika funktioner och moduler fungerar. Det är en viktig del av programmering och något du kommer att göra mycket av i framtiden.
 
 [Pythons dokumentation](https://docs.python.org/3/reference/index.html) är tyvärr rätt rörig som nybörjare. De två viktigaste delarna är: 
     * [Python Standard Library](https://docs.python.org/3/library/index.html) som beskriver de olika modulerna och deras funktioner.
+        * De mest intressanta delarna är:
+            * [Built-in Functions](https://docs.python.org/3/library/functions.html)
+            * [Text Sequence Type — str](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str)
     * [Python Language Reference](https://docs.python.org/3/reference/index.html) som beskriver språket och dess syntax.
 
 
-#### Att göra
+## Öva
 
 <Steps>
-1. Läs och jobba igenom följande kapitel i boken (alternativt kolla på videorna):
-    * Ch1 Why should you learn to write programs?
-    * Ch2 Variables, expressions and statements
-
-    :::tip
-    Det räcker inte med att bara läsa. Du är klar med boken när du förstår vad som står i den och kan köra koden själv. Utforska och experimentera med koden. Gör övningarna i boken. Testa ändra saker och se vad som händer. Det är så du lär dig.
-    :::
-
 1. Mer material om variabler, datatyper, input och output. En del repitition från boken och en del nytt.
     - Jobba igenom artikeln "[Introduktion till variabler och datatyper](../../laromaterial/övning/introduktion-variabler-datatyper)"
-
-
-1. För att bekanta dig med Pythons dokumentation, kika i [Python Standard Library](https://docs.python.org/3/library/index.html). **Spendera inte mer än 60 minuter på detta.**
-    - Läs om [Built-in Functions](https://docs.python.org/3/library/functions.html) och [Built-in Constants](https://docs.python.org/3/library/constants.html). Läs **inte** igenom alla funktioner utan kolla på de som verkar intressanta och relevanta för det du jobbar med T.ex. `input()`, `len()`, `bool()`, `int()` och `isinstance()`. Det är bra att ha en översikt över vad som finns i språket och vad som går att göra.
-    - Läs också om datatypen [Text Sequence Type — str](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str)
-
-</Steps>
-
-
-</details>
-<br/>
-
-
-
-
-<details>
-<summary>
-## Onsdag
-</summary>
-Jobba igenom [seminarium kmom01 vecka 1](/laromaterial/seminarium/kmom011). Det görs på onsdagens lektion.
-</details>
-<br/>
-
-
-
-
-
-<details>
-<summary>
-## Torsdag och fredag
-</summary>
-
-
-### Att göra
-<Steps>
-
-1. Kolla på [Study Less Study Smart](https://www.youtube.com/watch?v=IlU-zDU6aQ0), 60 min video hur man studerar effektivt. Om ni känner att den är för lång kan ni kolla på [Study Less Study Smart: A 6-Minute Summary](https://www.youtube.com/watch?v=23Xqu0jXlfs).
-
-1. Lär dig jobba i repot och lös en exempel uppgift för att lära dig om tester och validering, "[Testning, validering och jobba med kursrepot](../../laromaterial/övning/jobba-i-kursen)".
-
-1. Hur du hanterar långa rader med kod och valideringsfelet "Line too long".
-    - Jobba igenom artikeln/övningen "[Radbrytning i Python](../../laromaterial/instruktion/radbrytning)"
-
-1. På Canvas, svara på quizzet `kmom01 quiz`. Det är inte obligatoriskt men ett bra sätt för dig att kolla om du har hängt med så här långt.
-</Steps>
-
-### Öva
-
-Nu har du jobbat igenom det förbereda materialet för veckan. Förhoppningsvis har du inte använt upp alla 20h än. Använd resten av tiden till att öva på det du har lärt dig.
-- Utforska själv, experimentera och lek med koden. Gör ett antagande om hur kod/python fungera, skriv en liten kodsnutt för att testa ditt antagande och se om det stämmer.
-- Om du vill använda dig av AI, kan du här läsa om hur du gör det på bästa sätt i kursen.
-    - Läs "[Använda AI som stöd i dina studier](../../studieguide/använd-ai)"
-    - Fundera nu på vad du har svårt att förstå med programmeringen och vill bli bättre på. Använd AI för att generera övningsuppgifter som du kan träna på. När du stöter på problem i din kod eller något du inte förstår, be AI att generera ny uppgift med liknande fel/problem.
-- Använd en webbtjänst för att hitta övningsuppgifter. Om du vill jobba med avancerad programmering på företag som Google, Facebook, Amazon, Microsoft, etc. efter dina studier så är dessa webbtjänster bra att träna på. De har ofta samma typ av uppgifter som du kan få på anställningsintervjuer.
-    - [Exercism](https://exercism.org/tracks/python)
-    - [LeetCode](https://leetcode.com/)
-    - [HackerRank](https://www.hackerrank.com/domains/python)
-    - [Codewars](https://www.codewars.com/)
-    - [CheckIO](https://py.checkio.org/)
-
-</details>
-<br/>
-
-
-
-
-
-
-<details>
-<summary>
-## Måndag vecka 2
-</summary>
-
-### Villkor och if-satser
-
-Koden du har skrivit än så länge har bara exekverats uppifrån och ner och användaren har inte kunnat göra några val. Programmen har inte kunnat reagera på olika indata eller situationer. Det är dags att ändra på det. I detta moment kommer vi att gå igenom villkor och if-satser. Det är en grundläggande del av programmering och något du kommer att använda mycket i framtiden.
-
-#### Att göra
-
-<Steps>
-1. Läs och jobba igenom följande kapitel i boken (alternativt kolla på videorna):
-    * Ch3 Conditional execution
-    :::tip
-    Det räcker inte med att bara läsa. Du är klar med boken när du förstår vad som står i den och kan köra koden själv. Utforska och experimentera med koden. Gör övningarna i boken. Testa ändra saker och se vad som händer. Det är så du lär dig.
-    :::
-
-1. Mer material om jämförelse och villkor. En del repetition från boken och en del nytt.
-
-    Exempel på alternativt material om boken inte var tillräcklig:
     - Jobba igenom artikeln/övningen "[Jämförelseoperatorer och booleska värden](../../laromaterial/övning/booleans-och-jamforelseoperatorer)"
     - Jobba igenom artikeln/övningen "[Villkor](../../laromaterial/övning/villkor)"
 
-1.  Kolla på bilden [My code isn’t working](/img/code_not_working.jpg). Spara bilden för att underlätta när saker går fel.
-
-1. Jobba igenom labben [lab_01](../../laromaterial/lab/lab_01) som ger dig möjlighet att träna på det du har lärt dig i kmom01.
+1. Lär dig jobba i repot och lös en exempel uppgift för att lära dig om tester och validering, "[Testning, validering och jobba med kursrepot](../../laromaterial/övning/jobba-i-kursen)".
 </Steps>
 
-</details>
 
 
-<details>
-<summary>
-## Onsdag
-</summary>
-Jobba igenom [seminarium kmom01 vecka 2](/laromaterial/seminarium/kmom012). Det görs på onsdagens lektion.
+## Lästips / Mer material
 
-</details>
+Lästips är inte obligatoriskt. Det är material som vi tycker är av intresse. I första hand fokusera på övriga material och kolla på det nedan när du har tid över eller känner att du att något av det nedan är intressant.
 
+* Kolla på [Study Less Study Smart](https://www.youtube.com/watch?v=IlU-zDU6aQ0), 60 min video hur man studerar effektivt. Om ni känner att den är för lång kan ni kolla på [Study Less Study Smart: A 6-Minute Summary](https://www.youtube.com/watch?v=23Xqu0jXlfs).
 
+* Hur du hanterar långa rader med kod och valideringsfelet "Line too long", "[Radbrytning i Python](/laromaterial/instruktion/radbrytning)"
 
+* På Canvas finns ett quiz för varje kmom. De är inte obligatoriska men ett bra sätt för dig att kolla om du har hängt med så här långt. För kmom01 är det `kmom01 quiz`.
 
-<details>
-<summary>
-## Torsdag och fredag
-</summary>
+* Jobba igenom labben [lab_01](/laromaterial/lab/lab_01) som ger dig möjlighet att träna på det du har lärt dig i kmom01.
 
-Nu finns det inte mer material för att lära sig kursmomentets koncept. Nu är det bara kvar att lösa uppgiften.
+* I senare veckor kommer vi ha seminarier. I kmom01 har vi inte det längre. Det finns dock två gamla seminarier från tidigare år som du kan jobba igenom om du vill ha mer material att öva på.
+    * [Intro till Python](/laromaterial/seminarium/kmom011).
+    * [Villkor och if-satser](/laromaterial/seminarium/kmom012).
 
-### Att göra
-<Steps>
-1. Lös uppgifterna under [Uppgifter](#uppgifter).
-</Steps>
+* Om du vill ha mer övningsmaterial så finns det i [Mer material](/studieguide/mer-material) där du kan hitta fler övningar och tips på hur du kan träna på att programmera.
 
-</details>
-
-
-
-## Lästips
-
-Inga lästips än så länge.
 
 
 ## Uppgifter
@@ -253,17 +151,17 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
 
 
 ## Resultat & Redovisning
+
+{/* TODO: SKapa video som visar och skriv i länken nedanför att det finns i text version. */}
 Läs [instruktionen om hur du skall redovisa](/laromaterial/instruktion/resultat-och-redovisning).
 
 Se till att följande frågor besvaras i din redovisningstext i din rapportsida.
 
-- Berätta hur din utvecklingsmiljö ser ut (när du jobbar med kursen) och om du anpassat den på något särskilt sätt?
 - Gick det bra att installera kursens utvecklingsmiljö eller var det något som krånglade?
 - Är du bekant med terminalen och Unix-kommandon sedan tidigare?
 - Är du bekant med Python sedan tidigare eller har du jobbat med liknande tekniker?
 - Gick det bra att komma i gång med kursmomentet rent allmänt eller var det något som var lurigt, svårt eller utmanande?
 - Vilket koncept var det svåraste att förstå i detta kmom? Känner du att du förstår det nu?
-- Finns det någon det du tycker var extra intressant eller roligt att jobba med i detta kmom?
 - Borde vi ändra något i kursmomentet för att göra det bättre? Eller utöka information om något?
 - Vilken är din TIL för detta kmom?
 
