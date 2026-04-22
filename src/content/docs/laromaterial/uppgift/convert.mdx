@@ -5,7 +5,7 @@ sidebar:
     order: 0010
 ---
 
-I denna uppgift ska du skriva ett program som omvandlar ett numeriskt värde beroende på vad användaren väljer att konvertera: pris eller hastighet. Du tränar på användarinmatning, villkorssatser (if/elif/else), datatyper och enkel felhantering.
+I denna uppgift ska du skriva ett program som omvandlar ett numeriskt värde. Du tränar på användarinmatning, villkorssatser (if/elif/else), datatyper och enkel felhantering.
 
 
 
@@ -17,21 +17,9 @@ Du har jobbat allt material i "[kmom01](/kmom/kmom01)".
 
 ## Introduktion
 
-Du skall nu göra ett program som ber användaren mata in ett av följande värden:
-
-* Hastighet (km/h)
-* Pris
-
-Sedan skall programmet fråga vilket värde användaren vill konvertera till:
-
-- `P`: Pris, där värdet justeras med en fast rabatt (10 kr) och sedan ökas med moms (20 %).
-
-- `S`: Hastighet, där värdet tolkas som km/h och omvandlas till mph (miles per hour).
-
-1 kilometer är 0.62137 [miles](http://en.wikipedia.org/wiki/Miles).
+Du skall nu göra ett program som räknar ut ett pris efter rabatt och skatt. Användaren ska skriva in priset och programmet ska räkna och skriva ut det slutgiltiga priset. Programmet ska också hantera felaktig input för att programmet inte ska krascha.
 
 Avsluta med att skriva ut det omvandlade värdet med max två decimaler.
-
 
 Det är viktigt att ditt program följer instruktionerna i kraven annars kommer inte testerna fungera och då rättas inte din inlämning.
 
@@ -52,54 +40,25 @@ cd src/kmom01/convert
 ls
 ```
 
-2. `convert.py` skall innehålla kod för att omvandla två värden, som beskrivs i texten ovanför, hastighet och pris. 
+2. `convert.py` skall innehålla kod för att omvandla ett värden, som beskrivs i texten ovanför.
 
 3. Gör ett `input()` anrop för att få värdet som ska omvandlas.
     - Om användaren skriver in ett värde som inte är endast siffror så ska programmet skriva ut ett felmeddelande och avsluta.
         - Felmeddelandet måste innehålla texten `Invalid value`.
-        - Avsluta programmet med `exit()`.
         ```python
-        Hello and welcome to the unit converter!
+        Hello and welcome to the price converter!
         Enter value to convert: A
         Invalid value, please enter a number.
         ```
-    - Om det är endast siffror, omvandla det till ett decimaltal, `float`.
-
-4. Gör ett `input()` anrop för att ta reda på vilket typ av omvandling som ska göras.
-    - Om användaren skriver `P` så ska programmet omvandla priset.
+    - Om det är endast siffror, omvandla det till ett heltal, `int`.
+4. Om input var ett tal ska du nu räkna ut det nya priset.
         ```python
-        Hello and welcome to the unit converter!
+        Hello and welcome to the price converter!
         Enter value to convert: 100
-        Choose what to convert:
-        P: Price, before --> after discount and tax
-        S: Speed, km/h --> mph
-        P
         The final price of 100.0 after 10 kr discount and 20% tax is: 108.0 kr
         ```
-    - Om användaren skriver `S` så ska programmet omvandla hastigheten.
-        ```python
-        Hello and welcome to the unit converter!
-        Enter value to convert: 80
-        Choose what to convert:
-        P: Price, before --> after discount and tax
-        S: Speed, km/h --> mph
-        S
-        80.0 km/h is equivalent to 49.71 mph
-        ```
-    - Om användaren skriver något annat så ska programmet skriva ut ett felmeddelande och avsluta.
-        - Felmeddelandet måste innehålla texten `Invalid converter`.
-        - Avsluta programmet med `exit()`.
-        ```python
-        Hello and welcome to the unit converter!
-        Enter value to convert: 80
-        Choose what to convert:
-        P: Price, before --> after discount and tax
-        S: Speed, km/h --> mph
-        X
-        Invalid converter, please enter P or S.
-        ```
 
-5. Skriva ut original värdet och det omvandlade värdet, båda värdena avrundat till max två decimaler. **Obs!** det måste vara ett **mellanslag** direkt efter originalvärdet och det omvandlade värdet i utskriften.
+5. Skriva ut original värdet och det omvandlade värdet. Det nya priset ska vara avrundat till max två decimaler. **Obs!** det måste vara ett **mellanslag** direkt efter originalvärdet och det omvandlade värdet i utskriften.
 
 7. Koden ska validera med Ruff.
 
@@ -129,11 +88,8 @@ ls
 
 ## Extrauppgift
 
-- Tillåt små bokstäver i menyvalet (p eller s fungerar lika bra som P och S).
-- Stöd att användaren skriver in decimaltal.
-
 - Använd try-except för att hantera felaktig inmatning (t.ex. om användaren skriver in bokstäver i stället för ett tal).
-    - Du får inte använda bas felet `Exception` utan du får bara använda `ValueError` och `TypeError`.
+    - Du får inte använda bas felet `Exception`, du specificera vilket typ av fel du vill fånga.
 
 
 ## Övrigt
