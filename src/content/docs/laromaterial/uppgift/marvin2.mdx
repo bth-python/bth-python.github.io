@@ -55,10 +55,8 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
     Importera `marvin1.py` i `main.py` och strukturera om koden för de gamla menyvalen så att de läggs i en varsin funktion, med **nedanstående namn**. Dessa funktionerna har i `tester` utöver sitt menyval som tag också "marvin1" som tag.
     * Menyval 1 - `greet`
     * Menyval 2 - `celsius_to_fahrenheit`
-    * Menyval 3 - `points_to_grade`
-    * Menyval 4 - `compare_numbers`
-    * Menyval 5 - `validate_ssn`
-    * Menyval 6 - `robber_language`
+    * Menyval 3 - `compare_numbers`
+    * Menyval 4 - `validate_ssn`
 
     Om du har gjort några av extrauppgifterna från föregående kursmoment så kan du döpa dem till ett valfritt namn.
 
@@ -95,14 +93,14 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
     ```python
     #main.py
     ...
-    elif choice == "8":
-        string = input("Enter a string to randomize: ")
-        print(randomize_string(string))
+    elif choice == "5":
+        ssn = create_ssn(input("Enter birthdate: "))
+        print(ssn)
     ```
 
     {/* Börja menyval på 7 */}
 
-1. Menyval **7** - `create_ssn`: Skapa de fyra sista siffrorna till ett födelsedatum. Skapa ett nytt menyval där Marvin ber om en sträng som innehåller ett födelse datum, t.ex. `"910813"`. Din funktion ska skapa de fyra sista siffrorna till det, `"910813-NNNN"`. För att skapa dem, använda [random modulen](https://docs.python.org/3.8/library/random.html) och slumpa fram de tre första siffrorna. Använd sen Luhnalgoritmen för att räkna ut den fjärde. Den funkar nästa på samma sätt som i menyval 5. 
+1. Menyval **5** - `create_ssn`: Skapa de fyra sista siffrorna till ett födelsedatum. Skapa ett nytt menyval där Marvin ber om en sträng som innehåller ett födelse datum, t.ex. `"910813"`. Din funktion ska skapa de fyra sista siffrorna till det, `"910813-NNNN"`. För att skapa dem, använda [random modulen](https://docs.python.org/3.8/library/random.html) och slumpa fram de tre första siffrorna. Använd sen Luhnalgoritmen för att räkna ut den fjärde. Den funkar nästa på samma sätt som i menyval 5. 
 
     Algoritmen funkar på så sätt att varannan siffra multipliceras med 2 och 1, med start på första siffran i personnumret. Om något tal vid multiplikationen blir större än 9 ersätts det talet med dess siffersumma. Därefter summeras alla tal och här skiljer sig funktionen från menyval 5. Sista siffran erhålls genom att summan subtraheras från närmaste högre tiotal. Exempel med `811218-987`:
 
@@ -133,14 +131,17 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
 
 
 
-1. Menyval **8** - `randomize_string`: Kasta om bokstäver. Marvin ska be dig skriva in ett ord som sedan slumpmässigt kastas om. Funktionen `randomize_string` ska **bara** returnera det nya slumpade ordet, **inte** ha med `<orginal sträng> -->`. Svaret ska sedan skrivas ut i formatet `<orginal sträng> --> <slumpad sträng>`, från `main.py`. Lösningen ska vara case-sensitive, med andra ord `A != a`.
+1. Menyval **6** - `roll_dice`: Kasta tärningar. Marvin ska be dig skriva in ett tärningsuttryck. Tärningsuttrycket är på formatet `NdM`, till exempel `2d6`, där `N` är antalet tärningar (1–9) och `M` är antalet sidor på varje tärning. Funktionen `roll_dice` simulerar att kasta `N` stycken `M`-sidiga tärningar och returnerar summan som ett heltal. Resultatet skrivs ut i formatet `"NdM: <summa>"` i `main.py`.
 
-    Tips, använd [random modulen](https://docs.python.org/3.8/library/random.html). Notera dock att ni fortfarande inte får använda listor och flera av funktionerna i random modulen returnerar listor. De funktionerna får ni inte använda.
+    Tärningsuttrycket kan också ha ett tillägg i formatet `NdM+K` eller `NdM-K`, där `K` är ett heltal som adderas respektive subtraheras från summan. Resultatet skrivs då ut i formatet `"NdM+K: <summa>"` respektive `"NdM-K: <summa>"`.
+
 
     ```python
 
-    input: "Hej"                        output: "Hej --> jHe"
-    input: "Borde inte bli samma igen"  output: "Borde inte bli samma igen --> eel gn rtm dBmibo saiiane"
+    input: "2d6"    output: "2d6: 7"      (summan av två sexsidiga tärningar, slumpas 2-12)
+    input: "1d20"   output: "1d20: 15"    (en tjugosidis tärning, slumpas 1-20)
+    input: "3d6+5"  output: "3d6+5: 16"   (tre sexsidiga tärningar plus 5, slumpas 8-23)
+    input: "2d8-3"  output: "2d8-3: 6"    (två åttasidiga tärningar minus 3, slumpas -1 till 13)
     ```
 
 
@@ -222,6 +223,19 @@ För att inkludera dina extrauppgifter i testerna behöver du skicka med option 
     input: "axaaczaa44aa4", "a"     output: "0,2,3,6,7,10,11"
     input: "axaaczaa33aa3", "aa"    output: "2,6,10"
     input: "axaaczaa55aa5", "y"     output: ""
+    ```
+
+
+
+
+1. Menyval **B4** - `randomize_string`: Kasta om bokstäver. Marvin ska be dig skriva in ett ord som sedan slumpmässigt kastas om. Funktionen `randomize_string` ska **bara** returnera det nya slumpade ordet, **inte** ha med `<orginal sträng> -->`. Svaret ska sedan skrivas ut i formatet `<orginal sträng> --> <slumpad sträng>`, från `main.py`. Lösningen ska vara case-sensitive, med andra ord `A != a`.
+
+    Tips, använd [random modulen](https://docs.python.org/3.8/library/random.html). Notera dock att ni fortfarande inte får använda listor och flera av funktionerna i random modulen returnerar listor. De funktionerna får ni inte använda.
+
+    ```python
+
+    input: "Hej"                        output: "Hej --> jHe"
+    input: "Borde inte bli samma igen"  output: "Borde inte bli samma igen --> eel gn rtm dBmibo saiiane"
     ```
 
 
