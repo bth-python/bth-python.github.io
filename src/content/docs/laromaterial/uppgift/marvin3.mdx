@@ -49,7 +49,8 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
 
 1. Lär Marvin att hantera listor. Skapa funktionen `pick` som tar emot tre argument, den första skall vara ryggsäcken, den andra skall vara saken man skall plocka upp och den tredje skall vara en optionell parameter som säger vilken position (index) saken skall lägga sig i (som en string). Funktionen ska lägga till saken i listan, om position skickas med ska saken tryckas in på den platsen (du ska inte ersätta det som redan ligger på den platsen, de sakerna ska flyttas ett index åt höger). Om position inte skickas med ska saken läggas till sist i ryggsäcken. Funktionen skall returnera den uppdaterade ryggsäcken.
 
-   I `main.py` skall du lägga till stöd för kommandot **"inv pick"** enligt tabellen nedan. Om allt gick bra skall du skriva ut ett passande meddelande som innehåller **vad som lades till** i ryggsäcken och på **vilken position** om ett index är givet. Meddelandet skall skivas ut i funktionen och inte main programmet.
+    I `main.py` skall du lägga till stöd för kommandot **"inv pick"** enligt tabellen nedan. Om allt gick bra skall du skriva ut ett passande meddelande som innehåller **vad som lades till** i ryggsäcken och på **vilken position** om ett index är givet. Meddelandet skall skivas ut i funktionen och inte main programmet.  
+    Notera att i main.py när du anropar `pick()` ska du inte skicka med ett värde för position om det inte finns ett index i inputen. Utnyttja att den har ett defaultvärde för position.
 
     - Tags: `pick`
 
