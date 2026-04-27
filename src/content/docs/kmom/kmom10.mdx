@@ -1,14 +1,12 @@
 ---
-title: "Kmom10: Projekt och examination" 
-description: No description.
+title: "Kmom10: Projekt och examination"
+description: Bygg ett quiz-program som körs i terminalen.
 sidebar:
     order: 0080
 ---
 
-import { YouTube } from 'astro-embed';
-
 :::danger
-Materialet är inte klart. Påbörjar inte arbete. 
+Materialet är inte klart. Påbörja inte arbete.
 :::
 
 
@@ -32,9 +30,9 @@ git push -u origin bth/submit/kmom10
 ```
 :::
 
-**Tips** innan du börjar med projektet, repetera vad du har gjort i tidigare kursmoment. Fräscha upp minnet, tänk på hur långt du har kommit och hur mycket du har lärt er.
+**Tips** innan du börjar med projektet, repetera vad du har gjort i tidigare kursmoment. Fräscha upp minnet, tänk på hur långt du har kommit och hur mycket du har lärt dig.
 
-Läs först igenom projektet och lägg upp en plan. Vad ska du göra? Hur kan du göra det? Har du gjort något liknande delproblem tidigare? Därefter börjar du koda.
+Läs först igenom hela projektet och lägg upp en plan. Vad ska du göra? Hur kan du göra det? Har du gjort något liknande delproblem tidigare? Därefter börjar du koda.
 :::
 
 Detta kursmoment avslutar och examinerar kursen.
@@ -47,7 +45,7 @@ Du jobbar enskilt och tar inte hjälp av någon. Det du lämnar in är ditt eget
 * Tänk på att namngivning ska ske på engelska. Varje namn som är på annat språk ger poängavdrag.
 * Variabler som innehåller konstanter ska vara namngivna som konstanter.
 * Du ska implementera koden med konstruktioner du har lärt dig i kursen. Alltså ska du t.ex. inte använda klasser.
-    * Du får bara använda moduler som vi har gått igenom i kursen och `time` modulen.
+    * Du får bara använda moduler som vi har gått igenom i kursen, `time`-modulen, samt `random`-modulen (enbart i krav 6).
     * Du får inte använda:
         * `zip()` funktionen
         * list/dict comprehension/generators
@@ -55,6 +53,7 @@ Du jobbar enskilt och tar inte hjälp av någon. Det du lämnar in är ditt eget
     * Om du är osäker, fråga kursansvarig!
 
 Du kan själv styra din arbetsinsats genom att välja vilka valfria delar du utför.
+
 
 
 
@@ -72,428 +71,316 @@ Det finns ett dokument som beskriver [grunderna för bedömning och betygsättni
 
 ## Projektidé och upplägg
 
-Du ska utveckla ett program för att öva på att skriva snabbt på ett tangentbord. Det finns många webbsidor som erbjuder det redan, t.ex. [https://www.keybr.com/](https://www.keybr.com/), men vi ska skapa ett program för terminalen.
+Du ska bygga ett quiz-program som körs i terminalen. Programmet läser in frågor från textfiler, presenterar dem en åt gången med fyra svarsalternativ och räknar ut hur bra det gick när quizet är klart. Varje fråga tillhör en kategori och är värd ett visst antal poäng.
 
-Det finns optionella delar som du kan välja att göra för att öka dina chanser till ett högre betyg.
-
-<YouTube
-    id="Y45bc2-NYtE"
-    title="Exempel på hur det kan se ut när du är klar med kmom10."
-/>
+Det finns valfria delar som du kan välja att göra för att öka dina chanser till ett högre betyg.
 
 
 
 ## Projektspecifikation
 
-Utveckla och leverera projektet enligt följande specifikation. Saknas info i specen så kan du själv välja väg och dokumentera dina val i redovisningstexten.
+Utveckla och leverera projektet enligt följande specifikation. Saknas info i specen kan du själv välja väg och dokumentera dina val i redovisningstexten.
 
-Du ska implementera ett program för tangentbordsträning. Programmet går ut på att visa användaren en rad åt gången som användaren ska skriva av så snabbt som möjligt. När användaren har skrivit in en rad och efter att alla rader är skrivna då ska du räkna ut hur bra det gick och visa upp det.
-
-I grundkraven ska det finnas 5 menyval:
+I grundkraven ska det finnas fyra menyval:
 
 ```
-1. Starta skrivtest med filen `easy.txt`.
-
-2. Starta skrivtest med filen `medium.txt`.
-
-3. Starta skrivtest med filen `hard.txt`.
-
-4. Skriv ut resultatlistan som finns sparad i `scores.txt`.
-
-q. Avsluta programmet.
+1. Starta quiz med filen easy.txt
+2. Starta quiz med filen medium.txt
+3. Starta quiz med filen hard.txt
+4. Visa topplistan från scores.txt
+q. Avsluta programmet
 ```
 
 
 ### Generell struktur
 
-Koden ska ligga i `src/kmom10/typing`.
+Koden ska ligga i `src/kmom10/quiz`.
 
 1. Skapa filen `main.py` som ska vara startpunkt för programmet.
-1. Du måste skapa minst en till module att dela upp din kod i. PS! då får inte döpa någon fil till `typing.py`. Om du gör det funkar inte testerna.
-1. Skapa mappen `texts` i `typing` mappen.
-1. Ladda ner filerna som finns [här](https://github.com/bth-python/python-abcd25/tree/main/src/kmom10/typing). Lägg dem i mappen `src/kmom10/typing/texts`.
+1. Du måste skapa minst en till modul att dela upp din kod i. Du får **inte** döpa någon fil till `quiz.py` — det krockar med ett inbyggt modulnamn och testerna slutar fungera.
+1. Skapa mappen `questions` i `quiz`-mappen och lägg dina frågefiler där.
 1. Din kod ska vara [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 1. Endast konstanter får ligga som globala variabler.
-1. Programmet ska köras från `typing` mappen. Med andra ord, programmet ska inte krascha om jag står i `typing` och startar programmet.
+1. Programmet ska kunna köras från `quiz`-mappen. Det ska inte krascha om du står i `quiz` och startar programmet.
 1. Koden ska validera med Ruff.
-1. Testerna som finns ska passera. Det är väldigt få tester som finns. I projektet får ni själva ha koll på att ni gör rätt.
+1. Testerna som finns ska passera. Det är väldigt få tester. I projektet får ni själva ha koll på att ni gör rätt.
 
 
 
 #### Väl fungerande program
 
-Programmet skall fungera utan brister och inte krascha när man använder det enligt kraven. Programmet ska kunna hantera att användaren råkar skriva fel i menyn.
+Programmet ska fungera utan brister och inte krascha när man använder det enligt kraven.
 
-Det ska gå att skriva in färre och fler tecken och ord än vad som skrivs ut utan att programmet kraschar.
-
-Programmet ska inte krascha om filen som används till precisionshistorik saknas.
-
-
-
-### Krav 1: Skrivtest
-
-- Menyval 1 ska använda filen `easy.txt` för ett skrivtest
-- Menyval 2 filen `medium.txt`
-- Menyval 3 filen `hard.txt`.
-- `scores.txt` ska innehålla information om alla skrivtester som har genomförts.
-
-#### Ett skrivtest
-
-Ett test går ut på att läsa in alla rader från filen, presentera en rad åt gången för användaren. När en rad har presenterats ska användaren skriv av den så snabbt som möjligt. Efter det ska du skriv ut användarens [prestation](#prestation) och gå vidare till nästa rad från filen. Återupprepa tills användaren har skrivit av alla rader. Mellan varje rad ska du skriva ut hur bra användaren har presterat på den raden.
-
-Kolla på videon ovanför eller under [exempel](#exempel) om du är osäker på hur det ska gå till.
-
-När testet är klart ska du skriva ut användarens totala prestation och be användaren skriva in sitt namn. Lägg till namnet, användarens ordprecision och svårighetsgraden i filen `scores.txt`.
-
-#### Prestation
-
-Med prestation menas två saker, ordprecision och histogram över vilka ord användaren har skrivit fel.
-
-##### Ordprecision
-
-Ordprecision räknas ut med `((nr_correct_words - extra_words) / total_words_in_text ) * 100`. Skriv ut med procenttecken avrundat till två decimaler.
-
-- `nr_correct_words` är antalet ord användaren har skrivit av korrekt.
-- `extra_words` är ord som användaren har skrivit in för mycket. Om användaren ska skriva av en rad på fem ord och skriver in sju ord blir det två `extra_words`.
-- `total_words_in_text` är hur många ord som finns i texten användaren ska skriva av.
-
-Exempel:  
-Användaren ska skriva av `Hello my name is Andreas`.
-Användaren skriver in `Hellå m name andreas`.
-Det ger ordprecision:
-```
-Ordprecision: 20.0%
-```
-
-Noter:
-- Orden är separerade med mellanslag.
-- Punkttecken har ingen speciell betydelse. T.ex. strängen `hej. p-å dig` innehåller tre ord, `hej.`, `p-å` och `dig`.
-- din lösning ska vara case sensitive, `A!=a`.
-- Skilj på raderna. Om användaren skriver in ett ord för lite eller för mycket på en rad ska det inte påverka orden på raderna efter.
+* Programmet ska hantera ogiltiga menyval utan att krascha.
+* Programmet ska hantera ogiltiga svar i quizet — allt annat än A, B, C eller D är ogiltigt. Be användaren försöka igen.
+* Programmet ska inte krascha om `scores.txt` saknas eller är tom.
 
 
 
-##### Histogram
+### Frågefilernas format
 
-Gör ett histogram över hur många gånger användaren skriv av ett ord fel. Spara inte användarens ord, spara ordet användaren skulle skriva av. I histogrammet använd `#` för att markera ett fel.
-
-Histogrammet ska vara sorterat på antalet i första hand och ordet i andrahand. Sortera från högt till lågt.
-
-Exempel där `my` är felstavat 4 gånger, `Hello` 2 gånger och `Andreas` 2 gånger:
+Frågorna ligger i textfiler med en fråga per block. Varje fråga består av **nio rader** och blocken separeras med en blank rad.
 
 ```
-my                   : ####
-Hello                : ##
-Andreas              : ##
+<kategori>
+<frågetext>
+<alternativ A>
+<alternativ B>
+<alternativ C>
+<alternativ D>
+<rätt svar: A, B, C eller D>
+<poängvärde: positivt heltal>
+<ledtråd>
 ```
+
+Exempel på en frågefil med två frågor:
+
+```
+Geografi
+Vad är Sveriges huvudstad?
+Oslo
+Stockholm
+Köpenhamn
+Helsinki
+B
+3
+Stockholm ligger vid Mälaren och Östersjön.
+
+Historia
+Vilket år bildades Kungariket Sverige officiellt?
+829
+1000
+972
+1523
+C
+2
+Det skedde under 900-talet.
+```
+
+
+
+### scores.txt
+
+Filen `scores.txt` sparar ett resultat per rad i formatet:
+
+```
+<namn>,<poängprocent>,<totalpoäng>,<tid_sekunder>,<svårighetsgrad>
+```
+
+Exempel:
+```
+Andreas,40.0,2,34.75,easy
+Sara,100.0,5,18.22,hard
+```
+
+Poängprocenten avrundas till två decimaler. Filen skapas om den inte finns.
+
+
+
+### Krav 1: Quiz
+
+Menyval 1–3 startar ett quiz med respektive frågefil (`easy.txt`, `medium.txt`, `hard.txt`).
+
+#### Ett quiz
+
+1. Läs in alla frågor från vald fil till en **lista av dictionaries**. Varje fråga ska representeras som ett dictionary.
+1. Visa frågorna en i taget. Visa alltid frågans **kategori** och vilket frågenummer det är av totalt.
+1. För varje fråga:
+    * Visa frågans text och de fyra svarsalternativen märkta A–D.
+    * Läs in användarens svar. Svar är case-insensitive (`a` och `A` är likvärdiga). Om svaret inte är A, B, C eller D — be användaren svara igen tills ett giltigt svar ges.
+    * Tala om för användaren om svaret var rätt eller fel och hur många poäng de fick.
+1. Visa [slututskriften](#slututskrift) när alla frågor är besvarade.
+1. Be användaren skriva in sitt namn och spara resultatet i `scores.txt` (använd `0` som platshållare för tid tills krav 3 är implementerat).
+
+#### Poäng
+
+* Rätt svar ger frågans fulla poängvärde.
+* Fel svar ger 0 poäng.
+
+#### Kategorier
+
+Håll koll på hur det gick per kategori. Spåra antalet rätta svar och totalt antal frågor per kategori. Skriv ut en kategorisammanfattning i slututskriften.
 
 #### Slututskrift
 
-Utskriften efter ett skrivtest är klart ska innehålla användarens [prestation](#prestation) för hela testet och information om [tidsprestanda](#krav-2-time).
+Slututskriften ska innehålla:
+
+* Antal rätta svar på formatet `X/Y`.
+* Poängprocent: `(totalpoäng / maxpoäng) * 100`, avrundat till två decimaler med procenttecken.
+* Kategorisammanfattning: en rad per kategori med antal rätta svar och totalt antal frågor.
+* Tid (läggs till i [krav 3](#krav-3-tid)).
+
+Exempel på slututskriften (utan tid):
+```
+Resultat: 1/2 rätta svar
+Poäng: 2/5 (40.0%)
+
+Kategorier:
+Geografi        : 0/1
+Historia        : 1/1
+```
+
+
+
+### Krav 2: Topplista
+
+Menyval 4 skriver ut resultaten från `scores.txt`.
+
+* Utskriften ska vara **grupperad på svårighetsgrad**.
+* Inom varje grupp sorteras poster på **poängprocent i fallande ordning** i första hand och **namn i stigande ordning** i andra hand.
+* Programmet ska inte krascha om `scores.txt` saknas — visa ett lämpligt meddelande istället.
 
 Exempel:
 ```
-Ordprecision: 23.08%
-is                   : ###
-name                 : ##
-My                   : #
-Da                   : #
-Andreas              : #
-Det tog 0.0 minuter och 2.160712718963623 sekunder
-Gross WPM: 10.0
-Net WPM: 0.0
-Accuracy: 0%
-Du skriver snabbt som en Sengångare
+=== easy ===
+Andreas         40.0%    2p    34.75s
+Sara            20.0%    1p    22.10s
+
+=== hard ===
+Sara           100.0%    5p    18.22s
 ```
 
-Du kan se en körning för exemplet ovanför under [exempel](#exempel).
-
-### Krav 2: Time
-
-För menyval 1-3, räkna ut hur lång tid det tar för användaren att skriva in hela texten i sekunder. Mät tiden från precis innan du skriver ut första raden till att användaren har skrivit in sista raden.
-
-Använd dig av modulen [time](https://docs.python.org/3/library/time.html) för att mäta tiden.
-
-Räkna ut [Gross WPM](#gross-WPM), [Net WPM](#nwpm), [Accuracy](#accuracy) och [djurkategori](#kategori).
-
-I uträkningarna för WPM, avrunda minuter enligt:
-- avrunda uppåt om det tog X minuter och över eller 30 sekunder. T.ex. 3 minuter och 33 sekunder blir 4 minuter. 
-- Om det är under 30 sekunder avrunda ner. T.ex. 2 minuter och 15 sek blir 2 minuter.
-- Allt under 1 minut avrundas upp till en minut.
 
 
+### Krav 3: Tid
 
-#### Gross WPM
+Lägg till tidmätning med modulen [`time`](https://docs.python.org/3/library/time.html).
 
-Räkna ut gross words per minute, `antal skrivna ord / minuter`. I `antal skrivna ord` ingår alla ord som användaren har skrivit, även extra ord (om användaren skriver fler än efterfrågat). Avrunda till två decimaler i utskriften.
+* Mät **per fråga**: från att frågan visas tills att användaren skickar sitt svar.
+* Mät också **total tid** för hela quizet.
+* Visa tid direkt efter varje svar.
+* Inkludera total tid i slututskriften.
+* Uppdatera sparningen till `scores.txt` så att total tid i sekunder (med decimaler) sparas.
+* Uppdatera topplistan (krav 2) så att tid används som andra sorteringsnyckel: **kortare tid är bättre** vid lika poängprocent.
 
+Tidsvärdena behöver inte avrundas i utskriften.
 
-
-#### Net WPM
-
-Räkna ut net words per minute, `gross wpm - ((felstavade ord + extra ord) / minuter)`. I `felstavade ord` ingår alla ord som räknas som felstavade, inte bara ord användaren skriver in. Så om användaren skriver in ett ord för lite räknas det ordet som felstavat. Avrunda till två decimaler i utskriften.
-
-
-
-#### Accuracy
-
-Räkna ut accuracy, det procentuella förhållande mellan Gross WPM och Net WPM. Uträkningen är `(net / gross) * 100`. Skriv ut med procenttecken och avrunda till två decimaler.
-
-
-
-#### Kategori
-
-Ge användaren ett djur som representerar hur snabbt de skrev, baserat på vilken net WPM den fick. När användaren är färdig med ett test visa vilken djur den är. Nedanför hittar du vilka djur som representerar vilka net WPM. 
-
-| Net wpm | Djur |
-|---------|---------|
-| 0 - 5  | Sloth |
-| 6 - 15 | Snail |
-| 16 - 30| Manatee |
-| 31 - 40| Human |
-| 41 - 50| Gazelle  |
-| 51 - 60| Ostrich |
-| 61 - 70| Cheetah |
-| 71 - 80| Swordfish |
-| 81 - 90| Spur-winged goose |
-| 91 - 100| White-throated needletail |
-| 101 - 120| Golden eagle |
-|  > 121| Peregrine falcon |
-
-
-### Krav 3: Menyval 4
-
-Skriv ut resultaten som är sparade i `scores.txt` filen. Utskriften ska vara grupperad på svårighetsnivå och sorterad baserat på ordprecision i förstahand och namn i andrahand. Sortera från högt till lågt.
-
-Exempel:
+Uppdaterad slututskrift (med tid):
 ```
-efo     50.0       medium
-klw     19.22       medium
-and     19.65     hard
-and     0.53       hard
-aa      23.08      easy
-Aa      23.08      easy
+Resultat: 1/2 rätta svar
+Poäng: 2/5 (40.0%)
+Total tid: 10.47 sekunder
+
+Kategorier:
+Geografi        : 0/1
+Historia        : 1/1
 ```
+
+
 
 ### Exempel
 
-Om din kod körs med exempeltexten nedanför ska du få samma uträkningar som visas i exemplet. Ett tips är att lägga texten i en fil och köra programmet där du skriver samma input som visas.
+Nedanstående exempel visar ett quiz med frågorna från [frågefilernas format](#frågefilernas-format). Dina utskrifter behöver **inte** vara identiska, men de måste innehålla samma information och korrekta beräkningar.
 
-Här kan du se ett exempel med input från användaren. Dina utskrifter måste **inte** vara formaterad exakt som min, men din utskrift måste innehålla rätt resultat som min gör.
+`>>>` markerar vad användaren skriver in.
 
-Text från filen:
-> "Hello my name is Andreas"  
-> "What is your name"  
-> "My name is Da"  
+```
+1. Starta quiz med filen easy.txt
+2. Starta quiz med filen medium.txt
+3. Starta quiz med filen hard.txt
+4. Visa topplistan från scores.txt
+q. Avsluta programmet
 
-Input från användaren:
-> "Hello my nme os andreas"  
-> "What us your nameaa ko"  
-> ""
+Menyval: >>> 1
 
-På sista raden skriver användaren inte in något utan trycker bara på Enter på tangentbordet.
+--- Fråga 1 av 2 ---
+Kategori: Geografi
+Vad är Sveriges huvudstad?
 
+A. Oslo
+B. Stockholm
+C. Köpenhamn
+D. Helsinki
 
+Ditt svar: >>> A
+Fel! Rätt svar var B. Du fick 0/3 poäng.
+Tid: 4.32 sekunder
 
-Det ger följande utskrift under körning, `>>>` Används för att markera vad användaren skriver in:
-```python
-Skriv in: Hello my name is Andreas  
->>> Hello my nme os andreas  
+--- Fråga 2 av 2 ---
+Kategori: Historia
+Vilket år bildades Kungariket Sverige officiellt?
 
-Ordprecision: 40.0%
-name                 : #
-is                   : #
-Andreas              : #
+A. 829
+B. 1000
+C. 972
+D. 1523
 
-Skriv in: What is your name  
->>> What us your nameaa ko  
+Ditt svar: >>> C
+Rätt! Du fick 2/2 poäng.
+Tid: 6.15 sekunder
 
-Ordprecision: 25.0%
-name                 : #
-is                   : #
+Resultat: 1/2 rätta svar
+Poäng: 2/5 (40.0%)
+Total tid: 10.47 sekunder
 
-Skriv in: My name is Da  
->>>  
-Ordprecision: 0.0%
-name                 : #
-is                   : #
-My                   : #
-Da                   : #
+Kategorier:
+Geografi        : 0/1
+Historia        : 1/1
 
-
-Grattis! Tryck enter för att se resultatet.
->>> 
-
-Ordprecision: 23.08%
-name                 : ###
-is                   : ###
-My                   : #
-Da                   : #
-Andreas              : #
-Det tog 0 minuter och 2.160712718963623 sekunder
-Gross WPM: 10.0
-Net WPM: 0.0
-Accuracy: 0%
-Du skriver snabbt som en Sengångare
-
-Skriv in ditt namn:
->>> Andreas
+Skriv in ditt namn: >>> Andreas
 ```
 
 
 
-### Krav 4 (optionellt) 20p: Tecken
+### Krav 4 (valfritt) 10p: Quiz-sammanfattning
 
-Lägg till teckenprecision och histogram för tecken i skrivtesterna.
+Lägg till en detaljerad sammanfattning som visas **efter slututskriften** men **innan** användaren skriver in sitt namn.
 
-Teckenprecision och tecken histogram ska räknas ut och skrivas ut efter varje rad precis som för [prestation](#prestation)
+Sammanfattningen ska visa en rad per fråga med:
 
-#### Teckenprecision
+* Frågans text — trunkerad till 30 tecken om den är längre (lägg till `...` om den trunkeras).
+* Användarens svar (bokstaven A–D).
+* Rätt svar (bokstaven A–D).
+* Poäng erhållna och frågans maxpoäng.
 
-Teckenprecision med `((nr_correct_chars - extra_chars) / total_chars_in_text ) * 100`.  Skriv ut med procenttecken avrundat till två decimaler.
+För att implementera detta behöver du spara varje frågas resultat i en **lista av dictionaries** under quizets gång.
 
-- `nr_correct_chars` är antalet tecken användaren har skrivit av korrekt.
-- `extra_chars` är tecken som användaren har skrivit in för mycket.
-- `total_chars_in_text` är hur många tecken som finns i texten användaren ska skriva av. Räkna inte med mellanslag.
-
-För att räkna vilka tecken som är rätt; dela först upp texten i ord (dela på mellanslag) och jämför sen tecken för tecken i orden.
-
-Det innebär att mellanslag inte räknas som ett tecken, det är en separator för ord. Om användaren skriver in fler tecken än vad som efterfrågas i ett ord ska du räkna dem som `extra_chars`.
-
-#### Histogram för tecken
-
-Räkna också ut hur många gånger varje korrekt tecken blev felskrivet. **Utgå** från de korrekta tecknen när du du kollar om de är rätt, **inte** användarens input.
-
-Skriv ut ett histogram med resultatet. Likt histogrammet för ord.
-
-
-#### Exempel
-
-
-Om din kod körs med exempeltexten nedanför ska du få samma uträkningar som visas i exemplet. Ett tips är att lägga texten i en fil och köra programmet där du skriver samma input som visas.
-
-Här kan du se ett exempel med input från användaren. Dina utskrifter måste **inte** vara formaterad exakt som min, men din utskrift måste innehålla data som min gör.
-
-Text från filen:
-> "Hello my name is Andreas"  
-> "What is your name"  
-> "My name is Da"  
-
-Input från användaren:
-> "Hello my nme os andreas"  
-> "What us your nameaa ko"  
-> ""
-
-På sista raden skriver användaren inte in något utan trycker bara på Enter på tangentbordet.
-
-
-
-Det ger följande utskrift under körning, `>>>` Används för att markera vad användaren skriver in:
-```python
-Skriv in: Hello my name is Andreas  
->>> Hello my nme os andreas  
-
----------Grundkrav-------------
-Ordprecision: 40.0%
-name                 : #
-is                   : #
-Andreas              : #
----------Extrauppgifter-------------
-Teckenprecision: 75.0%
-Felstavade tecken: 
-m                    : #
-i                    : #
-e                    : #
-a                    : #
-A                    : #
-
-Skriv in: What is your name  
->>> What us your nameaa ko  
-
----------Grundkrav-------------
-Ordprecision: 25.0%
-name                 : #
-is                   : #
----------Extrauppgifter-------------
-Teckenprecision: 64.29%
-Felstavade tecken: 
-i                    : #
-
-Skriv in: My name is Da  
->>>  
----------Grundkrav-------------
-Ordprecision: 0.0%
-name                 : #
-is                   : #
-My                   : #
-Da                   : #
----------Extrauppgifter-------------
-Teckenprecision: 0.0%
-Felstavade tecken: 
-a                    : ##
-y                    : #
-s                    : #
-n                    : #
-m                    : #
-i                    : #
-e                    : #
-M                    : #
-D                    : #
-
-
-Grattis! Tryck enter för att se resultatet.
->>> 
----------Grundkrav-------------
-Ordprecision: 23.08%
-name                 : ###
-is                   : ###
-My                   : #
-Da                   : #
-Andreas              : #
-Det tog 0 minuter och 2.160712718963623 sekunder
-Gross WPM: 10.0
-Net WPM: 0.0
-Accuracy: 0%
-Du skriver snabbt som en Sengångare
----------Extrauppgifter-------------
-Teckenprecision: 54.55%
-Felstavade tecken:
-i                    : ###
-a                    : ###
-m                    : ##
-e                    : ##
-y                    : #
-s                    : #
-n                    : #
-M                    : #
-D                    : #
-A                    : #
-
-Skriv in ditt namn:
->>> Andreas
+Exempel:
+```
+--- Sammanfattning ---
+Vad är Sveriges huvudstad?...    Ditt svar: A    Rätt: B    Poäng: 0/3
+Vilket år bildades Kungarik...   Ditt svar: C    Rätt: C    Poäng: 2/2
 ```
 
 
 
+### Krav 5 (valfritt) 10p: Ledtrådar
+
+Låt användaren begära en ledtråd under ett quiz.
+
+* Innan användaren svarar på en fråga kan de skriva `?` för att visa ledtråden.
+* Att använda ledtråden kostar **halva frågans poängvärde avrundat nedåt**. Exempel: en fråga värd 3 poäng kostar 1 poäng i ledtrådsavgift, en fråga värd 4 poäng kostar 2 poäng.
+* Minimum är 0 poäng per fråga — en ledtrådsavgift kan aldrig ge minuspoäng.
+* Varje fråga kan bara ha en ledtråd. Om användaren skriver `?` igen visas ledtråden utan extra avgift.
+* I slututskriften: visa totalt antal använda ledtrådar.
+
+Exempel:
+```
+Ditt svar (eller ? för ledtråd): >>> ?
+Ledtråd: Stockholm ligger vid Mälaren och Östersjön.
+
+Ditt svar (eller ? för ledtråd): >>> A
+Fel! Rätt svar var B. Du fick 0/3 poäng. (Ledtråd använd, kostnad: 1 poäng)
+```
 
 
-### Krav 5 (optionellt) 10p: Skrivtest med slumpade tecken
 
-Lägg till menyval 5. I det menyvalet ska användaren välja ett antal sekunder som testet ska pågå. Under så många sekunder ska du slumpa fram ett tecken (bokstäver, siffror och punkter) som användaren ska skriva in så snabbt som möjligt. Inkludera användarens sista input om tiden tar slut under tiden som programmet väntar på att användaren ska skriva.
+### Krav 6 (valfritt) 10p: Slumpmässigt quiz
 
-När tiden har tagit slut ska du skriva ut vilka tecken som blev fel, samt antalet gånger varje felaktigt tecken skrevs. Räkna också ut och skriv ut hur många procent av tecknen som blev fel och antalet tecken per minut som användaren skrev.
+Lägg till menyval 5: **Slumpmässigt quiz**.
 
-Utskriften ska vara sorterad i storleksordning på antalet fel.
-
-Kolla på videon för att se hur det kan se ut.
+* Användaren anger hur många frågor quizet ska innehålla.
+* Frågorna väljs **slumpmässigt** från **alla tre filerna kombinerade** (`easy.txt`, `medium.txt`, `hard.txt`). Ingen fråga ska förekomma mer än en gång i samma quiz.
+* Om användaren anger fler frågor än vad som finns tillgängligt körs quizet med alla tillgängliga frågor.
+* Resultatet sparas i `scores.txt` med svårighetsgraden `random`.
+* Du får använda modulen [`random`](https://docs.python.org/3/library/random.html) **enbart för detta krav**.
 
 
 
 ### Krav inlämning
 
-1. Skriv all din kod i din branch main.
-1. När du är klar så taggar du ditt repo (v7.0.0 eller högre) och pushar till GitHub.
-1. När allt är klart och fungerar så gör du en pullrequest (PR) mot branchen `bth/submit/kmom10`. Du kan följa instruktionerna i [glr en Pull Request](/laromaterial/instruktion/gor-en-pr/) fast använd branch `bth/submit/kmom10`.
+1. När du är klar taggar du ditt repo (v7.0.0 eller högre) och pushar till GitHub.
+1. När allt är klart och fungerar gör du en pull request (PR) mot branchen `bth/submit/kmom10`. Du kan följa instruktionerna i [Gör en Pull Request](/laromaterial/instruktion/gor-en-pr/) fast använd branchen `bth/submit/kmom10`.
 
 
 ## Redovisning
@@ -513,7 +400,7 @@ Svara på följande frågor i din redovisningstext för kmom10 i `README.md`.
 
 ### Redovisningsvideo
 
-Du skall förbereda och utföra en slutpresentation av ditt projekt. Du kan läsa hur du kan förbereda dig i dokumentet [“Planera din slutpresentation”](/laromaterial/instruktion/planera-din-slutpresentation/). Läs mer om hur du kan [spela in en redovisningsvideo med OBS](/laromaterial/instruktion/redovisningsvideo-spela-in/).
+Du skall förbereda och utföra en slutpresentation av ditt projekt. Du kan läsa hur du kan förbereda dig i dokumentet ["Planera din slutpresentation"](/laromaterial/instruktion/planera-din-slutpresentation/). Läs mer om hur du kan [spela in en redovisningsvideo med OBS](/laromaterial/instruktion/redovisningsvideo-spela-in/).
 
 När du gör din video tänk på att det vi vill se är att du har skrivit koden och att du förstår vad den gör.
 
