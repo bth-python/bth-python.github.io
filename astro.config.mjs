@@ -66,7 +66,7 @@ export default defineConfig({
 					label: 'Kursmoment',
 					autogenerate: { directory: 'kmom' },
 				},
-				{
+				{ // TODO: kommentera ut så att de länkarna inte syns i aside
 					label: 'Läromaterial',
 					collapsed: true,
 					autogenerate: { directory: 'laromaterial' },

@@ -65,30 +65,7 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
     input: 135.205     output: "275.37"
     ```
 
-1. Menyval **3**: Poäng till betyg, Marvin ska fråga efter maxpoäng samt dina poäng och sedan ska Marvin skriva ut vilket betyg dina poäng motsvarade. Använd betygsskalan:
-
-    ```python
-
-    Score   Grade
-    >= 90%    A
-    >= 80%    B
-    >= 70%    C
-    >= 60%    D
-    >= 50%    E
-    <  50%    F
-    ```
-
-    Formatera output enligt `score: <betyg>`.
-
-    ```python
-    input: "100"
-    input: "49"     output: "score: F"
-
-    input: "70"
-    input: "50"     output: "score: C"
-    ```
-
-1. Menyval **4**: Lägg till så att Marvin frågar efter tal och för varje tal angivet så ska Marvin skriva ut “larger!” om det nya talet är större, “smaller!” om det var mindre eller “same!” om talet som skrev in hade samma värde som det föregående talet. Första gången man startar menyvalet kommer Marvin inte ha något tal att jämföra med, då skall den be användaren att mata in två tal. Detta ska göras tills användaren skriver “done”. Använd try-except för att hantera om användaren skriver in något som inte är en siffra. Om användaren gör det ska programmet inte krascha. Istället ska det skriva ut `"not a number!"` och sen fortsätta med loopen så att användaren kan fortsätta skriva in siffror.
+1. Menyval **3**: Lägg till så att Marvin frågar efter tal och för varje tal angivet så ska Marvin skriva ut “larger!” om det nya talet är större, “smaller!” om det var mindre eller “same!” om talet som skrev in hade samma värde som det föregående talet. Första gången man startar menyvalet kommer Marvin inte ha något tal att jämföra med, då skall den be användaren att mata in två tal. Detta ska göras tills användaren skriver “done”. Använd try-except för att hantera om användaren skriver in något som inte är en siffra. Om användaren gör det ska programmet inte krascha. Istället ska det skriva ut `"not a number!"` och sen fortsätta med loopen så att användaren kan fortsätta skriva in siffror.
 
     Exempel:
 
@@ -97,13 +74,13 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
     input: 2         output: "larger!"
     input: 2         output: "same!"
     input: 1         output: "smaller!"
-    input: "hej"       output: "not a number!"
-    input: 3         output: "larger!"
+    input: "hej"     output: "not a number!"
+    input: 3.14      output: "larger!"
     input "done"
     ```
 
 
-1. Menyval **5**: Gör så att Marvin kan validera personnummer med hjälp av Luhnalgoritmen. Algoritmen funkar på så sätt att varannan siffra multipliceras med 2 och 1, med start på första siffran i personnumret. Om något tal vid multiplikationen blir större än 9 ersätts det talet med dess siffersumma. Därefter summeras alla tal och om summan är jämt delbar med 10 så är kontrollsiffran korrekt. Om personnumret validerar ska Marvin skriva ut `Valid` annars `Not valid`. Koden ska klara av personnummer med och utan `-` innan de fyra sista siffrorna och om det är för få eller för många siffror skickas med ska det bli `Not valid`.
+1. Menyval **4**: Gör så att Marvin kan validera personnummer med hjälp av Luhnalgoritmen. Algoritmen funkar på så sätt att varannan siffra multipliceras med 2 och 1, med start på första siffran i personnumret. Om något tal vid multiplikationen blir större än 9 ersätts det talet med dess siffersumma. Därefter summeras alla tal och om summan är jämt delbar med 10 så är kontrollsiffran korrekt. Om personnumret validerar ska Marvin skriva ut `Valid` annars `Not valid`. Koden ska klara av personnummer med och utan `-` innan de fyra sista siffrorna och om det är för få eller för många siffror skickas med ska det bli `Not valid`.
 
     ```
        8  1 1 2 1 8  9  8 7  6
@@ -122,17 +99,6 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
     input: "231218-9874"      output: "Not valid"
     input: "8181818181"       output: "Valid"
     ```
-
-
-1. Menyval **6**: Gör så Marvin kan tala [rövarspråket](https://sv.wikipedia.org/wiki/R%C3%B6varspr%C3%A5ket). Marvin ska använda ett input anrop för att ta emot ett ord och sen skriva ut ordet översatt till rövarspråket. Följande bokstäver är vokaler: "A, E, I, O, U, Y, Å, Ä, Ö"
-
-    Exempel:
-
-    ```python
-    input: "b"      output: "bob"
-    input: "apa"    output: "apopa"
-    ```
-
 
 
 
