@@ -63,6 +63,10 @@ export default defineConfig({
 			],
 			sidebar: [
 				{
+					label: 'Kursöversikt',
+					link: "/"
+				},
+				{
 					label: 'Kursmoment',
 					autogenerate: { directory: 'kmom' },
 				},
