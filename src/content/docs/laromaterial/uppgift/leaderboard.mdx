@@ -1,0 +1,157 @@
+---
+title: "Highscore-lista"
+description: En uppgift som handlar om att hantera en highscore-lista för ett spel med hjälp av Dictionary och Tuple.
+sidebar:
+  order: 0510
+---
+
+import { YouTube } from 'astro-embed';
+
+
+Nu lämnar vi Marvin bakom oss och tyglarna blir lite friare.
+
+## Förkunskaper
+
+Du har jobbat allt material i "[kmom05](/kmom/kmom05)"
+
+## Introduktion
+
+Du ska utveckla ett program som hanterar en highscore-lista för ett spel. Programmet ska hålla reda på spelares poäng och nivå, och ge användaren möjlighet att:
+
+* Visa statistik om highscore-listan
+* Visa spelare per nivå
+* Lägg till eller uppdatera en spelare
+* Ta bort en spelare
+
+Programmet ska funka på liknande sätt som Marvin, en menyloop.
+
+
+## Krav
+
+Lösningar som använder konstruktionerna list/dict comprehension eller lambda funktioner godkänns inte i denna kurs.
+
+Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går igenom i kursen.
+
+1. Ditt program ska utgå från filen `main.py` i mappen `src/kmom05/emissions`. I `main.py` ska funktionen `main()` ligga och starta ditt program.
+    - Strukturera `main.py` på liknande sätt som Marvin fungerar.
+    - Ditt program ska inte starta om man importerar filen `main.py`. Man måste anropa `main()` för att starta programmet.
+
+1. Du ska strukturera din kod i passande moduler. Du måste skapa minst en modul utöver `main.py`.
+
+1. Utgå ifrån följande dataset i din kod. `leaderboard` är en dictionary där spelarens namn är nyckeln och värdet är en dictionary med poäng och nivå.
+    ```python
+    leaderboard = {
+        "Alice":   {"score": 1500, "level": "Pro"},
+        "Bob":     {"score": 800,  "level": "Nybörjare"},
+        "Charlie": {"score": 2300, "level": "Elit"},
+        "Dana":    {"score": 1200, "level": "Amatör"},
+    }
+    ```
+    - `leaderboard` får inte vara en global variabel i din kod. Lägg den i din `main()` funktion.
+    - Skicka med `leaderboard` som argument till de funktioner som behöver den.
+
+1. Programmet ska ha följande menyval. Utförlig förklaring av menyvalen hittar du under [Menyvalen](#menyvalen).
+
+    ```
+    1. Visa statistik
+    2. Visa spelare per nivå
+    3. Lägg till eller uppdatera spelare
+    4. Ta bort spelare
+    q. Avsluta programmet
+    ```
+    - Efter varje menyval ska du be användaren om en tom `input()` så att utskriften pausas tills användaren vill gå vidare. Precis som i Marvin.
+
+1. Felhantering
+    - Ogiltiga menyval ska ge ett tydligt felmeddelande.
+    - Programmet ska inte krascha.
+    - Du kan anta att alla inputs har rätt datatyp.
+
+1. Bedömning
+
+    - Programmet fungerar enligt specifikationen (alla menyval fungerar).
+    - Koden är korrekt strukturerad med funktioner och moduler.
+    - Koden ska vara [DRY (don't repeat yourself)](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
+    - Felhantering och edge cases hanteras korrekt.
+    - Onödigt komplicerade lösningar kan ge komplettering.
+
+1. Koden ska validera med Ruff.
+
+    ```bash
+    # Kommandot funkar oavsett var du står i ditt repo
+    uv run ruff check
+    ```
+
+1. Testerna som finns ska passera.
+
+1. Ladda upp din kod till ditt repo på GitHub. Gör flera små commits när du jobbar med uppgiften!
+
+Rätta eventuella fel som dyker upp och ladda upp igen. När det ser grönt ut så är du klar.
+
+
+## Menyvalen
+
+- **1 — Visa statistik**: Skriv ut följande information om highscore-listan:
+    - Antal spelare
+    - Total poäng för alla spelare sammanlagt
+    - Genomsnittlig poäng (använd heltalsdivision)
+    - Spelaren med högst poäng
+    - Spelaren med lägst poäng
+    - Om listan är tom ska du skriva ut `Inga spelare i highscore-listan.` istället.
+    - Exempel med originaldatan:
+        ```
+        Antal spelare: 4
+        Total poäng: 5800
+        Genomsnittlig poäng: 1450
+        Högst: Charlie (2300 poäng)
+        Lägst: Bob (800 poäng)
+        ```
+
+- **2 — Visa spelare per nivå**: Be om en nivå som input och lista sedan alla spelare med den nivån samt hur många de är. Formatera utskriften enligt `- <namn> (<poäng> poäng)`. Spelarna ska sorteras från högst till lägst poäng. Skriv också ut det totala antalet spelare på nivån.
+    - Om ingen spelare finns på den angivna nivån ska du skriva ut `Inga spelare på nivå "<nivå>" hittades.`.
+    - Exempel med en ny spelare Erik (950 poäng, Nybörjare) tillagd:
+        ```
+        Välj nivå: Nybörjare
+        Spelare på nivå "Nybörjare":
+        - Bob (800 poäng)
+        - Erik (950 poäng)
+        Antal: 2
+        ```
+        Sorterat:
+        ```
+        Välj nivå: Nybörjare
+        Spelare på nivå "Nybörjare":
+        - Erik (950 poäng)
+        - Bob (800 poäng)
+        Antal: 2
+        ```
+
+- **3 — Lägg till eller uppdatera spelare**: Lägg till en ny spelare eller uppdatera en befintlig. Om en spelare med samma namn redan finns i listan ska du uppdatera deras poäng och nivå.
+    - Menyvalet ska ta tre `input()`:
+        - namn
+        - poäng
+        - nivå
+    - När datan har lagts till eller uppdaterats ska du skriva ut `<namn> har lagts till.` för en ny spelare och `Data uppdaterad för <namn>.` om spelaren redan fanns.
+    - Exempel:
+        ```
+        Spelarnamn: Erik
+        Poäng: 950
+        Nivå: Nybörjare
+        Erik har lagts till.
+        ```
+
+- **4 — Ta bort spelare**: Ta bort en spelare från listan med hjälp av deras namn.
+    - Menyvalet ska ta ett `input()`:
+        - namn
+    - Om spelaren finns och tas bort ska du skriva ut `<namn> har tagits bort.`
+    - Om spelaren inte finns ska du skriva ut `Spelaren <namn> hittades inte.`
+
+- **q**: Avsluta programmet.
+- **Ogiltig input**: Gör en tydlig utskrift och återgå till menyn.
+
+
+## Tips
+
+* Börja med datasetet och menyn, implementera sedan ett menyval i taget.
+* Testa programmet efter varje menyval för att säkerställa att det fungerar.
+* Iterera över dictionaryn med `.items()` för att komma åt både namn och data — du packar upp ett tuple `(namn, data)` i varje iteration.
+* I testerna har varje menyval sin siffra som tag. Använd `uv run tester tests/kmom05/emissions --tags=1` för att bara köra testerna för ett specifikt menyval.
