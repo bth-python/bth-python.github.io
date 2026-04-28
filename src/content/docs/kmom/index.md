@@ -1,6 +1,8 @@
 ---
 title: "Kom igång"
 description: Hur du förbereder dig för att påbörja det första kursmomentet.
+sidebar:
+    order: 0000
 ---
 
 :::danger
