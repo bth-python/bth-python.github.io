@@ -19,6 +19,7 @@ uv run task download-taskfile
 uv run task create-src-dirs
 uv run task download-tests
 ```
+:::
 
 :::danger
 Skapa den branch som ska användas för nästa inlämning.
@@ -33,7 +34,6 @@ git push -u origin bth/submit/kmom10
 **Tips** innan du börjar med projektet, repetera vad du har gjort i tidigare kursmoment. Fräscha upp minnet, tänk på hur långt du har kommit och hur mycket du har lärt dig.
 
 Läs först igenom hela projektet och lägg upp en plan. Vad ska du göra? Hur kan du göra det? Har du gjort något liknande delproblem tidigare? Därefter börjar du koda.
-:::
 
 Detta kursmoment avslutar och examinerar kursen.
 
@@ -97,14 +97,13 @@ q. Avsluta programmet
 Koden ska ligga i `src/kmom10/quiz`.
 
 1. Skapa filen `main.py` som ska vara startpunkt för programmet.
-1. Du måste skapa minst en till modul att dela upp din kod i. Du får **inte** döpa någon fil till `quiz.py` — det krockar med ett inbyggt modulnamn och testerna slutar fungera.
+1. Du måste skapa minst en till modul att dela upp din kod i.
 1. Skapa mappen `questions` i `quiz`-mappen och lägg dina frågefiler där.
 1. Din kod ska vara [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 1. Endast konstanter får ligga som globala variabler.
 1. Programmet ska kunna köras från `quiz`-mappen. Det ska inte krascha om du står i `quiz` och startar programmet.
 1. Koden ska validera med Ruff.
-1. Testerna som finns ska passera. Det är väldigt få tester. I projektet får ni själva ha koll på att ni gör rätt.
-
+1. Testerna som finns ska passera.
 
 
 #### Väl fungerande program
@@ -112,7 +111,7 @@ Koden ska ligga i `src/kmom10/quiz`.
 Programmet ska fungera utan brister och inte krascha när man använder det enligt kraven.
 
 * Programmet ska hantera ogiltiga menyval utan att krascha.
-* Programmet ska hantera ogiltiga svar i quizet — allt annat än A, B, C eller D är ogiltigt. Be användaren försöka igen.
+* Programmet ska hantera ogiltiga svar i quizet utan att krascha (t.ex. om användaren skriver `E` eller `1` istället för A–D).
 * Programmet ska inte krascha om `scores.txt` saknas eller är tom.
 
 
@@ -161,20 +160,11 @@ Det skedde under 900-talet.
 
 ### scores.txt
 
-Filen `scores.txt` sparar ett resultat per rad i formatet:
+Filen skapas om den inte finns.
 
-```
-<namn>,<poängprocent>,<totalpoäng>,<tid_sekunder>,<svårighetsgrad>
-```
+Filen ska ligga i `quiz/`-mappen, alltså på samma nivå som `main.py`.
 
-Exempel:
-```
-Andreas,40.0,2,34.75,easy
-Sara,100.0,5,18.22,hard
-```
-
-Poängprocenten avrundas till två decimaler. Filen skapas om den inte finns.
-
+För varje quiz som genomförs ska du spara: namn, svårighetsgrad, totala poäng, poängprocent och tid i sekunder. Använd ett lämpligt format som gör det enkelt att läsa in och skriva ut topplistan.
 
 
 ### Krav 1: Quiz
@@ -183,14 +173,15 @@ Menyval 1–3 startar ett quiz med respektive frågefil (`easy.txt`, `medium.txt
 
 #### Ett quiz
 
-1. Läs in alla frågor från vald fil till en **lista av dictionaries**. Varje fråga ska representeras som ett dictionary.
+1. Läs in alla frågor från vald fil.
 1. Visa frågorna en i taget. Visa alltid frågans **kategori** och vilket frågenummer det är av totalt.
 1. För varje fråga:
     * Visa frågans text och de fyra svarsalternativen märkta A–D.
     * Läs in användarens svar. Svar är case-insensitive (`a` och `A` är likvärdiga). Om svaret inte är A, B, C eller D — be användaren svara igen tills ett giltigt svar ges.
     * Tala om för användaren om svaret var rätt eller fel och hur många poäng de fick.
 1. Visa [slututskriften](#slututskrift) när alla frågor är besvarade.
-1. Be användaren skriva in sitt namn och spara resultatet i `scores.txt` (använd `0` som platshållare för tid tills krav 3 är implementerat).
+1. Be användaren skriva in sitt namn och spara resultatet i `scores.txt`.
+1. Efter att resultatet sparats, visa ett meddelande och be användaren trycka Enter för att återgå till menyn.
 
 #### Poäng
 
@@ -206,7 +197,7 @@ Håll koll på hur det gick per kategori. Spåra antalet rätta svar och totalt 
 Slututskriften ska innehålla:
 
 * Antal rätta svar på formatet `X/Y`.
-* Poängprocent: `(totalpoäng / maxpoäng) * 100`, avrundat till två decimaler med procenttecken.
+* Poängprocent: `(totalpoäng / maxpoäng) * 100`, avrundat till en decimal med procenttecken.
 * Kategorisammanfattning: en rad per kategori med antal rätta svar och totalt antal frågor.
 * Tid (läggs till i [krav 3](#krav-3-tid)).
 
@@ -227,16 +218,17 @@ Historia        : 1/1
 Menyval 4 skriver ut resultaten från `scores.txt`.
 
 * Utskriften ska vara **grupperad på svårighetsgrad**.
-* Inom varje grupp sorteras poster på **poängprocent i fallande ordning** i första hand och **namn i stigande ordning** i andra hand.
+* Inom varje grupp sorteras poster på **poängprocent i fallande ordning** i första hand och **tid** i andra hand.
 * Programmet ska inte krascha om `scores.txt` saknas — visa ett lämpligt meddelande istället.
+*. Efter att topplistan visats be användaren trycka Enter för att återgå till menyn.
 
 Exempel:
 ```
-=== easy ===
+Easy:
 Andreas         40.0%    2p    34.75s
 Sara            20.0%    1p    22.10s
 
-=== hard ===
+Hard:
 Sara           100.0%    5p    18.22s
 ```
 
@@ -250,8 +242,6 @@ Lägg till tidmätning med modulen [`time`](https://docs.python.org/3/library/ti
 * Mät också **total tid** för hela quizet.
 * Visa tid direkt efter varje svar.
 * Inkludera total tid i slututskriften.
-* Uppdatera sparningen till `scores.txt` så att total tid i sekunder (med decimaler) sparas.
-* Uppdatera topplistan (krav 2) så att tid används som andra sorteringsnyckel: **kortare tid är bättre** vid lika poängprocent.
 
 Tidsvärdena behöver inte avrundas i utskriften.
 
@@ -318,6 +308,8 @@ Geografi        : 0/1
 Historia        : 1/1
 
 Skriv in ditt namn: >>> Andreas
+
+Resultatet har sparats. Tryck Enter för att återgå till menyn.
 ```
 
 
@@ -333,7 +325,6 @@ Sammanfattningen ska visa en rad per fråga med:
 * Rätt svar (bokstaven A–D).
 * Poäng erhållna och frågans maxpoäng.
 
-För att implementera detta behöver du spara varje frågas resultat i en **lista av dictionaries** under quizets gång.
 
 Exempel:
 ```
