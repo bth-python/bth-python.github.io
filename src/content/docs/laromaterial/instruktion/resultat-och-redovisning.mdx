@@ -20,7 +20,7 @@ PS! För kmom03, kmom06 och kmom10 skall du även göra en pull request (PR) på
 
 ## Kör tester
 
-Dubbelkolla att din kod passerar testerna och validerar. Använd `uv run tester` och `uv run ruff check`. Om du har några fel, fixa dem före du fortsätter.
+Dubbelkolla att din kod passerar testerna och validerar. Använd `uv run task test` och `uv run ruff check`. Om du har några fel, fixa dem före du fortsätter.
 
 
 
@@ -163,7 +163,7 @@ Du kan själv testköra rättningsprocessen via följande kommando.
 
 ```bash
 # Om du står i rooten av ditt kursrepo.
-uv run tester tests/kmom01
+uv run task test kmom01
 uv run ruff check src/kmom01
 ```
 

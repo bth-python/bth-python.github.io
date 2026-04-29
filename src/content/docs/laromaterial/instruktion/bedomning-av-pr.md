@@ -17,7 +17,7 @@ Om du missar en deadline så kan du inte räkna med att det blir rättat. Men de
 
 I samband med att din inlämning bedöms så körs ett antal automatiserade tester som kontrollerar att din inlämning uppfyller alla krav i de kmom som inlämningen omfattar.
 
-`uv run tester` och `uv run ruff` körs på alla de kmom som ingår i inlämningen. Du kan läsa om vad som händer efter testerna körs här [Tester](../gor-en-pr/#tester). Inlämningar med betyg `TUx` rättas inte. Lärarna rättar bara inlämningar med `PG`.
+`uv run task test` och `uv run ruff` körs på alla de kmom som ingår i inlämningen. Du kan läsa om vad som händer efter testerna körs här [Tester](../gor-en-pr/#tester). Inlämningar med betyg `TUx` rättas inte. Lärarna rättar bara inlämningar med `PG`.
 
 ## Bedömning allmänt
 

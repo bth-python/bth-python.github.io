@@ -156,10 +156,7 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
 1. Testerna som finns ska passera.
 
     ```bash
-    # om du står i katalogen src/kmom03/marvin2 i ditt repo
-    uv run tester ../../../tests/kmom03/marvin2/
-    # om du står i root katalogen i ditt repo
-    uv run tester tests/kmom03/marvin2/
+    uv run task test kmom03
     ```
 
 Rätta eventuella fel som dyker upp och publicera igen. När det ser grönt ut så är du klar.
@@ -243,6 +240,6 @@ För att inkludera dina extrauppgifter i testerna behöver du skicka med option 
 ## Övrigt
 Här finns övriga saker som är bra att tänka på.
 
-- Använd `uv run tester tests/kmom03/marvin2 --tags <menyval>` för att bara köra testerna för menyvalet du jobbar med. Du kan använda `uv run tester tests/kmom03/marvin2 -s` för att se alla taggar som finns och vilka tester de kör.
+- Använd `uv run task test kmom03 --tags <menyval>` för att bara köra testerna för menyvalet du jobbar med. Du kan använda `uv run task test kmom03 -s` för att se alla taggar som finns och vilka tester de kör.
     - Varje menyval har samma tag som dess siffra för valet.
 - Gör många och små commits i ditt git repo, du kan ha ungefär 5-10 commits för en sådan här uppgift.
