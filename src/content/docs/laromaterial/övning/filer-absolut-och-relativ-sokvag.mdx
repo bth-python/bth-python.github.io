@@ -65,7 +65,7 @@ Folder
   
 där aktuell katalog är Folder.
 
-Nu vill vi undersöka den `relativa` resp den `aktuella sökvägen`
+Nu vill vi undersöka den `relativa` resp den `absoluta sökvägen`
 
 ```python
 from pathlib import Path
@@ -195,6 +195,8 @@ def writeBookInfoOnFile(filename, book_info : list):
         total_path = str(abs_path) + '/' + filename
         with open(str(total_path), "w") as filehandler:
             for item in book_info:
+                filehandler.write(item  + '\n')
+
 
 #testkör
 writeBookInfoOnFile("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
@@ -220,7 +222,6 @@ def writeBookInfoOnFile(filename, book_info : list):
         with open(str(total_path), "w") as filehandler:
             for item in book_info:
                 filehandler.write(item  + '\n')
-                    filehandler.write(item  + '\n')
     else:
         raise FileNotFoundError("Could not find " + str(abs_path))
         

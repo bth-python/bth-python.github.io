@@ -54,7 +54,7 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
 
     - Tags: `pick`
 
-1. Skapa funktionen `inventory` som tar emot ett argument, ryggsäcken. Funktionen skall inte returnera någonting. Den skall skriva ut ett meddelande som innehåller hur **antalet** saker som befinner sig i ryggsäcken och **alla saker** som ligger där inne. I `main.py` lägger du till stöd för kommandot **inv** som exekverar funktionen.
+1. Skapa funktionen `inventory` som tar emot ett argument, ryggsäcken. Funktionen skall inte returnera någonting. Den skall skriva ut ett meddelande som innehåller **antalet** saker som finns i ryggsäcken och **alla saker** som finns i ryggsäcken. I `main.py` lägger du till stöd för kommandot **inv** som exekverar funktionen.
     - Tags: `inv`
 
 1. Skapa funktionen `drop` som skall kasta bort en sak från ryggsäcken. Den skall ta emot två argument, första är ryggsäcken och den andra är saken som skall slängas. Funktionen skall returnera den uppdaterade ryggsäcken. I `main.py` skall du lägga till stöd för kommandot **"inv drop"** enligt tabellen nedan. Om allt gick bra skall du skriva ut ett passande meddelande som innehåller **saken som kastades**. Meddelandet skall skivas ut i funktionen och inte main programmet.
@@ -80,6 +80,12 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
     ```
 
 1. Testerna som finns ska passera.
+    ```bash
+    # om du står i katalogen src/kmom04/marvin3 i ditt repo
+    uv run tester ../../../tests/kmom04/marvin3/
+    # om du står i root katalogen i ditt repo
+    uv run tester tests/kmom04/marvin3/
+    ```
 
 
 1. Ladda upp din kod till ditt repo på GitHub. Gör flera små commits när du jobbar med uppgiften!
@@ -92,7 +98,7 @@ Följande kommandon skall fungera. Notera att Marvin ska kunna plocka upp vad so
 
     | Kommando               | Vad händer                                                                  | Kallar på                     | Listans innehåll efter |
     |------------------------|:----------------------------------------------------------------------------|-------------------------------|------------------------|
-    | inv                    | Marvin skall skriva ut hur många saker om finns i listan samt skriva ut dem | `inventory(bag)`              | []                     |
+    | inv                    | Marvin skall skriva ut hur många saker som finns i listan samt skriva ut dem | `inventory(bag)`              | []                     |
     | inv pick flower        | Plocka upp en "flower" och lägg den på slutet av listan                     | `pick(bag, "flower")`         | ["flower"]             |
     | inv pick book 0        | Plocka upp en "book" och den lägg på index "0"                              | `pick(bag, "book", 0)`        | ["book", "flower"]     |
     | inv swap flower book   | Byter plats på "flower" och "book"                                          | `swap(bag, "flower", "book")` | ["flower", "book"]     |
