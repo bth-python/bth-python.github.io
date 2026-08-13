@@ -12,25 +12,11 @@ import Figure from '@components/CustomFigure.astro';
 
 För att kunna arbeta med kursens kod och uppgifter på GitHub behöver du koppla ditt GitHub-konto till kursens organisation. 
 
-På kursens [Canvas](https://canvas.bth.se) sida finns en uppgift som heter `Koppla GitHub konto till organisationen`. Gå till den och lämna in uppgiften. Din inlämning ska vara den mejladress som du har kopplat till ditt GitHub-konto.
+På kursens [Canvas](https://canvas.bth.se) sida finns en uppgift som heter **GitHub invite**. Gå till den, följ instruktionerna där och lämna in uppgiften.
 
-import organisation from '@assets/kursrepo/organisation.png';
+När uppgiften rättats och får du en inbjudan till organisationen. Du kommer att få en notis i Canvas och ett mejl till din GitHub användare (den du angav i uppgiften).
 
-<Figure 
-    src={organisation}
-    caption="Lämna in uppgiften med din GitHub mejladress."
-/>
-
-Inom 3 minuter kommer uppgiften automatiskt rättas och du får en inbjudan till organisationen. Du kommer att få en notis i Canvas och ett mejl till den mejladress du angav i inlämningen.
-
-import organisation2 from '@assets/kursrepo/organisation2.png';
-
-<Figure 
-    src={organisation2}
-    caption="Du får inbjudan som en kommentar på inlämningen."
-/>
-
-När du har fått inbjudan kan du acceptera den genom att klicka på länken i mejlet eller i Canvas.
+När du har fått inbjudan kan du acceptera den genom att klicka på länken i mejlet eller i Canvas. Vi rekommenderar att du använder kommentaren i Canvas. Där hittar du länk till både inbjudan och ditt repo.
 
 import organisation3 from '@assets/kursrepo/organisation3.png';
 
@@ -41,17 +27,50 @@ import organisation3 from '@assets/kursrepo/organisation3.png';
 
 ## Aktivera Single Sign-On (SSO)
 
-:::Note
-Om knappen `Single Sign-On` inte syns kan hoppa över detta steg.
+:::note
+Om knappen `Single Sign-On` inte syns hör av dig till IT Helpdesk med din studentmail och kurskod DV1670 .
 :::
 
 När du har accepterat inbjudan till organisationen behöver du aktivera Single Sign-On (SSO) för att kunna arbeta med kursens kod och uppgifter. Klicka på knappen `Single Sign-On` uppe till höger på sidan i organisationen.
 
-import organisation4 from '@assets/kursrepo/organisation4.png';
+import organisation4 from '@assets/kursrepo/SSOvidInloggning.png';
 
 <Figure 
     src={organisation4}
-    caption="Acceptera inbjudan till organisationen på GitHub."
+    caption="Logga in med SSO på organisationen bth-python på GitHub."
 />
 
-När du har aktiverat SSO är du redo att arbeta vidare.
+Du får du upp en knapp `Continue`som du klickar på.
+
+import SSOcontinue from '@assets/kursrepo/SSOcontinue.png';
+
+<Figure 
+    src={SSOcontinue}
+    caption="Klicka på knappen Continue på att logga in med SSO."
+/>
+
+När du klickat på knappen `Continue` så är du inloggad med SSO och det ser ut så här:
+
+import SSOinloggad from '@assets/kursrepo/SSOinloggad.png';
+
+<Figure 
+    src={SSOinloggad}
+    caption="Inloggad med SSO på organisationen bth-python på GitHub."
+/>
+
+## Aktivera SSH för organisationen
+
+För att kunna arbeta med kursens kod och uppgifter på GitHub behöver du aktivera SSH för organisationen.
+
+1. Uppe i högra hörnet på vilken sida som helst på GitHub, klicka på din profilbild och välj `Settings`.
+2. I menyn till vänster, klicka på `SSH and GPG keys`.
+3. För din SSH nyckel, klicka på "Configure SSO" och välj `bth-python` i listan över organisationer.
+
+import authenticateSsh from '@assets/kursrepo/authenticate-ssh.png';
+
+<Figure 
+    src={authenticateSsh}
+    caption="Aktivera SSH för organisationen på GitHub genom att klicka på knappen Authorize."
+/>
+
+Nu är du redo att arbeta vidare.
