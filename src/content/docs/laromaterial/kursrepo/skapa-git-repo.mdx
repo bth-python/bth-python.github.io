@@ -43,169 +43,56 @@ import repo0 from '@assets/kursrepo/repo0.png';
 
 
 
-## Skapa kursrepot som ett git repo
+## Klona ditt GitHub repo till ett lokalt repo
 
-Nu skall vi skapa kursrepot som ett git repo. 
+Leta upp ditt GitHub repo på [organistaionen bth-python](https://github.com/bth-python).
 
+Leta reda på ett repo som heter python-xxxx## där xxxx## är ditt studentkonto med fyra tecken och två siffror, tex abcd25 eller motsvarande.
 
+Det är bara du själv och lärarna i kursen som har tillgång till repot.
 
-### Ange namn för ditt repo
+Nu ska vi skapa en lokal kopia av ditt GitHub repo genom att klicka på "Code" och kopiera SSH-länken.
 
-Det första du behöver göra är att berätta vilket namn du har på repot. Detta är samma namn som du använde när du skapade platsen för repot på GitHub. I exemplet användes `python-abcd25` som namn.
+import gh3 from '@assets/kursrepo/gh3.png';
 
-Kör följande kommando (men byt ut `python-abcd25` mot namnet på ditt repo).
+<Figure 
+    src={gh3}
+    caption="Klona ditt repot på GitHub med SSH."
+/>
 
-```bash title="Sätt vilket namn som skall användas när repot skapas."
-# Change abcd25 to your own student acronym
-REPO=python-abcd25
+```bash title="Kommandon för att klona ditt kursrepo"
+git clone git@github.com:bth-python/python-<akronym>.git
 ```
 
-Ovan kommando sparar ditt tänkta repo-namn i en miljövariabel som nästkommande kommandon kan läsa.
+Om din akronym är `abcd25` så ser kommandot ut så här:  
+`git clone git@github.com:bth-python/python-abcd25.git`
 
-Anger du fel namn så kan du rätta till det genom att köra kommandot en gång till med rätt namn.
+### Kolla i ditt lokala Git-repo
 
-Det kan se ut så här när du gör det i terminalen.
+Du kan använda kommandot `pwd` och `ls` för att kontrollera vilken katalog du är i och vad den innehåller. Använder du `ls -la` får får du detaljer om filer och kataloger och det visas även dolda kataloger som börjar med en punkt `.`. För att byta katalog använder du kommandot `cd python-abcd25` om akronymen är abcd25.
 
-import repo1 from '@assets/kursrepo/repo1.png';
+Så här ser det ut i ditt Git-repo ut i terminalen:
+
+import repo_terminal from '@assets/kursrepo/repo_terminal.png';
 
 <Figure 
-    src={repo1}
-    caption="Nu är du redo att skapa ditt repo, se bara till att du valt rätt namn innan du går vidare."
+    src={repo_terminal}
+    caption="Ditt lokala Git-repo i terminalen."
+    width="600px"
 />
 
+### Kör setup i ditt lokala Git-repo
 
+Nu kan du köra följande kommando för att göra ditt kursrepo redo. Kommandot skapar kataloger, laddar ner workflow-fil & task-fil samt tester. Dessutom skapas första inlämningsbranchen `bth/submit/kmom03`.
 
-### Initiera ditt git repo med branches
+```bash title="Kommando för att göra ditt lokala kursrepo redo"
+pwd # visar att du står i ditt lokala repo dbwebb-kurser/python-abcd25 för studenten abcd25
 
-Nu kan du köra följande kommandon för att initiera ditt kursrepo som ett git repo som passar för kursen.
-
-```bash title="Kommandon för att skapa ditt kursrepo"
-# Init the repo and move into the repo directory
-git init $REPO
-cd $REPO
-
-# Create the main branch and add a README.md to it
-git checkout -b main
-echo "# $REPO" >> README.md
-git add README.md
-git commit -m "First commit"
-
-# Create three empty branches to which you will submit your result in the course
-git checkout -b bth/submit/kmom03
-git checkout main
-git checkout -b bth/submit/kmom06
-git checkout main
-git checkout -b bth/submit/kmom10
-git checkout main
-git checkout -b bth/submit/test-gitconfig
-git checkout main
+task setup
 ```
 
-Här visas bilder från när kommandona körs, del för del.
+I slutet av setup-skriptet körs en del tester. Vid fel så kör du de kommandon som föreslås. Du kommer troligen att få köra kommandon för fixa till `bth/submit/test-gitconfig`-branchen lokalt och nästa kommando är för att byta tillbaka till `main`-branchen.
 
-Först initieras repot och vi flyttar in i den katalogen som skapas.
+**Kör om `task setup` tills alla tester går igenom.**
 
-import repo2 from '@assets/kursrepo/repo2.png';
-
-<Figure 
-    src={repo2}
-    caption="Nu är repot skapar och du har flyttat in i den katalogen där repot finns."
-/>
-
-Du kan använda kommandot `pwd` och `ls` för att kontrollera vilken katalog du är i och vad den innehåller. Använder du `ls -la` får får du detaljer om filer och kataloger och det visas även dolda kataloger som börjar med en punkt `.`.
-
-Därefter skapar vi main-branchen. 
-
-import repo3 from '@assets/kursrepo/repo3.png';
-
-<Figure 
-    src={repo3}
-    caption="Nu är main-branchen skapad och en fil README.me är tillagd."
-/>
-
-Det är den branchen du skall jobba i och här kommer du att placera all kod du skriver.
-
-Därefter skapar vi fyra tomma branches som skall användas vid inlämning av kursens tre uppgifter. Den sista är för att kolla att din utvecklingsmiljö är kopplad till Canvas.
-
-
-import repo4 from '@assets/kursrepo/repo4.png';
-
-<Figure 
-    src={repo4}
-    caption="Nu är fyra tomma submit-branches skapade."
-/>
-
-Du kan kontrollera att ditt repo nu innehåller 5 branches med kommandot `git --no-pager branch`, med det kommandot ser du också vilken branch du befinner dig i för närvarande.
-
-Du kan också använda kommandot `git status` för att se om du gjort några lokala ändringar i ditt git repo, ändringar som ännu inte är committade.
-
-import repo41 from '@assets/kursrepo/repo41.png';
-
-<Figure 
-    src={repo41}
-    caption="Med git branch och git status kan vi kontrollera status för repot."
-/>
-
-:::caution
-Om något går fel så kan du radera din katalog och försöka igen.
-
-```bash title="Så här raderar du ditt skapade repo om du vill börja om från början."
-# Change <dirname> to the name of your course repository name,
-# for example python-abcd25.
-cd ~/dbwebb-kurser
-rm -rf <dirname>
-```
-
-Kör därefter kommandona som skapar ditt kursrepo igen, men kör dem gärna ett efter ett så blir det lättare att se vilket kommando som går fel.
-:::
-
-
-
-## Koppla ditt repo mot GitHub
-
-När du är klar och ditt kursrepo är skapat så kopplar du det mot platsen på GitHub och du laddar upp ditt repo, tillsammans med de branches du skapat, via kommandot `git push`.
-
-```bash title="Koppla ditt kursrepo mot GitHub"
-# Add the remote place on GitHub to connect to your repo
-git remote add origin git@github.com:bth-python/$REPO.git
-
-# Push all branches and make the follow changes on the remote (GitHub)
-git push -u origin main
-git push origin bth/submit/kmom03
-git push origin bth/submit/kmom06
-git push origin bth/submit/kmom10
-git push origin bth/submit/test-gitconfig
-```
-
-Så här kan det se ut om man kör varje kommando för sig. Dock visas bara de två första `git push` då resterande push ger liknande utskrift.
-
-import repo5 from '@assets/kursrepo/repo5.png';
-
-<Figure 
-    src={repo5}
-    caption="Nu är samtliga branches kopplade mot platsen på GitHub."
-/>
-
-Nu är du klar och har skapat ditt kursrepo lokalt och du har kopplat det till din "remote" som är platsen på GitHub.
-
-
-
-## Ditt repo på GitHub
-
-Nu kan du ladda om din repo-sida på GitHub för att se vad du laddat upp. I mitt fall ser det ut så här.
-
-import gh1 from '@assets/kursrepo/gh1.png';
-
-<Figure 
-    src={gh1}
-    caption="Nu ser du innehållet i ditt repo på GitHub."
-/>
-
-Du kan klicka på länken "Branches" så ser du alla de fyra branches som ditt repo består av. Om du inte hittar länken den så trycker u `ctrl f` och söker efter strängen "branch" i webbsidan.
-
-import gh2 from '@assets/kursrepo/gh2.png';
-
-<Figure 
-    src={gh2}
-    caption="Du kan se dina branches via GitHub."
-/>
+När alla testerna gått igenom är det bara att köra på!
