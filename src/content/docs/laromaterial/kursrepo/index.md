@@ -11,7 +11,7 @@ sidebar:
 
 ## Förutsättning
 
-En förutsättning för att du skall kunna jobba genom denna guiden är att du har ett [studentkonto på BTH](https://konto.bth.se/home) och du har [ett GitHub konto](https://github.com)
+En förutsättning för att du skall kunna jobba genom denna guiden är att du har ett [studentkonto på BTH](https://konto.bth.se/home) och du har [ett GitHub konto](https://github.com).
 
 ## Guidens innehåll
 
