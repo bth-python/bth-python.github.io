@@ -21,6 +21,10 @@ I denna guiden får du hjälp med:
 
 1. [Få tillgång till organisationen på GitHub](/laromaterial/kursrepo/organisation).
 
-2. [Klona kursens repo lokalt](/laromaterial/kursrepo/skapa-git-repo).
+2. [Skapa katalogen dbwebb-kurser](/laromaterial/kursrepo/skapa-katalog-dbwebb-kurser).
+
+3. [Klona kursens repo lokalt](/laromaterial/kursrepo/skapa-git-repo).
+
+4. [Skapa SSH-nycklar för autentisering mot GitHub](/laromaterial/kursrepo/ssh-key).
 
 I kursen kommer vi att referera till ditt Git-repo som ditt "kursrepo".
