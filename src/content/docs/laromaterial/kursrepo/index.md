@@ -23,7 +23,7 @@ I denna guiden får du hjälp med:
 
 2. [Skapa katalogen dbwebb-kurser](/laromaterial/kursrepo/skapa-katalog-dbwebb-kurser).
 
-3. [Skapa SSH-nycklar för autentisering mot GitHub](/laromaterial/kursrepo/ssh-key).
+3. [Skapa SSH-nycklar för autentisering mot GitHub](/laromaterial/kursrepo/sshkey).
 
 4. [Klona kursens repo lokalt](/laromaterial/kursrepo/skapa-git-repo).
 
