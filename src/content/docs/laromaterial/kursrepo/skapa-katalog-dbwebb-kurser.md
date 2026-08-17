@@ -28,7 +28,7 @@ cd dbwebb-kurser
 # Kontrollera vilken katalog du står i
 pwd
 
-# Katalogen bör normalt vara tom, men du kan dubbelkolla
+# Katalogen bör normalt vara tom (eller innehålla webtec-kursen), men du kan dubbelkolla
 ls -l
 ```
 
