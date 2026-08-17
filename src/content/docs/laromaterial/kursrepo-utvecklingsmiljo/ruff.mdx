@@ -1,5 +1,5 @@
 ---
-title: "Installera lintern Ruff" 
+title: "Lintern Ruff" 
 description: Vi installerar linter-verktyget Ruff för att hjälpa oss att formattera koden och hitta små buggar genom statisk kodanalys.
 author: aar
 revision:
@@ -13,81 +13,11 @@ import YouTube from '@components/YouTube.astro';
 
 En linter som Ruff kan utföra statisk kodanalys för att hitta problem i din kod, problem som du bör lösa för att förbättra din kod. Denna typen av verktyg, linters och liknande, är bra utvecklingsverktyg som både kan spara din tid, göra din kod mer konsistent och i slutändan höjer du kvaliteten på ditt arbete. Läs mer [om Ruff på dess webbplats](https://docs.astral.sh/ruff/).
 
-
-
-## Installera Ruff
-
-Du installera Ruff med hjälp av `uv`. Källkoden för Ruff är publicerad på PyPi package repository tillsammans med alla andra kodmoduler och verktyg som tillsammans bildar en infrastruktur för Python-projekt. Du kan se [projektet för Ruff på PyPi's webbplats](https://pypi.org/project/ruff/).
-
-Kör följande kommando för att installera senaste versionen av Ruff som är kompatibel med "0.12".
-
-```console title="Installera verktyget Ruff med uv."
-uv add "ruff>=0.12"
-```
-
-Efter det kör `uv lock` för att uppdatera låsfilen `uv.lock` så att den innehåller den version av Ruff som du just installerade.
-
-```console title="Uppdatera uv.lock."
-uv lock
-```
-
-Om något blir fel så kör du kommandot igen tills det blir rätt eller avinstallera Ruff versionen du har installerat med `uv remove ruff`.
-
-
-
-## git status
-
-Om du nu kör kommandot `git status` så ser du vilka filer som uppdaterats. Det kan se ut så här.
-
-import ruff1 from '@assets/kursrepo-utvecklingsmiljo/ruff1.png';
-
-<Figure 
-    src={ruff1}
-    caption="Inspektera vilka filer som uppdaterats."
-/>
-
-Du har filer som du behöver lägga till repot och därefter så gör du en commit och en push. Gör det och dubbelkolla att ditt repo på GitHub uppdateras i enlighet med dina lokala ändringar.
-
-Titta gärna i de filer som uppdaterats och försök förstå vad det är som händer. De filer som berördes nu var följande.
-
-1. Filen `pyproject.tom` uppdaterades med Ruff och dess version.
-1. Filen `uv.lock` innehåller alla beroenden Ruff har och deras exakta versioner.
-
-Här är lösningen till hur jag lägger till filerna i mitt repo.
-
-<details>
-<summary>Kommandon för att lägga till i git repot.</summary>
-
-```bash title="Lägg till fil i git repot."
-# Add all files that are not part of the repo
-git add .
-
-# Commit the changes
-git commit -a -m "Installed Ruff"
-
-# Push the changes to the remote
-git push
-```
-
-Glöm inte att göra `git status` och kanske även `git lg` för att se status på ditt repo.
-
-</details>
-
-
-
-## Uppdatera reglerna för Ruff
+Ruff är redan installerat i ditt repo.
 
 Ruff kontrollerar att vi skriver kod som följer vissa regler. Du kan läsa mer om hur du anpassar reglerna i [Ruffs dokumentation](https://docs.astral.sh/ruff/rules/) (det är väldigt många så du behöver inte göra det).
 
-Vi har valt vikla regler vi vill att du ska följa när du skriver din kod. Du behöver en konfigurationsfil som heter `ruff.toml` i din projektmapp som innehålle de reglerna.
-
-Du kan hämta hem en kopia av konfigurationsfilen med följande kommando.
-
-```console title="Hämta kursens version av konfigurationsfilen ruff.toml."
-curl -L -o ruff.toml https://raw.githubusercontent.com/bth-python/python-abcd25/refs/heads/main/ruff.toml
-```
-
-Gör commit och push för den uppdaterade konfigurationsfilen.
+Vi har valt vilka regler vi vill att du ska följa när du skriver din kod. Det finns en konfigurationsfil som heter `ruff.toml` i din projektmapp som innehåller de reglerna.
 
 :::note
 Om du inte håller med oss om vissa av reglerna som du upplever under kursensgång får du gärna ta upp det med oss. Vi är öppna för att diskutera reglerna och ändra dem om det är motiverat.

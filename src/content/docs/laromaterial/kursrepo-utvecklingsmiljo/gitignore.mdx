@@ -11,7 +11,7 @@ sidebar:
 import Figure from '@components/CustomFigure.astro';
 import YouTube from '@components/YouTube.astro';
 
-File `.gitignore` används till att bestämma vilka filnamn och kataloger som inte skall vara en del av repot, det är alltså filer som man inte vill checka in i repot. Filer man inte vill checka in kan innehålla känslig information, till exempel lösenord. Eller så är det filer och kataloger som genereras och skapas när man installerar eller kör några av programmen, eller så kan det vara filer som är specifika för ett visst operativsystem som inte skall vara en del av ett repo.
+File `.gitignore` används till att bestämma vilka filnamn och kataloger som inte skall vara en del av repot, det är alltså filer som vi inte vill checka in i repot. Filer vi inte vill checka in kan innehålla känslig information, till exempel lösenord. Eller så är det filer och kataloger som genereras och skapas när vi installerar eller kör några av programmen, eller så kan det vara filer som är specifika för ett visst operativsystem som inte skall vara en del av ett repo.
 
 :::note
 Inget ska uppdateras, detta är bara en förklaring av innehållet i filen `.gitignore`.
@@ -20,7 +20,7 @@ Inget ska uppdateras, detta är bara en förklaring av innehållet i filen `.git
 
 ## Innehåll filen .gitignore
 
-Använd vscode för att skapa filen och lägg in följande innehåll i filen.
+Denna .gitignore-fil ser till att tillfälliga filer, virtuella Python-miljöer, cachefiler och operativsystemspecifika filer inte sparas i Git-repot. På så sätt undviks onödiga filer och repot hålls rent och lättare att samarbeta kring.
 
 ```bash title="Utkast till en .gitignore fil."
 # python
@@ -50,31 +50,5 @@ import ignore1 from '@assets/kursrepo-utvecklingsmiljo/ignore1.png';
 
 <Figure 
     src={ignore1}
-    caption="Filen .gitignore är skapad i ditt repo."
+    caption="Filen .gitignore från ditt repo."
 />
-
-
-
-### Lägg till filen till ditt repo med add, commit och push
-
-Nu kan du lägga till filen till ditt repo med git repon för add, commit och push. Du kan klicka nedan för att öppna och se hur man gör, men prova gärna på egen hand först.
-
-<details>
-<summary>Kommandon för att lägga till .gitignore i git repot.</summary>
-
-```bash title="Lägg till fil i git repot."
-# Add the file to the repo
-git add .gitignore
-
-# Commit the changes
-git commit -a -m "Add the .gitignore with basic settings"
-
-# Push the changes to the remote
-git push
-```
-
-Glöm inte att göra `git status` och kanske även `git lg` för att se status på ditt repo.
-
-</details>
-
-När du är klar kan du dubbelkolla att filen verkligen ligger på GitHub som en del av ditt repo.

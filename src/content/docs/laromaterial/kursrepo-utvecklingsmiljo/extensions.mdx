@@ -1,6 +1,6 @@
 ---
-title: "Installera Extensions i VSCode" 
-description: Vi installerar bra att ha extensions i VSCode för att förbättra vår utvecklar upplevelse.
+title: "Extensions i VS Code" 
+description: Vi installerar bra att ha extensions i VS Code för att förbättra vår utvecklar upplevelse.
 author: aar
 revision:
     "2025-07-22": "(A, aar) Första utkastet."
@@ -10,11 +10,14 @@ sidebar:
 
 import Figure from '@components/CustomFigure.astro';
 
-Extensions i VSCode är tillägg som förbättrar din utvecklingsupplevelse. Det finns många olika extensions som kan hjälpa dig att skriva bättre kod, hitta buggar och mycket mer. I den här guiden kommer vi att installera några extensions som vi rekommenderar för Python-utveckling.
+Extensions i VS Code är tillägg som förbättrar din utvecklingsupplevelse. Det finns många olika extensions som kan hjälpa dig att skriva bättre kod, hitta buggar och mycket mer. I den här guiden kommer vi att installera några extensions som vi rekommenderar för Python-utveckling.
 
-
+:::note
+extension-filen ska inte laddas ner igen, din är redan uppdaterad. Titta dock igenom "Stäng av GitHub Copilot" och "Installera rekommenderade extensions".
+:::
 
 ## Ladda ner fil med rekommenderade extensions
+
 Vi har skapat en fil som innehåller rekommenderade extensions för Python-utveckling.
 Du kan ladda ner den med följande kommando.
 
@@ -29,7 +32,7 @@ Nu har du laddat ner en fil som heter `extensions.json` i mappen `.vscode` i dit
 
 GitHub Copilot är Microsofts egna AI- verktyg som ger förslag på kod medan du skriver. Det är ett verktyg som vi inte vill använda i den här kursen. Det är inte tillåtet att använda AI-verktyg för att generera kod i den här kursen.
 
-Klicka på Copilot-ikonen uppe till höger i VSCode och välj "Disable Copilot" för att stänga av GitHub Copilot.
+Klicka på Copilot-ikonen uppe till höger i VS Code och välj "Disable Copilot" för att stänga av GitHub Copilot.
 
 import extensions_copilot from '@assets/kursrepo-utvecklingsmiljo/extensions_copilot.png';
 
@@ -38,7 +41,7 @@ import extensions_copilot from '@assets/kursrepo-utvecklingsmiljo/extensions_cop
     caption="Stäng av Copilot."
 />
 
-Klicka på Copilot-ikonen nere till höger i VSCode och välj "Disable Completions" för att stänga av GitHub Copilot automatgenerering.
+Klicka på Copilot-ikonen nere till höger i VS Code och välj "Disable Completions" för att stänga av GitHub Copilot automatgenerering.
 
 import extensions_copilot2 from '@assets/kursrepo-utvecklingsmiljo/extensions_copilot2.png';
 
@@ -64,11 +67,11 @@ Ibland när man installerar ett extension kommer det upp en fråga om man litar 
 
 ### Python och Pylance
 
-Gör att vi kan exekvera Python filer i VSCode, felsöka dem enklare och mycket mer.
+Gör att vi kan exekvera Python filer i VS Code, felsöka dem enklare och mycket mer.
 
 ### Ruff
 
-Visar fel i koden medan du skriver den. Vi har tidigare installerat och konfigurerat Ruff utanför VSCode. Med detta extension kan vi direkt se när vi skriver felaktig kod enligt de regler vi har satt upp.
+Visar fel i koden medan du skriver den. Vi har tidigare installerat och konfigurerat Ruff utanför VS Code. Med detta extension kan vi direkt se när vi skriver felaktig kod enligt de regler vi har satt upp.
 
 ### Unwanted Extensions
 
@@ -100,7 +103,7 @@ Om du vill har hjälp med rättstavning på fler språk kan du söka på `<Språ
 
 ### Peacock
 
-Nu när du studerar kommer du läsa minst två kurser samtidigt, om du har tur ska du koda i båda kurserna, och ibland har du ett hobby projekt igång också. Om du har flera VSCode fönster igång samtidigt och hoppar mellan olika projekt då kan det vara svårt att hålla koll på vilket fönster som tillhör vilket projekt. Detta extension kan hjälpa dig få koll. Det ändrar färgen på VSCode baserat på vilket projekt du har öppnat VSCode i.
+Nu när du studerar kommer du läsa minst två kurser samtidigt, om du har tur ska du koda i båda kurserna, och ibland har du ett hobby projekt igång också. Om du har flera VS Code fönster igång samtidigt och hoppar mellan olika projekt då kan det vara svårt att hålla koll på vilket fönster som tillhör vilket projekt. Detta extension kan hjälpa dig få koll. Det ändrar färgen på VS Code baserat på vilket projekt du har öppnat VS Code i.
 
 Om du inte vill ändra färgen för de olika projekten kan du skippa att installera detta extension. Om du vill ha det så finns det en del i inställningar man kan ändra. Jag tänkte visa vilka jag har.
 
@@ -117,9 +120,9 @@ import extensions_peacock1 from '@assets/kursrepo-utvecklingsmiljo/extensions_pe
 />
 
 
-Nu har du en lång lista med olika inställning för att påverkar vilka delar av VSCode som ändrar färg. Jag föredrar att bara ändra färgen på ramen till vänster (den vita pilen).
+Nu har du en lång lista med olika inställning för att påverkar vilka delar av VS Code som ändrar färg. Jag föredrar att bara ändra färgen på ramen till vänster (den vita pilen).
 
-Gå igenom listan med inställning och testa klicka i och ur checkboxes för att avgöra var du vill ha färg. Jag har bara den översta i klickad, "Affect Activity Bar". Jag brukar också klicka i den sista inställningen "Surprise me on startup". Varje gång man öppnar vscode i en ny katalog och det inte finns en settings fil med färger så kommer peacock skapa det och slumpa fram en färg. Då kan man enkelt gå in i settings filen och ändra färgen.
+Gå igenom listan med inställning och testa klicka i och ur checkboxes för att avgöra var du vill ha färg. Jag har bara den översta i klickad, "Affect Activity Bar". Jag brukar också klicka i den sista inställningen "Surprise me on startup". Varje gång man öppnar VS Code i en ny katalog och det inte finns en settings fil med färger så kommer peacock skapa det och slumpa fram en färg. Då kan man enkelt gå in i settings filen och ändra färgen.
 
 
 import extensions_peacock2 from '@assets/kursrepo-utvecklingsmiljo/extensions_peacock2.png';

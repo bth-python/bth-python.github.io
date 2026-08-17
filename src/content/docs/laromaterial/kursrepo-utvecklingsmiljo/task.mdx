@@ -1,5 +1,5 @@
 ---
-title: "Installera Task" 
+title: "Verktyget Task" 
 description: Vi installerar byggverktyget Task 
 author: aar
 revision:
@@ -13,29 +13,6 @@ Task är ett byggverktyg och "task runner". Det är ett verktyg som förenklar p
 
 Vi ska främst använda det för att förenkla att ladda ner olika filer i kursen.
 
-## Installera Task
-
-Det finns många olika sätt att installera Task. Det enklaste är att använda `uv` som vi redan har installerat. Du kan se [Task på PyPi's webbplats](https://pypi.org/project/task/).
-
-```console title="Installera Task med uv."
-uv add "go-task-bin>=3.44"
-```
-
-Gör nu som när du installerade Ruff och kolla med `git status` vilka filer som har uppdaterats och lägg till dem i en commit och pusha till GitHub.
-
-
-
-## Hämta Taskfile
-
-Nu ska du ladda ner en Taskfile som innehåller de kommandon som vi ska använda i kursen. Det är en fil som heter `Taskfile.yml`.
-
-```console title="Ladda ner Taskfile."	
-curl -L -o Taskfile.yml https://raw.githubusercontent.com/bth-python/python-abcd25/refs/heads/main/Taskfile.yml
-```
-
-Gör en commit och pusha filen.
-
-
 
 ## Kör task
 
@@ -47,25 +24,31 @@ uv run task --list
 
 `uv run task` är kommandot för att köra Task och `--list` är en flagga som listar alla kommandon som finns i Taskfile.
 
-När jag skriver denna artikel finns följande kommandon tillgängliga:
+Det finns följande kommandon tillgängliga:
 
 ```
 task: Available tasks for this project:
-* check-have-files:           Checks that repo contain all needed files.
+* check-ready:                Check if assignment is ready for submission. Usage: 'task check-ready -- kmom01'
+* check-repo-setup:           Checks that repo contain all needed files and is setup correctly.
+* create-src-dirs:            Creates the src directory structure if they do not exist
+* download-all:               Download all files available config files
 * download-extensions:        Download file with recommended extensions.
+* download-hooks:             Download git hook files from the template repository and install them
 * download-lab:               Download a lab. Run with 'uv run task download-lab -- lab_XX', replace XX with the lab number.
 * download-ruff-config:       Downloads the ruff configuration file from the artifact repository
 * download-taskfile:          Downloads the Taskfile from the artifact repository
-* download-tests:             Replaces files in tests/ with files from the artifact repository, https://github.com/bth-python/python-abcd25
+* download-tests:             Replaces files in tests/ with files from the artifact repository, https://github.com/bth-python/template
 * download-workflow:          Download workflows file that checks code at pull request.
+* setup:                      Initial setup - run all configuration downloads
+* test:                       Run tests for a given kmom from any directory. Usage: 'task test -- kmom04'
 ```
 
-När du kör kommandot kan det se annorlunda ut men det borde vara något liknande.
+Alla kommandon startar med `uv run task`. Du kan testa om inlämningsuppgiften till kmom01 är klar.
 
-Du kan testa ladda ner konfigurationsfilen för Ruff igen. Ändra först något i filen `ruff.toml` och kör sedan följande kommando för att se att du har fått ner en ny fil.
-
-```console title="Ladda ner ruff.toml."
-uv run task download-ruff-config
+```console title="Testa om kmom01 är klart."
+uv run task check-ready -- kmom01
 ```
 
-Öppna `ruff.toml` och se att din ändring inte längre är kvar.
+Det ger naturligtvis fel eftersom du inte gjort inlämningsuppgiften till kmom01 än.
+
+Bra då har vi koll på verktyget task.

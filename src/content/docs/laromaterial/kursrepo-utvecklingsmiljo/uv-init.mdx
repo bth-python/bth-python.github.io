@@ -11,25 +11,26 @@ sidebar:
 import Figure from '@components/CustomFigure.astro';
 import YouTube from '@components/YouTube.astro';
 
-När man jobbar i projekt som har att göra med programmeringsspråket Python så kan man använda `uv` som ett sätt att hantera projektet och installera verktyg och extra kodmoduler och hjälpverktyg vid behov. För att det skall fungera så behöver man initiera repot som ett uv projekt via kommandot `uv init`. Då skapas följande filer:
+När vi jobbar i projekt som har att göra med programmeringsspråket Python så kan vi använda `uv` som ett sätt att hantera projektet och installera verktyg och extra kodmoduler och hjälpverktyg vid behov. Det finns en virtuell miljö redan i ditt repo.
+
+Följande filer tillhör uv:
 - `.python-version` - en fil som innehåller vilken version av Python som skall användas i projektet.
-- `main.py` - en exempel-fil med python kod.
 - `pyproject.toml` - en fil som innehåller inställningar för projektet och eventuella beroenden (dependencies).
-- `uv.lock` - en fil som innehåller alla extra verktyg/moduler/paket vi har installerat i projektet med `uv add` och vilken version de har.
-- `.venv` - en katalog som innehåller en virtuell miljö för Python, där alla moduler installeras lokalt för projektet. Den ska inte vara en del av repot och därför har vi lagt till den i `.gitignore`. Den katalogen kan alltid återskapas utifrån informationen i `uv.lock` via kommandot `uv sync`.
+- `uv.lock` - en fil som innehåller alla extra verktyg/moduler/paket som är installerade i projektet och vilken version de har.
+- `.venv` - en katalog som innehåller en virtuell miljö för Python, där alla moduler installeras lokalt för projektet. Den ska inte vara en del av repot och därför har vi lagt till den i `.gitignore`. Den katalogen kan alltid återskapas utifrån informationen i `uv.lock` när du kör den virtuella miljön via kommandot `uv run main.py`.
 
 
+## Verifiera ditt uv projekt
 
-## Initiera som uv projekt
+Vi börjar med kommandot `uv version` för att se att uv är installerat.
 
-Vi börjar med kommandot `uv init` för att initiera projektet.
-
-```bash title="Initiera projektet med uv init."
-# Just init the project
-uv init
+```bash title="Kontrollera att uv är installerat."
+uv version # ger utskriften python-abcd25 0.1.0
 ```
 
-Det kan se ut så här om du gör detta i vscode och terminalen. PS om termnialen inte är öppen så kan du öppna den med `Ctrl + ö` (Windows) eller `Cmd + ö` (Mac).
+Om du vill ha ditt eget repos namn så uppdaterar du filen `pyproject.toml` och byter ut python-abcd25 mot ditt repos namn. Glöm inte att göra add, commit och push på dina ändringar innan du testar `uv version igen`. Men det spelar ingen roll om det står python-abcd25.
+
+Det kan se ut så här om du gör detta i terminalen i VS Code.
 
 import uvinit1 from '@assets/kursrepo-utvecklingsmiljo/uvinit1.png';
 
@@ -38,35 +39,26 @@ import uvinit1 from '@assets/kursrepo-utvecklingsmiljo/uvinit1.png';
     caption="Filen pyproject.toml m.m. är skapad i ditt repo."
 />
 
-För att skapa en virtuell miljö och installera de verktyg som behövs i den, så kör vi kommandot `uv sync`. Det kommer att skapa en katalog `.venv` där alla verktyg och moduler installeras lokalt för projektet.
+Skapa en fil `main.py` med `touch main.py` eller skapa den direkt i VS Code med "File-> New Text File". Editera den i VS Code med följande:
 
-```bash title="Installera verktyg och moduler i den virtuella miljön"
-uv sync
+```bash title="Innehåll i main.py"
+def main():
+    print("Hello from bth-python!")
+
+if __name__ == "__main__":
+    main()
 ```
-import uvinit2 from '@assets/kursrepo-utvecklingsmiljo/uvinit2.png';
 
-<Figure 
-    src={uvinit2}
-    caption="uv.lock och .venv är skapad i ditt repo."
-/>
 Testa exekvera `main.py` för att se att allt fungerar som det skall.
 
 ```bash title="Exekvera main.py"
-uv run main.py 
+uv run main.py # ger utskriften Hello from bth-python!
 ```
 
-import uvinit3 from '@assets/kursrepo-utvecklingsmiljo/uvinit3.png';
-
-<Figure 
-    src={uvinit3}
-    caption="Exekvera main.py."
-/>
+Det kommer att skapa en katalog `.venv` där alla verktyg och moduler installeras lokalt för projektet.
 
 Nu när allt funkar ska vi radera `main.py`. Vi ska skapa andra filer och kataloger senare.
 
 ```bash title="Radera main.py"
 rm main.py
 ```
-## Lägg till filen i ditt repo och pusha
-
-Avsluta med att lägga till filerna `.python-version`, `pyproject.toml` och `uv.lock` som en del av ditt repo och pusha dem. Dubbelkolla att den finns på GitHub innan du är helt klar.

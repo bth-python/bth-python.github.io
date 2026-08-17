@@ -1,6 +1,6 @@
 ---
-title: "Lägg till fil i git repot" 
-description: Vi visar hur man lägger till filen .editorconfig som en del av git repot och hur man pushar repots ändringar till GitHub.
+title: "Uppdatera fil i git repot" 
+description: Vi visar hur vi uppdaterar filen README.md som en del av git repot och hur vi pushar repots ändringar till GitHub.
 author: mos
 revision:
     "2025-06-25": "(A, mos) Första utkastet."
@@ -13,7 +13,7 @@ import YouTube from '@components/YouTube.astro';
 
 
 
-Ditt kursrepo är ett lokalt git repo och de filer du skapar lokalt behöver du också lägga till i git repot på GitHub. Du lägger till filer via de kommandon som git erbjuder.
+Ditt kursrepo är ett lokalt git repo och de filer du skapar eller uppdaterar lokalt behöver du också lägga till i git repot på GitHub. Du lägger till filer via de kommandon som git erbjuder.
 
 ## git status
 
@@ -48,6 +48,7 @@ import git12 from '@assets/kursrepo-utvecklingsmiljo/git12.png';
     caption="Så här ser filen README.md ut innan uppdateringen."
 />
 
+
 ### Kontrollera git status igen
 
 Kontrollera status i ditt lokala kursrepo igen och se att din README.md fil är uppdaterad.
@@ -61,14 +62,14 @@ import git13 from '@assets/kursrepo-utvecklingsmiljo/git13.png';
     caption="Kontrollera status på ditt repo igen med git status."
 />
 
-Texten säger att filen `README.md` ännu inte är en del av ditt repo på GitHub. Ändringarna finns än så länge bara i ditt lokala kursrepo.
+Texten säger att filen `README.md` ännu inte är en del av ditt repo på GitHub. Ändringarna finns än så länge bara i ditt lokala kursrepo.  
 
 
-## git add 
+## git add
 
-Låt oss lägga till filen som saknas med kommandot `git add`.
+Låt oss lägga till filen som uppdaterats med kommandot `git add`.
 
-```console title="Lägg till filen README.md till repot på GitHub."
+```console title="Lägg till den uppdaterade filen README.md till repot på GitHub."
 git add README.md
 ```
 
@@ -89,8 +90,9 @@ import git2ny from '@assets/kursrepo-utvecklingsmiljo/git2ny.png';
     caption="Kontrollera status på ditt repo med git status."
 />
 
-Nu är filen en del av repot, men ändringarna är ännu inte committade.
+Nu är den uppdaterade filen en del av repot, men ändringarna är ännu inte committade.
 
+Filer som du skapar själv lägger du till på samma sätt.
 
 
 ## git commit
@@ -172,7 +174,7 @@ Om du är osäker på att du är i synk så kan du alltid göra `git status` til
 
 Den här delen är överkurs men kan vara intressant att jobba igenom.
 
-För varje commit du gör till ett git repo så sparas det i en git commit historik, en git logg. Man kan få fram en översikt av dessa commit-meddelanden med kommandot `git log`.
+För varje commit du gör till ett git repo så sparas det i en git commit historik, en git logg. Vi kan få fram en översikt av dessa commit-meddelanden med kommandot `git log`.
 
 Kör följande kommando för att se hur en commit-historik kan presenteras.
 
@@ -190,7 +192,7 @@ import git6ny from '@assets/kursrepo-utvecklingsmiljo/git6ny.png';
     caption="Utskriften från git log visar commit-historiken."
 />
 
-Man kan förändra utskriften från kommandot genom att skicka argument till kommandot, så här.
+vi kan förändra utskriften från kommandot genom att skicka argument till kommandot, så här.
 
 ```console title="En annorlunda formatterad utskrift av git commit historiken."
 git log --oneline --graph --decorate

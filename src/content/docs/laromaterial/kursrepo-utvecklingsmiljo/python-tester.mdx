@@ -1,6 +1,6 @@
 ---
-title: "Installera python-tester" 
-description: Vi installerar testverktyget python-tester.
+title: "python-tester" 
+description: Vi tittar på testverktyget python-tester.
 author: aar
 revision:
     "2025-07-19": "(A, aar) Första utkastet."
@@ -11,34 +11,6 @@ sidebar:
 En viktig del av att skriva kod är att testa koden. Vi vill inte behöva göra det manuellt utan vi skriver kod som testar vår andra kod. I denna kurs kommer vi inte lära oss skriva tester, däremot finns det redan färdiga tester för de olika uppgifter du ska utföra i kursen. Med de testerna kan du och vi enkelt kolla om din kod uppfyller den funktionalitet som ska finnas i din kod.
 
 Python har ett inbyggt verktyg för att skriva och exekvera tester, det heter [unittest](https://docs.python.org/3/library/unittest.html). För att det ska bli enklare för dig att förstå utskriften av testerna som finns har vi byggt om unittest så att det blir enklare att läsa. Vi kallar det för [python-tester](https://pypi.org/project/python-tester/) och det är ett verktyg som vi kommer använda i kursen.
-
-
-
-## Installera python-tester
-
-Installer verktyget med `uv`
-
-```console title="Installera python-tester med uv."
-uv add "python-tester>=3"
-```
-
-Gör nu som när du installerade Ruff och kolla med `git status` vilka filer som har uppdaterats och lägg till dem i en commit och pusha till GitHub.
-
-
-
-## Ladda ner testfiler
-
-Använd Task för att ladda ner testerna.
-
-```console title="Ladda ner tester med Task"
-uv run task download-tests
-```
-
-Om du står med terminalen i roten av kursrepot kan du använda kommandot `ls` för att se att katalogen `tests/` har skapats. Om du har VSCode öppen så kan du se att katalogen `tests/` har skapats där också och du kan se att den innehåller flera kataloger och filer. Du kan också använda `git status` för att se att det har skapats en katalog och flera filer.
-
-Gör en commit och pusha katalogen.
-
-
 
 
 ## Kör python-tester
@@ -77,17 +49,25 @@ Notera att det är samma katalogstruktur under `src` och `tests`, båda innehål
 För att köra testerna för den uppgiften måste vi skicka med sökvägen från där du står i terminalen till där testerna finns. Om du står i roten av kursrepot så är sökvägen `tests/kmom01/convert`.
 
 ```console title="Kör tester för convert uppgiften."
-uv run tester tests/kmom01/convert
+uv run task test -- kmom01
 ```
 
 Du ska få upp en lång felutskrift som avslutas med:
 
 ```
-*********
-Katalogen som ska innehålla din kod saknas.
-Kontrollera att du har katalogen /home/zeldah/dbwebb-kurser/python-abcd25/src/kmom01/convert.
-Om du har den och felet kvarstår, kontakta kursansvarig med ovanstående felmeddelande!
-*********
+ConvertStructure 
+    file convert py exist...................... FAIL
+
+======================================================================
+FAIL section: Your code produced wrong result!
+======================================================================
+Fails for ConvertStructure
+    |Testerna hittar inte filen 'convert.py'.
+    ----------------------------------------------------------------------
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)
 ```
 
-Om du får det så är allt korrekt installerat och du kan gå vidare till nästa uppgift.
+Då har du koll på python-tester!

@@ -16,45 +16,18 @@ import { Steps } from '@astrojs/starlight/components';
 
 Då är vi klara med att installera den delen av utvecklingsmiljön som hjälper dig att komma igång med kursens första kmom.
 
-## Verifiera filerna
+## Verifiera ditt repo
 
-Så här ser det ut när jag tittar på mitt repo i vscode och verifierar mitt repo med `uv run task check-have-files`.
+Om du vill kontrollera om ditt repo är rätt uppsatt så kör du:
 
-import test1 from '@assets/kursrepo-utvecklingsmiljo/test1.png';
+```console title="Testa om ditt repo är ok."
+uv run task check-repo-setup
+```
 
-<Figure 
-    src={test1}
-    caption="Kursrepot innehåller alla konfigurationsfiler."
-/>
+Här bör alla tester gå igenom, precis som de gjorde när du körde `task setup` efter att du klonat ditt repo på GitHub.
 
-Du kan också kolla på din commit-historiken med `git log` att du har commits med all kod.
+Du kan också kolla på din commit-historiken med `git log` att du har commits med all kod. Där bör du hitta committen "Update the file README with info about me" när du uppdaterade README.md för att lägga till på GitHub. Du bör även hitta committen du gjorde när du fixade extension i VS Code.
 
-import avslutning1 from '@assets/kursrepo-utvecklingsmiljo/avslutning1.png';
-
-<Figure 
-    src={avslutning1}
-    caption="Kursrepot innehåller nu utvecklingsverktyg och en struktur som vi kan jobba i."
-/>
-
-Om du läser commit-historiken noggrant så kan du se att main-branchen "ligger före" de andra brancherna med alla de commits som vi gjort när vi installerade utvecklingsmiljön. 
-
-Om jag öppnar upp repot på GitHub så kan det se ut så här.
-
-import avslutning2 from '@assets/kursrepo-utvecklingsmiljo/avslutning2.png';
-
-<Figure 
-    src={avslutning2}
-    caption="Kursrepot på GitHub innahåller samma saker jag kan se lokalt."
-/>
-
-Man kan också se alla commits som är gjorda via GitHub. Tänk att commit-historiken är viktig då den skapar en logg, en historia, av hur din kod växer fram, steg för steg.
-
-import avslutning3 from '@assets/kursrepo-utvecklingsmiljo/avslutning3.png';
-
-<Figure 
-    src={avslutning3}
-    caption="Historiken över dina commits kan du ven se via GitHub."
-/>
 
 ## Verifiera kopplingen till Canvas
 
