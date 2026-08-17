@@ -29,7 +29,7 @@ Här bör alla tester gå igenom, precis som de gjorde när du körde `task setu
 Du kan också kolla på din commit-historiken med `git log` att du har commits med all kod. Där bör du hitta committen "Update the file README with info about me" när du uppdaterade README.md för att lägga till på GitHub. Du bör även hitta committen du gjorde när du fixade extension i VS Code.
 
 
-## Verifiera kopplingen till Canvas
+## Verifiera kopplingen till Canvas EJ TESTAD ÄN
 
 Nu när vi har installerat utvecklingsmiljön så kan vi också verifiera att den är kopplad till Canvas.
 
@@ -50,7 +50,7 @@ import test3 from '@assets/kursrepo-utvecklingsmiljo/test3.png';
 
 <Figure 
     src={test3}
-    caption="Välj test-gifconfig branch."
+    caption="Välj test-gitconfig branch."
 />
 
 Nu kan du se alla de commits och dess data som ska flyttas till `bth/submit/test-gitconfig` branchen. Klicka på `Create pull request`.
@@ -105,19 +105,6 @@ Bra jobbat, nu är du klar med utvecklingsmiljön.
 
 
 ## Vanliga fel
-
-### Cannot index array with string "attempt"
-
-import pr_fail_id from '@assets/pr/pr_fail_id.png';
-
-<Figure 
-    src={pr_fail_id}
-    caption="Lyckat resultat från testerna."
-/>
-
-Något är felaktigt med `STUDENT_CANVAS_ID`. När du fixade labbmiljön skulle du skapa variabeln `STUDENT_CANVAS_ID` i ditt repo. Antingen har du gett den fel värde, gett variabeln fel namn eller skapat den som en secret istället för variabel. [Lägg till Canvas student ID i repo](/laromaterial/kursrepo/lagg-till-studentid/).
-
-Stäng din PR och skapa en ny igen.
 
 ### There isn’t anything to compare.
 
