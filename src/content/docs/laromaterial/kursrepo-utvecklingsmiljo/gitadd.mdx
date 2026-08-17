@@ -13,7 +13,7 @@ import YouTube from '@components/YouTube.astro';
 
 
 
-Ditt kursrepo är ett git repo och de filer du skapar behöver du också lägga till i git repot via de kommandon som git erbjuder.
+Ditt kursrepo är ett lokalt git repo och de filer du skapar lokalt behöver du också lägga till i git repot på GitHub. Du lägger till filer via de kommandon som git erbjuder.
 
 ## git status
 
@@ -25,23 +25,51 @@ git status
 
 Det kan se ut så här.
 
-import git1 from '@assets/kursrepo-utvecklingsmiljo/git1.png';
+import git11 from '@assets/kursrepo-utvecklingsmiljo/git11.png';
 
 <Figure 
-    src={git1}
+    src={git11}
     caption="Kontrollera status på ditt repo med git status."
 />
 
-Texten säger att filen `.editorconfig` ännu inte är en del av ditt repo.
+Inget är ändrat i ditt lokala kursrepo och det är än så länge likadant som repot på GitHub.
 
+
+### Uppdatera README-filen
+
+Öppna upp filen README.md och uppdatera den. Lägg gärna till någon information om dig själv.
+
+Det kan se ut så här.
+
+import git12 from '@assets/kursrepo-utvecklingsmiljo/git12.png';
+
+<Figure 
+    src={git12}
+    caption="Så här ser filen README.md ut innan uppdateringen."
+/>
+
+### Kontrollera git status igen
+
+Kontrollera status i ditt lokala kursrepo igen och se att din README.md fil är uppdaterad.
+
+Det kan se ut så här.
+
+import git13 from '@assets/kursrepo-utvecklingsmiljo/git13.png';
+
+<Figure 
+    src={git13}
+    caption="Kontrollera status på ditt repo igen med git status."
+/>
+
+Texten säger att filen `README.md` ännu inte är en del av ditt repo på GitHub. Ändringarna finns än så länge bara i ditt lokala kursrepo.
 
 
 ## git add 
 
 Låt oss lägga till filen som saknas med kommandot `git add`.
 
-```console title="Lägg till filen .editorconfig till repot."
-git add .editorconfig
+```console title="Lägg till filen README.md till repot på GitHub."
+git add README.md
 ```
 
 Som ett alternativ kan du lägga till samtliga filer som ännu inte är en del av repot, enligt rapporten från `git status`.
@@ -54,10 +82,10 @@ När du lagt till filen kan du köra `git status` igen.
 
 Det kan se ut så här.
 
-import git2 from '@assets/kursrepo-utvecklingsmiljo/git2.png';
+import git2ny from '@assets/kursrepo-utvecklingsmiljo/git2ny.png';
 
 <Figure 
-    src={git2}
+    src={git2ny}
     caption="Kontrollera status på ditt repo med git status."
 />
 
@@ -67,20 +95,20 @@ Nu är filen en del av repot, men ändringarna är ännu inte committade.
 
 ## git commit
 
-För att spara ändringarna till git repot så kör vi kommandot `git commit` och samtidigt anger vi ett commit-meddelande om vad ändringen innebär. Dessa meddleande blir en del av repots commit-historik som berättar en historia om hur repot har utvecklats och förändrats.
+För att spara ändringarna till git repot på GitHub så kör vi kommandot `git commit` och samtidigt anger vi ett commit-meddelande om vad ändringen innebär. Dessa meddelande blir en del av repots commit-historik som berättar en historia om hur repot har utvecklats och förändrats.
 
 ```console title="Spara (samtliga) ändringarna i repot med git commit."
-git commit -m "Add the file .editorconfig with default settings for the course"
+git commit -m "Update the file README with info about me"
 ```
 
 Kör `git status` när du committat, för att se hur läget ser ut.
 
 Det kan se ut så här.
 
-import git3 from '@assets/kursrepo-utvecklingsmiljo/git3.png';
+import git3ny from '@assets/kursrepo-utvecklingsmiljo/git3ny.png';
 
 <Figure 
-    src={git3}
+    src={git3ny}
     caption="Nu är ändringarna committade till git repot."
 />
 
@@ -92,6 +120,7 @@ Här är ett par korta regler när det kommer till commit-meddelanden.
 
 1. Börja med stor bokstav
 1. Sluta ej med punkt
+1. Använd imperativ form, som en instruktion, exempelvis "Update..." men inte "Updated..."
 
 ## git push
 
@@ -105,10 +134,10 @@ git push
 
 Det kan se ut så här.
 
-import git4 from '@assets/kursrepo-utvecklingsmiljo/git4.png';
+import git4ny from '@assets/kursrepo-utvecklingsmiljo/git4ny.png';
 
 <Figure 
-    src={git4}
+    src={git4ny}
     caption="Dina lokala ändringar synkas upp till din remote på GitHub."
 />
 
@@ -128,10 +157,10 @@ git pull
 
 Det kan se ut så här.
 
-import git5 from '@assets/kursrepo-utvecklingsmiljo/git5.png';
+import git5ny from '@assets/kursrepo-utvecklingsmiljo/git5ny.png';
 
 <Figure 
-    src={git5}
+    src={git5ny}
     caption="Det finns inget att hämta från din remote då du redan är i sync."
 />
 
@@ -149,15 +178,15 @@ Kör följande kommando för att se hur en commit-historik kan presenteras.
 
 ```console title="Kommando för att visa commit-historik för ett git repo."
 git log 
-# Tryck på "q" för att avsluta utskriften.
+# Tryck på "q" för att avsluta utskriften, om den är lång.
 ```
 
 Så här kan det till exempel se ut. Din egen utskrift kan se annorlunda ut, beroende av hur din egen historik ser ut.
 
-import git6 from '@assets/kursrepo-utvecklingsmiljo/git6.png';
+import git6ny from '@assets/kursrepo-utvecklingsmiljo/git6ny.png';
 
 <Figure 
-    src={git6}
+    src={git6ny}
     caption="Utskriften från git log visar commit-historiken."
 />
 
@@ -165,15 +194,15 @@ Man kan förändra utskriften från kommandot genom att skicka argument till kom
 
 ```console title="En annorlunda formatterad utskrift av git commit historiken."
 git log --oneline --graph --decorate
-# Tryck på "q" för att avsluta utskriften.
+# Tryck på "q" för att avsluta utskriften, om den är lång.
 ```
 
 Det kan se ut så här.
 
-import git7 from '@assets/kursrepo-utvecklingsmiljo/git7.png';
+import git7ny from '@assets/kursrepo-utvecklingsmiljo/git7ny.png';
 
 <Figure 
-    src={git7}
+    src={git7ny}
     caption="Utskriften visar nu varje commit på en egen rad."
 />
 
