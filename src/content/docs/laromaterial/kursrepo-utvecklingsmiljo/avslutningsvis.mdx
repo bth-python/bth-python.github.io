@@ -29,9 +29,9 @@ Här bör alla tester gå igenom, precis som de gjorde när du körde `task setu
 Du kan också kolla på din commit-historiken med `git log` att du har commits med all kod. Där bör du hitta committen "Update the file README with info about me" när du uppdaterade README.md för att lägga till på GitHub. Du bör även hitta committen du gjorde när du fixade extension i VS Code.
 
 
-## Verifiera kopplingen till Canvas EJ TESTAD ÄN
+## Verifiera kopplingen till Canvas
 
-Nu när vi har installerat utvecklingsmiljön så kan vi också verifiera att den är kopplad till Canvas.
+Nu när vi har installerat utvecklingsmiljön så ska vi också verifiera att den är kopplad till Canvas.
 
 Gå till ditt repo på GitHub och klicka på `Pull request` följt av `New Pull Request`.
 
@@ -44,59 +44,59 @@ import test2 from '@assets/kursrepo-utvecklingsmiljo/test2.png';
 
 Alla filer du har skapat finns bara på `main` branchen. Med Pull request kan vi kopiera den koden till en annan branch. Nu ska du välja vilken branch du ska kopiera den till.
 
-Välj branch `bth/submit/test-gitconfig`.
+Välj branch `bth/submit/test-gitconfig` genom att klicka på knappen med `base:main` (1) och välja branchen  `bth/submit/test-gitconfig` (2).
 
-import test3 from '@assets/kursrepo-utvecklingsmiljo/test3.png';
+import test3ny from '@assets/kursrepo-utvecklingsmiljo/test3ny.png';
 
 <Figure 
-    src={test3}
+    src={test3ny}
     caption="Välj test-gitconfig branch."
 />
 
 Nu kan du se alla de commits och dess data som ska flyttas till `bth/submit/test-gitconfig` branchen. Klicka på `Create pull request`.
 
-import test4 from '@assets/kursrepo-utvecklingsmiljo/test4.png';
+import test4ny from '@assets/kursrepo-utvecklingsmiljo/test4ny.png';
 
 <Figure 
-    src={test4}
+    src={test4ny}
     caption="Skapa PR."
 />
 
-Ge din PR en titel och klicka sen igen på `Create pull request`.
+Ge din PR en titel, exempelvis "Test connection", och klicka sen igen på `Create pull request`.
 
-import test5 from '@assets/kursrepo-utvecklingsmiljo/test5.png';
+import test5ny from '@assets/kursrepo-utvecklingsmiljo/test5ny.png';
 
 <Figure 
-    src={test5}
+    src={test5ny}
     caption="Välj en titel och skapa PR."
 />
 
 Nu har din PR skapats. Skrolla ner på sidan så borde du se något som bilden nedanför. Du kanske behöver ladda om sidan för att det ska synas. Efter några sekunder eller någon minut (det varierar hur lång tid det tar) ska det stå `All checks have passed`. Om det inte gör det har något gått fel. Det är svårt att säga vad av allt som kan gått fel. Du kan klicka på den knappen och tas till fel utskriften, du kan försöka tolka det för se vad som gått fel, annars kontakta en lärare för hjälp.
 
-import test6 from '@assets/kursrepo-utvecklingsmiljo/test6.png';
+import test6ny from '@assets/kursrepo-utvecklingsmiljo/test6ny.png';
 
 <Figure 
-    src={test6}
+    src={test6ny}
     caption="Kolla att testerna har passerat."
 />
 
-Om allt har gått bra ska du automatiskt ha fått ett betyg på uppgiften `Test gitconfig` i Canvas. Gå till Canvas sidan för kursen och kolla om du har fått ett betyg och en kommentar på den uppgiften.
+Om allt har gått bra ska du automatiskt ha fått ett betyg på uppgiften `Test gitconfig` i Canvas. Gå till Canvas sidan för kursen och kolla om du har fått ett betyg och en kommentar på den uppgiften. Klicka på kommentartecknet för att läsa kommentaren.
 
-import test7 from '@assets/kursrepo-utvecklingsmiljo/test7.png';
+import test7ny from '@assets/kursrepo-utvecklingsmiljo/test7ny.png';
 
 <Figure 
-    src={test7}
-    caption="Kolla att du har G och kommentar på Canvas.."
+    src={test7ny}
+    caption="Kolla att du har G och kommentar på Canvas."
 />
 
 Om du inte har fått betyg `G` och en kommentar har något gått fel, kontakta en lärare.
 
 Avsluta med att gå tillbaka till din pull request och avsluta den. Klicka på `Close pull request`.
 
-import test8 from '@assets/kursrepo-utvecklingsmiljo/test8.png';
+import test8ny from '@assets/kursrepo-utvecklingsmiljo/test8ny.png';
 
 <Figure 
-    src={test8}
+    src={test8ny}
     caption="Stäng PR på GitHub."
 />
 
@@ -117,94 +117,7 @@ import errorImage from '@assets/kursrepo-utvecklingsmiljo/end-pr-error.png';
     caption="Går inte att skapa PR."
 />
 
-Något gick fel i början när du skapade repot. Snabbaste lösningen är att radera ditt repo och skapa ett nytt.
-#### Radera repot
-
-Gå till `Settings` och skrolla längst ner.
-
-import errorImage2 from '@assets/kursrepo-utvecklingsmiljo/end-pr-error2.png';
-
-<Figure 
-    src={errorImage2}
-    caption="Gå till settings"
-/>
-
-import errorImage3 from '@assets/kursrepo-utvecklingsmiljo/end-pr-error3.png';
-
-<Figure 
-    src={errorImage3}
-    caption="Klicka radera."
-/>
-
-Klicka vidare på knapparna tills du kommer till att bekräfta raderingen. Följ instruktionerna och skriv in repots namn, klicka sen radera.
-
-import errorImage4 from '@assets/kursrepo-utvecklingsmiljo/end-pr-error4.png';
-
-<Figure 
-    src={errorImage4}
-    caption="Klicka radera."
-/>
-
-#### Skapa nytt repo
-
-Du behöver inte göra om alla steg under "Kursrepo", gör bara de som finns länkade här.
-
-import errorImage5 from '@assets/kursrepo-utvecklingsmiljo/end-pr-error5.png';
-
-
-<Steps>
-1. [Skapa kursrepo på GitHub](../../kursrepo/skapa-github-repo)
-1.  Innan du kan skapa det lokalt behöver du döpa om det du har lokalt.
-    - Öppna terminalen och exekvera följande:
-        ```bash title="Döp om ditt repo"
-        cd
-        cd dbwebb-kurser
-        # Change abcd25 to your own student acronym
-        REPO=python-abcd25
-        ```
-        Så här ser det ut för mig. GLÖM INTE att byta ut `abcd25` mot din akronym.
-        <Figure 
-            src={errorImage5}
-            caption="Så här kan det se ut"
-        />
-1. Skapa nu ditt repo lokalt, jobba igenom artikel "Skapa git repo" men börja där denna länken tar dig, [Initiera ditt git repo med branches
-](../../kursrepo/skapa-git-repo/#initiera-ditt-git-repo-med-branches). Du behöver inte göra stegen ovanför det.
-1. Jobba igenom [Lägg till Canvas student ID i repo](../../kursrepo/lagg-till-studentid/).
-</Steps>
-
-Nu har du ett tomt repo. Istället för att jobba igenom hela utvecklingsmiljön kan du kopiera filerna från ditt gamla repo.
-
-import errorImage6 from '@assets/kursrepo-utvecklingsmiljo/end-pr-error6.png';
-
-#### Kopiera filer till det nya repot
-
-<Steps>
-1. I samma terminal som du har gjort övriga kommandon kör följande för att kopiera filerna till ditt nya repo.
-    ```bash
-    cd
-    cd dbwebb-kurser
-    rsync -av --exclude='.git' python-old/ $REPO/
-    ls $REPO/
-    ```
-    När du kör `rsync` kommandot kommer du få en lång utskrift efter du har kört sista kommandot. Jag har inte med det på min bild för att kunna visa allt.
-    <Figure 
-        src={errorImage6}
-        caption="Så här kan det se ut"
-        />
-1. Flytta in i repot och ladda upp filerna till GitHub.
-    ```bash
-    cd $REPO
-    git add .
-    git commit -m 'Skapade om repot, kunde inte skapa en PR.'
-    git push
-    ```
-1. I webbläsaren, gå till ditt repo på GitHub, ladda om sidan och kolla att dina filer är där. Om alla filer finns där kan du radera det gamla repot i terminalen.
-1. Radera python-old
-    ```bash
-    cd dbwebb-kurser
-    rm -rf python-old
-    ```
-</Steps>
+Då gör du bara en ny ändring i ditt lokala git repo. Du kan till exempel uppdatera `README.md` och pusha ändringarna, se [Uppdatera fil i git repot](laromaterial/kurrepo-sutvecklingsmiljo/gitadd) om du behöver hjälp med kommandona.
 
 #### Försök skapa en PR
 
