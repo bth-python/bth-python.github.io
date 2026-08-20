@@ -11,7 +11,7 @@ Materialet är inte klart. Påbörjar inte arbete.
 
 Utför följande instruktioner för att förbereda dig inför kursen.
 
-## Om kursmoment (kmom) (tisdag)
+## Om kursmoment (kmom) 
 
 Varje kursmoment har en instruktionen som omfattar det som skall göras inom ramen för kursmomentet.
 
@@ -21,18 +21,18 @@ Läs igenom hela instruktionen för kursmomentet innan du börjar jobba. Om möj
 
 Vissa kursmoment kan spänna över flera veckor, till exempel så brukar det avslutande och examinerande kmom10 göra det.
 
-## Kursintro (tisdag)
+## Kursintro
 
 Här är en föreläsning som "pratar" dig igenom kursens upplägg och kursplan.
 
 - [Formell kursintroduktion](../laromaterial/forelasning/kursintroduktion)
 
-## Upplägget (tisdag)
+## Upplägget
 
 - [Introduktion till Canvas och länkar](../laromaterial/forelasning/canvasintroduktion)
 
 
-## Förbered inför kmom01 (onsdag)
+## Förbered inför kmom01
 
 Du behöver utföra följande steg innan du kan börja jobba med det första kmomet.
 
