@@ -2,9 +2,10 @@
 title: "Introduktionsvecka" 
 description: Terminens första vecka är en introduktionsvecka för nya studenter.
 sidebar:
-    order: 200
+    order: 020
 author: mos
 revision:
+    "2026-08-21": "(K, mos) Anpassad till python."
     "2026-08-20": "(K, mos) kopierad och flyttad från dbwebb.se till kursplatserna."
     "2025-08-06": "(J, mos) Kopia och uppdaterad inför ht25, detaljer för kp borttaget."
     "2024-08-05": "(I, mos) Kopia och uppdaterad inför ht24."
@@ -21,9 +22,9 @@ revision:
 import Figure from '@components/CustomFigure.astro';
 import YouTube from '@components/YouTube.astro';
 
-Detta dokument innehåller (främst) information och detaljer för introveckan för studenter på programmet Webbprogrammering distans samt relaterade kurspaket.
-
 Introduktionsveckan är för nya studenter på program och kurspaket och syftar till att ge en extra vecka, innan normal terminsstart, då man kan komma igång med studier och bekanta sig med studiemiljön vid BTH. Välkomsthälsningar, kursstarter och studiesociala aktiviteter blandas med varandra.
+
+När det gäller introveckan så är upplägget lite annorlunda mot när kursen är igång. Det är förutom introduktion till kursen en del installationer som behöver göras. Tanken är att du ska utföra detta med möjlighet till stöd och hjälp via Discord. I schemat för introduktionsveckan är bokningarna gjorda baserat på detta.
 
 ## Information
 
@@ -41,24 +42,6 @@ Under introveckan, efter klockan 15, brukar studentkåren ha kåraktiviteter och
 
 Samtliga videor från introveckan sparas i spellistan "[Introveckan augusti 2026](https://www.youtube.com/playlist?list=PLXYe4g1bsTy8)" på youtube.
 
-Det finns en videoserie med lite blandade välkomstvideos, "[Välkommen till Webbprogrammering hösten 2026](https://www.youtube.com/playlist?list=PLIg2Mg_o7UP4)". Kika igenom den serien för allmän information och träffa lärarteamet.
-
-## Schema Webbprogrammering och kurspaket
-
-Schemat för introveckan finns via schema.bth.se.
-
-* [Webbprogrammering 120hp distans](https://cloud.timeedit.net/bth/web/sched1/ri167134X08Z0QQ6Z86g2610y70Y6Y71502gQY6Q537.html)
-
-Det förekommer även inspelade tillfällen som inte är schemalagda, läs vidare i detta dokumentet för att se detaljer om dem.
-
-Följande gäller för planeringen för studenter på kurspaketen (KP), längre ned i detta dokument finns en översiktlig planering av veckan.
-
-* KP Programmering och problemlösning, 30hp distans
-  * Följ de aktiviteter som är markerade med "python"
-* KP Webbprogrammering frontend, 30hp distans
-  * Följ de aktiviteter som är markerade med "webtec"
-* KP Webbprogrammering backend, 30hp distans
-  * Följ de aktiviteter som är markerade med "backend"
 
 ## Planering
 
@@ -68,21 +51,17 @@ Här följer en översikt av introveckans aktiviteter.
 
 Veckan börjar kl 09-10 med "Rektorns välkomsttal" utomhus utanför hus H. Det kan följas via zoom.
 
-För Webbprogrammering 120hp håller Mikael Roos en träff och frågestund i [mos zoom](https://bth.zoom.us/j/4200421337) mellan 10-11.
-
 Se schemat för eventuella aktiviteter på eftermiddagen.
 
-Studenter på KP har ingen agenda denna dagen.
 
 ### Tisdag: Kursaktiviteter
 
-På **tisdagen** är det kursstarter för python & webtec.
+På **tisdagen** är det kursstarter för python.
 
 | Tid   | Lärare | Grupp  | Vad | Var |
 |-------|--------|--------|-----|-----|
-| 09-10 | mos, klw, efo | webtec | Kursintroduktion | Icke obligatorisk träff i [mos zoom](https://bth.zoom.us/j/4200421337) och frågestund |
-| 10-11 | grm, bbe, msc | python | Kursintroduktion | Icke obligatorisk träff i zoom |
-| 11-12 | grm, bbe, msc | python webtec backend   | Labbmiljö |  Detaljer om den [kurs-gemensamma labbmiljön](https://bth-python.github.io/website/laromaterial/labbmiljo/) |
+| 10-11 | grm, bbe, msc | python | Kursintroduktion | Icke obligatorisk träff i Discord |
+| 11-12 | grm, bbe, msc | python | Labbmiljö |  Detaljer om den [kurs-gemensamma labbmiljön](https://bth-python.github.io/laromaterial/labbmiljo/) |
 
 Se schemat för eventuella aktiviteter på eftermiddagen.
 
@@ -100,24 +79,12 @@ Inför **onsdagen** bör du på egen hand ha installerat följande delar av den 
 
 | Tid   | Lärare   | Grupp  | Vad | Var |
 |-------|----------|--------|-----|-----|
-| 09-10 | klw      | python webtec backend | Introduktion till terminalen | [Inspelad](https://youtu.be/AO1lJzR25Yg), |
-| 10-11 | bbe, grm | python webtec backend | Kom igång med Git & GitHub | [Git introduktion](https://dbwebb.se/labbmiljo/git_intro_ht25)
-| 11-12 | bbe, grm | python | Python specifik labbmiljö| [Python labbmiljö](https://bth-python.github.io/website/laromaterial/labbmiljo/uv/), [kursrepo](https://bth-python.github.io/website/laromaterial/kursrepo/), [utvecklingsmiljö](https://bth-python.github.io/website/laromaterial/kursrepo-utvecklingsmiljo/)|
+| 09-10 | klw      | python | Introduktion till terminalen | [Inspelad](https://youtu.be/AO1lJzR25Yg), |
+| 10-11 | bbe, grm, msc | python | Kom igång med Git & GitHub | [Git introduktion - videos](https://www.youtube.com/playlist?list=PLGWs8TjL_Zbk), [Git introduktion](https://dbwebb.se/labbmiljo/git_intro_ht25)
+| 11-12 | bbe, grm, msc | python | Python specifik labbmiljö| [Python labbmiljö](https://bth-python.github.io/laromaterial/labbmiljo/uv/), [kursrepo](https://bth-python.github.io/laromaterial/kursrepo/), [kursrepo utvecklingsmiljö](https://bth-python.github.io/laromaterial/kursrepo-utvecklingsmiljo/)|
 
 Se schemat för eventuella aktiviteter på eftermiddagen.
 
-### Torsdag: Kursaktiviteter
-
-**Torsdagen** är enbart för webtec-kursen (och backend) och fokuserar på labbmiljön för kursen.
-
-Det är träff i zoom. Vissa delar finns inspelade. Man kan även få hjälp i Discord.
-
-| Tid   | Lärare   | Grupp  | Vad | Var |
-|-------|----------|--------|-----|-----|
-| 09-10 | klw, mos | webtec backend | Kom igång webtec, del 1 | [Mikael i zoom](https://bth.zoom.us/j/4200421337) |
-| 10-11 | klw, mos | webtec backend | Kom igång webtec, del 2 | [Mikael i zoom](https://bth.zoom.us/j/4200421337) |
-
-Se schemat för eventuella aktiviteter på eftermiddagen.
 
 ### Fredag: Labbsal & föreläsningar
 
