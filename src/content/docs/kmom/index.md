@@ -5,10 +5,6 @@ sidebar:
     order: 0000
 ---
 
-:::danger
-Materialet är inte klart. Påbörjar inte arbete. 
-:::
-
 Utför följande instruktioner för att förbereda dig inför kursen.
 
 ## Om kursmoment (kmom) 
