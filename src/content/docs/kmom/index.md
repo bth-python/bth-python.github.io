@@ -29,6 +29,8 @@ Här är en föreläsning som "pratar" dig igenom kursens upplägg och kursplan.
 
 ## Upplägget
 
+Om du känner att du behöver få en översikt av Canvas och länkarna som finns där kan du titta igenom denna video.
+
 - [Introduktion till Canvas och länkar](../laromaterial/forelasning/canvasintroduktion)
 
 
