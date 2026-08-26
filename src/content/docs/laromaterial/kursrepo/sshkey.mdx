@@ -125,6 +125,30 @@ import sshkey4 from '@assets/kursrepo/sshkey4.png';
     caption="Ett välkomstmeddelande berättar att du kan koppla dig mot GitHub med en ssh-nyckel."
 />
 
+Om du får ett felmeddelande om att din nyckel är för öppen:
+```console
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for '/home/marie/.ssh/id_rsa' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "/home/marie/.ssh/id_rsa": bad permissions
+Permission denied (publickey).
+```
+
+Då fixar du det genom att ändra rättigheter på filen med din privata nyckel. Det ska endast vara du som kan läsa den. Först ställer vi oss i din hemmakatalog, sen kör vi chmod som ändrar rättigheterna och sen kolla vi med `ls` att det står `-r--r--r--` framför din privata nyckel.
+
+Gör så här:
+
+```console
+cd
+chmod 400 .ssh/id_ed25519
+ls -la
+```
+
+Glöm inte att hoppa tillbaka till kurskatalogen igen!
+
 Nu är du redo att jobba mot GitHub via ssh. Om du jobbar på flera datorer så behöver du antingen generera nya nyckelpar för varje maskin, eller så behöver du kopiera den privata nyckeln till varje maskin du vill använda.
 
 ## Auktorisera din SSH-nyckel
