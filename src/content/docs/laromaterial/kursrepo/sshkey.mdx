@@ -137,13 +137,13 @@ Load key "/home/marie/.ssh/id_rsa": bad permissions
 Permission denied (publickey).
 ```
 
-Då fixar du det genom att ändra rättigheter på filen med din privata nyckel. Det ska endast vara du som kan läsa den. Först ställer vi oss i din hemmakatalog, sen kör vi chmod som ändrar rättigheterna och sen kolla vi med `ls` att det står `-r--r--r--` framför din privata nyckel.
+Då fixar du det genom att ändra rättigheter på filen med din privata nyckel. Det ska endast vara du som kan läsa den. Först ställer vi oss i din hemmakatalog, sen kör vi chmod som ändrar rättigheterna och sen kolla vi med `ls` att det står `-rw-------` framför din privata nyckel.
 
 Gör så här:
 
 ```console
 cd
-chmod 400 .ssh/id_ed25519
+chmod 600 .ssh/id_ed25519
 ls -la
 ```
 
