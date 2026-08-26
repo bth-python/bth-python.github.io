@@ -24,8 +24,9 @@ PS! För kmom03, kmom06 och kmom10 skall du även göra en pull request (PR) på
 
 ## Kör tester
 
-Dubbelkolla att din kod passerar testerna och validerar. Använd `uv run task test` och `uv run ruff check`. Om du har några fel, fixa dem före du fortsätter.
+Dubbelkolla att din kod passerar testerna och validerar med kommandot `uv run ruff check`. Om du har några fel, fixa dem före du fortsätter.
 
+Dubbelkolla att du är klar med kursmomentet med kommandot `uv run task check-ready -- kmom01` och då kommer du få tips om hur du kan lösa felen. Du kommer att få fel på att det saknas en tag på din inlämning, information om det kommer nedan i [Tagga och pusha ditt repo](resultat-och-redovisning.mdx#tagga-och-pusha-ditt-repo). 
 
 
 ## Skriv redovisningstext
@@ -54,21 +55,21 @@ Du kan använda följande versioner för dina taggar.
 
 | Version | Kmom   |
 |---------|--------|
-| v1.0.0   | kmom01 |
-| v2.0.0   | kmom02 |
-| v3.0.0   | kmom03 |
-| v4.0.0   | kmom04 |
-| v5.0.0   | kmom05 |
-| v6.0.0   | kmom06 |
-| v10.0.0   | kmom10 |
+| v01.0   | kmom01 |
+| v02.0   | kmom02 |
+| v03.0   | kmom03 |
+| v04.0   | kmom04 |
+| v05.0   | kmom05 |
+| v06.0   | kmom06 |
+| v10.0   | kmom10 |
 
 Tagga ditt repo så här.
 
 ```bash title="Lägg till en tagg på ditt repo med versionsnummer."
-git tag -a v1.0.0 -m "Ready with kmom01"
+git tag -a v01.0 -m "Ready with kmom01"
 ```
 
-Om du gör ändringar så taggar du din nya inlämning med ett högre versionsnummer, till exempel v1.0.1 eller v1.1.0, du kan själv bestämma vilken version som känns lämplig.
+Om du gör ändringar så taggar du din nya inlämning med ett högre versionsnummer, till exempel v01.1, om du senast använde v01.0. Du kan se vilka taggar du har med kommandot `git tag`.
 
 Nu kan du pusha både tagg och repo till GitHub.
 
@@ -77,7 +78,9 @@ git push
 git push --tags
 ```
 
-I framtiden kommer du (troligen) att använda versionsnummer enligt något som heter "[Semantic versioning](https://semver.org/)", kika gärna på hur det fungerar.
+Om något går fel, får du tips om vad du kan göra för att fixa till det:
+
+
 
 Som ett sista steg i din inlämning så kan du kontrollera att GitHub verkligen innehåller den allra senaste versionen av din kod och att testerna passerar.
 
