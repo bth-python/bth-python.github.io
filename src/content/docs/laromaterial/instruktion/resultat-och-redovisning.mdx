@@ -159,7 +159,7 @@ Din kod klarar inte av testerna eller koden validerar inte. Klicka på steget so
 - Uppdatera din kod lokalt.
 - Kör `tester` och `ruff` för att kolla att din lösning har funkat.
 - Skapa en ny commit.
-- Skapa en ny tag och ladda upp till GitHub som visas under [Tagga och pusha ditt repo](#tagga-och-pusha-ditt-repo). PS. nu ska du inte använda samma tagnummer som förut. Öka siffran som det beskrivs i texten. T.ex. om du fixar ett fel på din kmom01 inlämning öka till `v1.0.1`. Om du behöver göra en till fix efter detta, öka siffran till `v1.0.2`.
+- Skapa en ny tag och ladda upp till GitHub som visas under [Tagga och pusha ditt repo](#tagga-och-pusha-ditt-repo). PS. nu ska du inte använda samma tagnummer som förut. Öka siffran som det beskrivs i texten. T.ex. om du fixar ett fel på din kmom01 inlämning öka till `v01.1`. Om du behöver göra en till fix efter detta, öka siffran till `v01.2`.
 - Nu kan du följa [Kolla att testerna passerar på GitHub](#kolla-att-testerna-passerar-på-GitHub) igen.
 
 
@@ -171,7 +171,7 @@ Du kan själv testköra rättningsprocessen via följande kommando.
 
 ```bash
 # Om du står i rooten av ditt kursrepo.
-uv run task test kmom01
+uv run task test -- kmom01
 uv run ruff check src/kmom01
 ```
 
