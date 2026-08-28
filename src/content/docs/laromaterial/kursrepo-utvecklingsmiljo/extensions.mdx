@@ -13,7 +13,7 @@ import Figure from '@components/CustomFigure.astro';
 Extensions i VS Code är tillägg som förbättrar din utvecklingsupplevelse. Det finns många olika extensions som kan hjälpa dig att skriva bättre kod, hitta buggar och mycket mer. I den här guiden kommer vi att installera några extensions som vi rekommenderar för Python-utveckling.
 
 :::note
-extension-filen ska inte laddas ner igen, din är redan uppdaterad. Titta dock igenom "Stäng av GitHub Copilot" och "Installera rekommenderade extensions".
+extension-filen ska inte laddas ner igen, din är redan uppdaterad. Titta dock igenom "Stäng av AI-hjälpmedel" och "Installera rekommenderade extensions".
 :::
 
 ## Ladda ner fil med rekommenderade extensions
@@ -28,9 +28,14 @@ uv run task download-extensions
 Nu har du laddat ner en fil som heter `extensions.json` i mappen `.vscode` i ditt projekt. Denna fil innehåller rekommenderade extensions för Python-utveckling. De har inte installerats utan finns bara tillgängliga som rekommendationer som du kan välja att installera eller inte. Filen innehåller också lista med extensions som vi inte vill ha i ditt projekt, så kallade "unwanted extensions". De är främst olika extensions som använder AI för att generera kod, vilket vi anser inte hör hemma i denna kurs.
 
 
-## Stäng av GitHub Copilot
+## AI-hjälpmedel
 
-GitHub Copilot är Microsofts egna AI-verktyg som ger förslag på kod medan du skriver. Det är ett verktyg som vi inte vill använda i den här kursen. Det är inte tillåtet att använda AI-verktyg för att generera kod i den här kursen.
+Det är inte tillåtet att använda AI-hjälpmedel eller liknande som hjälper dig med programmeringen och ger förslag på kod eller avslutar dina rader!
+
+
+### Stäng av GitHub Copilot
+
+GitHub Copilot är Microsofts egna AI-verktyg som ger förslag på kod medan du skriver.
 
 Om du har Copilot-ikonen, klicka på Copilot-ikonen uppe till höger i VS Code och välj "Disable Copilot" för att stänga av GitHub Copilot.
 
@@ -49,6 +54,14 @@ import extensions_copilot2 from '@assets/kursrepo-utvecklingsmiljo/extensions_co
     src={extensions_copilot2}
     caption="Stäng av Copilot."
 />
+
+### Stäng Gemini
+
+Gemini är Googles familj av AI-modeller och AI-assistenten (tidigare känd som Bard) som kan hantera text, kod, bilder och ljud.
+
+1. Öppna Extensions (Ctrl+Shift+X eller via menyn Code->Settings->Extensions).
+1. Sök efter Gemini.
+1. Klicka på kugghjulet ⚙️ bredvid tillägget och välj: **Disable**
 
 ## Installera rekommenderade extensions
 
