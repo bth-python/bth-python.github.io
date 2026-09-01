@@ -13,7 +13,7 @@ import YouTube from '@components/YouTube.astro';
 Materialet är inte klart. Avvakta!
 :::
 
-Följ denna instruktionen för att göra en pull request (PR) för att lämna in uppgiften i kmom03 och kmom06.
+Följ denna instruktionen för att göra en pull request (PR) för att lämna in uppgiften i kmom03, kmom06 och kmom10.
 
 :::note
 Bilderna visar inlämning för kmom03. Flödet är likadant för kmom06. I instruktionerna när det står `<X>`, ersätt det med `3` om du lämnar in kmom03 och `6` om du lämnar in kmom06.
@@ -21,23 +21,21 @@ Bilderna visar inlämning för kmom03. Flödet är likadant för kmom06. I instr
 
 ## Förutsättning
 
-Du har uppfyllt kraven i uppgiften kmom03/kmom06 och har gjort en vanlig inlämning enligt [Resultat och redovisning](/laromaterial/instruktion/resultat-och-redovisning).
+Du har uppfyllt kraven i uppgiften och har gjort en vanlig inlämning enligt [Resultat och redovisning](/laromaterial/instruktion/resultat-och-redovisning).
 
 
 
 ## Ordlista
 
 - `PR`: Pull request
-- `Submitted`: Du sätter den som label när du gör en Pull request.
-    - Om de automatiska testerna går fel kan du använda denna label för att köra testerna igen. Lös felet, ladda upp koden, gör en ny tag, ta bort label `Submitted` från din PR och lägg till den igen. Då körs testerna på koden igen.
-- `Approved`/`G`/`1`: Helt klar med en uppgift.
-- `PG`/`0.98`/`0.29`(i kmom10): Preliminärt Godkänt. Testerna går igenom, nu ska du bara vänta på att en lärare kollar på din inlämning.
-- `TUx`/`0.79`: Något i de automatiserade testerna gick fel. Kolla igenom vad och fixa det.
-- `Needs improvement`/`Ux`/`0.49`: En lärare har bedömt din inlämning men tycker att något behöver förbättras i din inlämning. Använd dig av label `Re-submitted` när du har gjort din uppdatering.
-- `Re-submitted`: Du sätter den som label på din PR efter att du har fixat den komplettering en lärare gav på din inlämning.
-    - Denna label går att använda precis som `Submitted` för att köra de automatiska testerna.
-- `Submission not approved`/`U`/`0`: En lärare har bedömt din `Re-submitted` men tycker inte att det är tillräckligt bra. Du behöver göra en ny inlämning till nästa rättningstillfälle.
+- `Tests passed(TP)`: Får din PR när de automatiska testerna gått igenom. Nu ska du bara vänta på att en lärare kollar på din inlämning.
+- `Tests failed`: Får din PR när något gått fel i de automatiska testerna. Ladda ner testerna igen, fixa felet lokalt och pusha till GitHub.
+- `Grade: G`: Helt klar med en uppgift.
+- `Grade: Ux`: En lärare har bedömt din inlämning men tycker att något behöver förbättras i din inlämning. Följ instruktionerna, fixa problemet lokalt och pusha din lösning till GitHub. När du taggar så körs testerna på GitHub.
+- `Grade: U`: En lärare har bedömt din inlämning men tycker inte att det är tillräckligt bra. Du behöver göra en ny inlämning till nästa rättningstillfälle.
+- `Run tests`: Du ska sätta labeln "Run tests"  för att köra igång flödet som kör testerna och sätter `Tests Passed (TP)` eller `Tests failed`.
 - `Integration failed`: Något i koden som kör de automatiserade testerna gick fel. Kontakta en lärare.
+
 
 ## Mitt eget arbete
 
@@ -51,11 +49,9 @@ I samband med att du gör din PR så intygar du att arbetet är ditt eget och up
 
 Du skall nu göra din inlämning som en PR mot följande branch.
 
-### kmom03
-* `bth/submit/kmom03`
-
-### kmom06
-* `bth/submit/kmom06`
+- **PR kmom03** mot `bth/submit/kmom03`
+- **PR kmom06** mot `bth/submit/kmom06` (Se mer info i [PR kmom06](#pr-kmom06) )
+- **PR kmom10** mot `bth/submit/kmom10` (Se mer info i [PR kmom10](#pr-kmom10) )
 
 Följ stegen nedan för att skapa en PR.
 
