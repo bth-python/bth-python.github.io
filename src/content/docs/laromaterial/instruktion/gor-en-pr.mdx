@@ -59,57 +59,61 @@ Följ stegen nedan för att skapa en PR.
 
 ### Gå till din kod på GitHub
 
-Du gör detta med hjälp av GitHub. Se till att du har pushat din aktuella kodbas till GitHub och öppna webbläsaren mot din kod på GitHub.
+Du gör detta med hjälp av GitHub. Se till att du har pushat din aktuella kodbas till GitHub och öppna webbläsaren mot din kod på GitHub.  
+Klicka på "Pull requests" i navbaren.
 
-import pr1 from '@assets/pr/pr1.png';
+import pr1ny from '@assets/pr/pr1ny.png';
 
 <Figure 
-    src={pr1}
-    caption="Kodbas på GitHub."
+    src={pr1ny}
+    caption="Ditt kursrepo på GitHub."
 />
 
 
 
 ### Gå till Pull requests
 
-Klicka på "Pull requests" i navbaren för din kodbas.
+När du har klickat på "Pull requests" i navbaren, så ser det ut så här.
 
-import pr2 from '@assets/pr/pr2.png';
+import pr2ny from '@assets/pr/pr2ny.png';
 
 <Figure 
-    src={pr2}
+    src={pr2ny}
     caption="Pull requests."
 />
 
+Klicka på "New Pull Request".
 
 
 ### Förbered att skapa en ny PR
 
-Klicka på "New Pull Request" (se föregående bild).
+När du har klickat på "New Pull Request", så ser det ut så här.
 
 import pr3 from '@assets/pr/pr3.png';
 
 <Figure 
     src={pr3}
-    caption="New pull requests."
+    caption="New pull requests innan du fyllt i dina val."
 />
 
 
 
 ### Välj brancher att jämföra
 
-Nu skall du välja vilken branch du vill skapa en PR mot. 
+Nu skall du välja vilken branch du vill skapa en PR mot.
 
-Din "base" skall vara `bth/submit/kmom0<X>` (3 för kmom03 och 6 för kmom06) (1 i bilden).
+Din "base" skall vara `bth/submit/kmom0<X>` (3 för kmom03 och 6 för kmom06) (**1** i bilden).
 
-Din "compare" skall vara `main` (2 i bilden).
+Din "compare" skall vara `main` (**2** i bilden).
 
 Det betyder att du vill merga `main` in till `bth/submit/kmom0X`.
 
-import pr4 from '@assets/pr/pr4.png';
+Nu är du redo att skapa en PR, klicka på "Create pull request" (**3** i bilden).
+
+import pr4ny from '@assets/pr/pr4ny.png';
 
 <Figure 
-    src={pr4}
+    src={pr4ny}
     caption="Gör en PR för att merga main in till bth/submit/kmom03."
 />
 
@@ -117,58 +121,62 @@ import pr4 from '@assets/pr/pr4.png';
 
 ### Öppna en PR mot en branch
 
-Nu är du redo att skapa en PR, klicka på "Create pull request" (3 i bilden ovan).
+Nu skall du fylla i detaljer om din PR:
 
-import pr5 from '@assets/pr/pr5.png';
+Som **titel** skriver du "Inlämning av kmom0\<X\>"  (**1** i bilden).
+
+Som **assignees** lägger du in dig själv. Lägg **inte** in någon annan lärare. (**2** i bilden).
+
+Nu kan du lägga till din PR genom att klicka knappen "Create pull request" (**3** i bilden).
+
+import pr5ny from '@assets/pr/pr5ny.png';
 
 <Figure 
-    src={pr5}
+    src={pr5ny}
     caption="Gör en PR för att merga main in till bth/submit/kmom03."
 />
-
-Nu skall du fylla i detaljer om din PR (se de gröna runda markeringarna i bilden ovan).
-
-Som **titel** skriver du "Inlämning av kmom0\<X\>"
-
-Som **assignees** lägger du in dig själv. Lägg **inte** mig eller någon annan lärare.
-
-Som **label** lägger du in "Submitted".
-
-Nu kan du lägga till din PR genom att klicka knappen "Create pull request".
-
 
 
 ### En ny PR är öppnad
 
-När det är klart kan det se ut så här.
+När din PR är klar kan det se ut så här:
 
-import pr6 from '@assets/pr/pr6.png';
+import pr6ny from '@assets/pr/pr6ny.png';
 
 <Figure 
-    src={pr6}
-    caption="Gör en PR för att merga main in till bth/submit/kmom03."
+    src={pr6ny}
+    caption="En PR har skapats."
 />
 
 
 ### Tester
 
-Vänta ett par minuter, skrolla sen ner för att se att testerna har godkänts.
+Vänta ett par minuter, skrolla sen ner för att se att testerna har godkänts. Titta efter Test passed (TP).
 
-import pr7 from '@assets/pr/pr7.png';
+import pr7ny from '@assets/pr/pr7ny.png';
 
 <Figure 
-    src={pr7}
-    caption="Lyckat resultat från testerna."
+    src={pr7ny}
+    caption="Lyckat resultat från testerna resulterar i Test passed (TP)."
+/>
+
+Du får även en sammanfattning på valideringen av taggarna och testerna:
+
+import pr8ny from '@assets/pr/pr8ny.png';
+
+<Figure 
+    src={pr8ny}
+    caption="Lyckat resultat från testerna resulterar i Test passed (TP)."
 />
 
 
-På bilden ovanför kan du se hur det ser ut när allt är OK. Testerna har lyckats och din inlämning är registrerad i Canvas. På din Canvas ska du har fått betyg `PG` på kmom0\<X\> inlämningen.
+På bilden ovanför kan du se hur det ser ut när allt är OK. Testerna har lyckats och din inlämning är registrerad i Canvas. På din Canvas ska du har fått betyg `TP` på kmom0\<X\> inlämningen.
 
 
 
 ### Något gick fel
 
-Om något gick fel med tester eller validering får du betyg `TUx` på Canvas och det ser ut som nedanför i din PR.
+Om något gick fel med tester eller validering får du betyg `Ux` på Canvas och det ser ut som nedanför i din PR.
 
 import pr_fail from '@assets/pr/pr_fail.png';
 
