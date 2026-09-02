@@ -139,7 +139,7 @@ import pr5ny from '@assets/pr/pr5ny.png';
 
 ### En ny PR är öppnad
 
-När din PR är klar kan det se ut så här:
+När din PR är öppnad kan det se ut så här:
 
 import pr6ny from '@assets/pr/pr6ny.png';
 
@@ -160,7 +160,7 @@ import pr7ny from '@assets/pr/pr7ny.png';
     caption="Lyckat resultat från testerna resulterar i Test passed (TP)."
 />
 
-Du får även en sammanfattning på valideringen av taggarna och testerna:
+Du får även en sammanfattning på valideringen av taggarna och resultatet av testerna:
 
 import pr8ny from '@assets/pr/pr8ny.png';
 
@@ -176,27 +176,31 @@ På bilden ovanför kan du se hur det ser ut när allt är OK. Testerna har lyck
 
 ### Något gick fel
 
-Om något gick fel med tester eller validering får du betyg `Ux` på Canvas och det ser ut som nedanför i din PR.
+Om något gick fel med tester eller validering får du betyg `Test failed` på Canvas och det ser ut som nedanför i din PR.
 
-import pr_fail from '@assets/pr/pr_fail.png';
+Om något gick fel med testerna får du en kommentar om vad som gick fel samt din PR får labeln `Tests failed` och PR:n stängs. Eftersom du kör testerna när du taggar så bör detta inte inträffa.
 
-<Figure 
-    src={pr_fail}
-    caption="Lyckat resultat från testerna."
-/>
+Vanliga fel:
 
-Nu behöver du kolla vad som gick fel och fixa felet. Klicka på länken med ett rött kryss framför sig. Då kommer du vidare till att se vad som gick fel. Om felet är din kod ska länken ta dig till utskrift från antingen `tester` eller `ruff`. Då kan du själv se vad som är fel och fixa det. Om du får något annat konstigt fel du inte förstår, kolla om felet finns med nedanför i [Vanliga fel](#vanliga-fel) annars kontakta en lärare och be om hjälp.
+- du har inte de nyaste testerna
+- du inte inloggad med SSO (logga ut och sen in igen och klicka på SSO-knappen på rätt organisation)
 
-När du har fixat dina fel, gör:
-- Följ instruktionerna under [Actions testerna blir fel
-](/laromaterial/instruktion/resultat-och-redovisning#actions-testerna-blir-fel) för att ladda upp din kod när du har fixat felet.
-- I din PR ta bort label `Submitted` och lägg till den sen igen. Då körs testerna igen.
-- Om din fix funkade ska du nu få `PG`som resultat. Om det blir fel igen återupprepa stegen ovanför.
+Nu behöver du kolla vad som gick fel, fixa felet och ladda upp koden igen.
+
+#### Fixa dina fel
+
+1. Ladda ner testerna på nytt och kör dem lokalt (kör `uv run task download-all`)
+1. Rätta felet och testkör lokalt.
+1. Pusha din rättning till GitHub och tagga den
+1. Skapa en ny PR för att köra igång flödet som kör testerna och sätter `Tests Passed (TP)` eller `Tests failed`.
+
 
 :::tip
-Vi rättar inte inlämningar med betyg TUx. Se till att du fixar felen och laddar upp den nya koden till GitHub. Kolla att du har fått PG. Om du får TUx igen behöver du kolla felet igen och lösa det. Osv.
+Vi rättar endast inlämningar (PRs) med labeln `Tests Passed (TP)`.
 :::
 
+
+Om du får något annat konstigt fel du inte förstår, kolla om felet finns med nedanför i [Vanliga fel](#vanliga-fel) annars kontakta en lärare och be om hjälp.
 
 
 ## Feedback och bedömning
@@ -211,6 +215,8 @@ Om läraren tycker att allt ser bra ut får du en kommentar, label `Approved` oc
 
 Om läraren tycker att något är fel som du behöver fixa får du label `Needs improvement` och `Ux` på Canvas. Det kommer finnas kommentarer på specifika rader. Om kommentaren innehåller en `Warning` som på bilden nedanför, då måste du åtgärda det i din kod. Om kommentaren inte innehåller `Warning` behöver du inte åtgärda det som står där.
 
+**OBS** Låt kommentaren vara kvar! Om du vill kommentera, svara på kommentaren så går det bra.
+
 import pr_warning from '@assets/pr/pr_comment_warning.png';
 
 <Figure 
@@ -219,11 +225,17 @@ import pr_warning from '@assets/pr/pr_comment_warning.png';
 />
 
 När du har åtgärdat felen gör följande:
+ 
+1. Rätta felet och testkör lokalt.
+1. Pusha din rättning till GitHub och tagga den. Om din fix funkade ska du nu få labeln `Tests passed(TP)`.
+1. Lägg till labeln `Run tests` på din öppna PR för att köra igång flödet som kör testerna och sätter `Tests Passed (TP)` eller `Tests failed`. Låt labeln `Grade: Ux` vara kvar.
 
-- Följ instruktionerna under [Actions testerna blir fel
-](/laromaterial/instruktion/resultat-och-redovisning#actions-testerna-blir-fel) för att ladda upp din kod när du har fixat felet.
-- I din PR sätt label `Re-submitted`. Då körs testerna igen.
-- Om din fix funkade ska du nu få `PG`som resultat. Om du får fel i testerna, återupprepa stegen ovanför. För att köra testerna igen, ta bort och lägg till label `Re-submitted`.
+:::note
+Glöm inte att sätta labeln `Run tests` på din öppna PR!
+
+Din komplettering ska lämnas in inom 5 arbetsdagar!
+:::
+
 
 ### Submission not approved / U
 
@@ -237,22 +249,34 @@ Din inlämning kommer inte rättas mer. Din PR stängs. Du behöver göra en ny 
 
 ## Vanlig fel
 
-### Cannot index array with string "attempt"
+### Ett testfall gick fel
 
-import pr_fail_id from '@assets/pr/pr_fail_id.png';
+Om ett testfall går fel här, så saknar du de nyaste testfallen eller så hara du missat att tagga.  
+Så här ser det ut om du klickar under "Actions" i navbaren överst på GitHub:
 
-<Figure 
-    src={pr_fail_id}
-    caption="Misslyckade tester."
-/>
-
-Något är felaktigt med `STUDENT_CANVAS_ID`. När du fixade labbmiljön skulle du skapa variabeln `STUDENT_CANVAS_ID` i ditt repo. Antingen har du gett den fel värde, gett variabeln fel namn eller skapat den som en secret istället för variabel. [Lägg till Canvas student ID i repo](/laromaterial/kursrepo/lagg-till-studentid/).
-
-När du har fixat variabeln, skrolla längs upp och tryck på knappen `Re-run all jobs`.
-
-import pr_re_run from '@assets/pr/pr_re_run.png';
+import pr_fail1 from '@assets/pr/pr_fail1.png';
 
 <Figure 
-    src={pr_re_run}
-    caption="Lyckat resultat från testerna."
+    src={pr_fail1}
+    caption="Resultatet av Actions."
 />
+
+För att få mer information klickar du in på den action som gick rött, i det här fallet "Fix errors in testcase kmom01". Då ser det ut så här:
+
+import pr_fail2 from '@assets/pr/pr_fail2.png';
+
+<Figure 
+    src={pr_fail2}
+    caption="Resultatet av Action: Fix errors in testcase kmom01."
+/>
+
+För att få mer information om felet, klickar du på "call-on-tag / on-tag / run-kmoms (tests/kmom01/convert)" under **Annotations**. Då ser det ut så här:  
+
+import pr_fail3 from '@assets/pr/pr_fail3.png';
+
+<Figure 
+    src={pr_fail3}
+    caption="Resultatet av Action: Fix errors in testcase kmom01."
+/>
+
+Nu ser jag att ett testfall gått fel, som jag missat i testerna lokalt. Då gör jag enligt [instruktionerna under Fixa dina fel](#fixa-dina-fel).
