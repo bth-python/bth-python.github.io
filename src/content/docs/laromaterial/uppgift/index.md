@@ -5,7 +5,7 @@ sidebar:
     order: 0000
 ---
 
-Berätta kort om syftet med uppgifter och hur de fungerar.
+Varje kursmoment (kmom) har inlämningsuppgifter som ska lösas med det du lärt dig hittills i kursen.
 
 :::danger
 Lösningar som använder konstruktionerna list/dict comprehension eller lambda funktioner godkänns inte i denna kurs.
