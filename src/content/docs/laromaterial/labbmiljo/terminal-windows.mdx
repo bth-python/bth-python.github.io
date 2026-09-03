@@ -277,6 +277,13 @@ Lösningen är att gå in i BIOS och aktivera virtualizering. [Microsoft har en 
 
 ### Upgradera wsl 1 till wsl 2
 
+Kolla vilken version du har nu.
+
+```bash title="Kontrollera vilken version du har nu."
+wsl.exe --list --verbose
+```
+Om det står version 2 så har du rätt version redan.
+
 Först behöver du radera ut ditt nuvarande subsystem. Stäng ner vscode och ubuntu terminalen. Starta `cmd` eller `powershell`. Exekver:
 
 ```bash title="Ta bort ditt nuvarande subsystem."
