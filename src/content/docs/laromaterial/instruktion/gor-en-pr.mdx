@@ -16,7 +16,7 @@ Materialet är inte klart. Avvakta!
 Följ denna instruktionen för att göra en pull request (PR) för att lämna in uppgiften i kmom03, kmom06 och kmom10.
 
 :::note
-Bilderna visar inlämning för kmom03. Flödet är likadant för kmom06. I instruktionerna när det står `<X>`, ersätt det med `3` om du lämnar in kmom03 och `6` om du lämnar in kmom06.
+Bilderna visar inlämning för kmom03. Flödet är likadant för kmom06 och kmom10. I instruktionerna när det står `<X>`, ersätt det med `3` om du lämnar in kmom03 och `6` om du lämnar in kmom06.
 :::
 
 ## Förutsättning
@@ -34,7 +34,7 @@ Du har uppfyllt kraven i uppgiften och har gjort en vanlig inlämning enligt [Re
 - `Grade: Ux`: En lärare har bedömt din inlämning men tycker att något behöver förbättras i din inlämning. Följ instruktionerna, fixa problemet lokalt och pusha din lösning till GitHub. När du taggar så körs testerna på GitHub.
 - `Grade: U`: En lärare har bedömt din inlämning men tycker inte att det är tillräckligt bra. Du behöver göra en ny inlämning till nästa rättningstillfälle.
 - `Run tests`: Du ska sätta labeln "Run tests"  för att köra igång flödet som kör testerna och sätter `Tests Passed (TP)` eller `Tests failed`.
-- `Integration failed`: Något i koden som kör de automatiserade testerna gick fel. Kontakta en lärare.
+- `Integration failed`: Något i koden som kör de automatiserade testerna gick fel. Dubbelkolla att du är inloggad med SSO och har auktoriserat din SSH-nyckel. Kontakta en lärare.
 
 
 ## Mitt eget arbete
@@ -47,19 +47,17 @@ I samband med att du gör din PR så intygar du att arbetet är ditt eget och up
 
 ## Pull request (PR)
 
-Du skall nu göra din inlämning som en PR mot följande branch.
+Du skall nu göra din inlämning som en PR mot följande branch. En lärare rättar din PR på dessa inlämningsbrancher, exempelvis rättas kmom03 i inlämningsbranchen `bth/submit/kmom03`.
 
 - **PR kmom03** mot `bth/submit/kmom03`
-- **PR kmom06** mot `bth/submit/kmom06` (Se [Skapa branch för kmom06](#sista-stegen-pr) )
-- **PR kmom10** mot `bth/submit/kmom10` (Se [Skapa branch för kmom10](#sista-stegen-pr) )
+- **PR kmom06** mot `bth/submit/kmom06`
+- **PR kmom10** mot `bth/submit/kmom10`
 
-Följ stegen nedan för att skapa en PR.
-
-
+**Följ stegen nedan för att skapa en PR.**
 
 ### Gå till din kod på GitHub
 
-Du gör detta med hjälp av GitHub. Se till att du har pushat din aktuella kodbas till GitHub och öppna webbläsaren mot din kod på GitHub.  
+Du gör detta med hjälp av GitHub. Se till att du har pushat ditt lokala kursrepo till GitHub och öppna ditt kursrepo på GitHub i webbläsaren.  
 Klicka på "Pull requests" i navbaren.
 
 import pr1ny from '@assets/pr/pr1ny.png';
@@ -121,13 +119,13 @@ import pr4ny from '@assets/pr/pr4ny.png';
 
 ### Öppna en PR mot en branch
 
-Nu skall du fylla i detaljer om din PR:
+När du har klickat på "Create pull request" så skall du fylla i detaljer om din PR:
 
 Som **titel** skriver du "Inlämning av kmom0\<X\>"  (**1** i bilden).
 
-Som **assignees** lägger du in dig själv. Lägg **inte** in någon annan lärare. (**2** i bilden).
+Som **assignees** lägger du in dig själv. (**2** i bilden).
 
-Nu kan du lägga till din PR genom att klicka knappen "Create pull request" (**3** i bilden).
+Nu kan du lägga till din PR genom att klicka på knappen "Create pull request" (**3** i bilden).
 
 import pr5ny from '@assets/pr/pr5ny.png';
 
@@ -145,7 +143,7 @@ import pr6ny from '@assets/pr/pr6ny.png';
 
 <Figure 
     src={pr6ny}
-    caption="En PR har skapats."
+    caption="En PR för inlämning av kmom03 har skapats."
 />
 
 
@@ -170,14 +168,15 @@ import pr8ny from '@assets/pr/pr8ny.png';
 />
 
 
-På bilden ovanför kan du se hur det ser ut när allt är OK. Testerna har lyckats och din inlämning är registrerad i Canvas.
+På bilden ovanför kan du se hur det ser ut när allt är OK. Testerna har lyckats och din inlämning är registrerad i Canvas.  
+Om något gick fel, kanske fick du `Test failed` eller att taggarna inte var ok, se [Något fick fel](#något-gick-fel).
 
 ### Sista stegen (PR)
 
 :::note
 Nu har du två punkter kvar:
 
-1. Kolla att du fått `TP` i Canvas på kmom0\<X\> inlämningen (kan ta några minuter)
+1. Kolla att du har fått `TP` i Canvas på kmom0\<X\> inlämningen (kan ta några minuter)
 1. Skapa en branch för nästa inlämning, exempelvis har du precis lämnat in kmom03, skapar du en branch för kmom06.
 
 ```bash title="Skapa en ny branch för nästa inlämning"
@@ -186,13 +185,14 @@ git push origin bth/submit/kmom06
 git switch main
 ````
 
+Om du precis lämnat in kmom06, kör du ovanstående kommandon med **kmom10** istället för kmom06.
 :::
 
 #### Kontrollera nya branchen
 
 Dubbelkolla att den nyss skapade branchen finns med:  
 
-- i ditt lokala kursrepo; med  `git branch` då ska branchen synas, exempelvis om du precis skapade `bth/submit/kmom06` så syns den och `main` (main har en stjärna framför vilket visar att du är på main).
+- i ditt lokala kursrepo; med  `git branch` då ska branchen synas, exempelvis om du precis skapade `bth/submit/kmom06` så syns den och `main` (main har en stjärna framför vilket visar att du är på main).  
 När du har klickat så ser det ut så här:
 
 import local_branches from '@assets/pr/local_branches.png';
@@ -202,7 +202,7 @@ import local_branches from '@assets/pr/local_branches.png';
     caption="Dina brancher i ditt lokala git repo."
 />
 
-- i ditt kursrepo på GitHub; klicka på "Branches" så ska du se att din brancher.
+- i ditt kursrepo på GitHub; klicka på "Branches" för att se att dina brancher.
 
 import new_branch from '@assets/pr/new_branch.png';
 
@@ -223,13 +223,13 @@ import view_branches from '@assets/pr/view_branches.png';
 
 ### Något gick fel
 
-Om något gick fel med tester eller validering får du betyg `Test failed` på Canvas och det ser ut som nedanför i din PR.
+Om något gick fel med tester eller validering får du betyg `Test failed` på Canvas.
 
 Om något gick fel med testerna får du en kommentar om vad som gick fel samt din PR får labeln `Tests failed` och PR:n stängs. Eftersom du kör testerna när du taggar så bör detta inte inträffa.
 
 Vanliga fel:
 
-- du har inte de nyaste testerna
+- du har inte de nyaste filerna eller testerna
 - du inte inloggad med SSO (logga ut och sen in igen och klicka på SSO-knappen på rätt organisation)
 
 Nu behöver du kolla vad som gick fel, fixa felet och ladda upp koden igen.
@@ -260,9 +260,10 @@ Om läraren tycker att allt ser bra ut får du en kommentar, label `Approved` oc
 
 ### Needs improvement / Ux
 
-Om läraren tycker att något är fel som du behöver fixa får du label `Needs improvement` och `Ux` på Canvas. Det kommer finnas kommentarer på specifika rader. Om kommentaren innehåller en `Warning` som på bilden nedanför, då måste du åtgärda det i din kod. Om kommentaren inte innehåller `Warning` behöver du inte åtgärda det som står där.
+Om läraren tycker att något är fel som du behöver fixa får du label `Needs improvement` och `Ux` på Canvas. Din PR är forsatt öppen.  
+Det kommer finnas kommentarer på specifika kodrader. Om kommentaren innehåller en `Warning` som på bilden nedanför, då måste du åtgärda det i din kod. Om kommentaren inte innehåller `Warning` behöver du inte åtgärda det som står där.
 
-**OBS** Låt kommentaren vara kvar! Om du vill kommentera, svara på kommentaren så går det bra.
+**OBS** Låt kommentaren vara kvar! Om du vill svara på kommentaren, så går det bra.
 
 import pr_warning from '@assets/pr/pr_comment_warning.png';
 
@@ -290,7 +291,7 @@ Om åtgärderna du gjorde i `Re-submitted` bedöms att inte vara tillräckliga f
 
 I kmom10, vid större fel, ges inte komplettering. Då kan du få U direkt.
 
-Din inlämning kommer inte rättas mer. Din PR stängs. Du behöver göra en ny PR till nästa rättningstillfälle. I [studieplanen](/intro/studieplan/) hittar du när nästa rättningstillfälle är.
+Din inlämning kommer inte rättas mer. Din PR stängs. Du behöver göra en ny PR till nästa rättningstillfälle. I [studieplanen](/#rekommenderad-studieplan) hittar du när nästa rättningstillfälle är.
 
 
 
@@ -298,7 +299,8 @@ Din inlämning kommer inte rättas mer. Din PR stängs. Du behöver göra en ny 
 
 ### Ett testfall gick fel
 
-Om ett testfall går fel här, så saknar du de nyaste testfallen eller så hara du missat att tagga.  
+Om ett testfall går fel här, så saknar du de nyaste testfallen. Om du missat stegen i [Resultat och redovisning](/laromaterial/instruktion/resultat-och-redovisning/) så gör du det nu.
+
 Så här ser det ut om du klickar under "Actions" i navbaren överst på GitHub:
 
 import pr_fail1 from '@assets/pr/pr_fail1.png';
@@ -327,3 +329,7 @@ import pr_fail3 from '@assets/pr/pr_fail3.png';
 />
 
 Nu ser jag att ett testfall gått fel, som jag missat i testerna lokalt. Då gör jag enligt [instruktionerna under Fixa dina fel](#fixa-dina-fel).
+
+### Gammal tag
+
+Din senaste kod ska vara taggad med en ny tag, annars klagar valideringen. Se hur i [Resultat och redovisning](/laromaterial/instruktion/resultat-och-redovisning/#tagga-och-pusha-ditt-repo).
