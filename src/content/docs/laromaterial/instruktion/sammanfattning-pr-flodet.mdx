@@ -1,0 +1,102 @@
+---
+title: "Sammanfattning av PR-flödet" 
+description: Sammanfattning av PR-flödet
+sidebar:
+    order: 035
+    # hidden: true
+---
+
+import Figure from '@components/CustomFigure.astro';
+import YouTube from '@components/YouTube.astro';
+
+:::danger
+Materialet är inte klart. Avvakta!
+:::
+
+Den här kursen använder GitHub för att lämna in uppgifter. Processen säkerställer att koden fungerar innan den rättas. Här kommer en sammanfattning av PR-flödet och rättningsprocessen.
+
+import highlevel_overview from '@assets/pr/highlevel_overview.png';
+
+<Figure 
+    src={highlevel_overview}
+    caption="Översikt över PR-flödet."
+/>
+
+## 1. Studentens lokala kursrepo
+
+När uppgiften är klar och redovisad enligt [Resultat och redovisning](/laromaterial/instruktion/resultat-och-redovisning/) skapar studenten en **tagg** (tag), till exempel:
+
+```text
+v01.0
+```
+
+Automatiska tester körs lokalt på den versionen.
+
+### Om testerna lyckas
+
+Taggen godkänns och kan användas för inlämning.
+
+### Om testerna misslyckas
+
+Taggen underkänns. Studenten behöver rätta felen och skapa en ny tagg.
+
+
+## 2. Skapa en Pull Request (PR) på GitHub
+
+På kmom03, kmom06 och kmom10 ska studenten förutom steg 1 också skapa en **Pull Request (PR)** mot kursmomentets inlämningsbranch.
+
+Systemet kontrollerar att:
+
+- en giltig tagg finns
+- testerna fortfarande lyckas
+
+### Om ingen giltig tagg finns
+
+PR:n stängs och studenten måste först skapa en godkänd tagg.
+
+### Om testerna misslyckas
+
+PR:n stängs och studenten behöver rätta koden och skapa en ny PR.
+
+### Om testerna lyckas
+
+Uppgiften registreras som inlämnad och PR:n väntar på bedömning.
+
+
+## 3. Automatiska labels på GitHub
+
+GitHub använder labels för att visa status.
+
+### Tests passed (TP)
+
+Alla tester har lyckats.
+
+### Tests failed
+
+Minst ett test har misslyckats.
+
+### Grade: X
+
+En lärare har satt ett betyg och resultatet skickas till Canvas.
+
+> Endast lärare får sätta betygsetiketter.
+
+### Kör om testerna vid Ux
+
+Efter rättning och lokala tester som pushats till GitHub sätter studenten labeln `Run tests` på sin öppna PR och testerna körs om.
+
+
+## 4. När PR:n stängs på GitHub
+
+Vad som händer beror på vem som stänger PR:n.
+
+### Lärare stänger PR:n
+
+- Resultatet registreras i Canvas.
+- Ingen ny bedömning görs på den PR:n.
+
+### Student stänger PR:n
+
+- Betyget sätts till 0 i Canvas.
+- Studenten behöver öppna en ny PR för att lämna in igen.
+
