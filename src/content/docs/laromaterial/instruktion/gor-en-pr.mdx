@@ -50,8 +50,8 @@ I samband med att du gör din PR så intygar du att arbetet är ditt eget och up
 Du skall nu göra din inlämning som en PR mot följande branch.
 
 - **PR kmom03** mot `bth/submit/kmom03`
-- **PR kmom06** mot `bth/submit/kmom06` (Se mer info i [PR kmom06](#pr-kmom06) )
-- **PR kmom10** mot `bth/submit/kmom10` (Se mer info i [PR kmom10](#pr-kmom10) )
+- **PR kmom06** mot `bth/submit/kmom06` (Se [Skapa branch för kmom06](#sista-stegen-pr) )
+- **PR kmom10** mot `bth/submit/kmom10` (Se [Skapa branch för kmom10](#sista-stegen-pr) )
 
 Följ stegen nedan för att skapa en PR.
 
@@ -151,7 +151,7 @@ import pr6ny from '@assets/pr/pr6ny.png';
 
 ### Tester
 
-Vänta ett par minuter, skrolla sen ner för att se att testerna har godkänts. Titta efter Test passed (TP).
+Vänta ett par minuter, skrolla sen ner för att se att testerna har godkänts. Titta efter labeln Test passed (TP).
 
 import pr7ny from '@assets/pr/pr7ny.png';
 
@@ -170,8 +170,55 @@ import pr8ny from '@assets/pr/pr8ny.png';
 />
 
 
-På bilden ovanför kan du se hur det ser ut när allt är OK. Testerna har lyckats och din inlämning är registrerad i Canvas. På din Canvas ska du har fått betyg `TP` på kmom0\<X\> inlämningen.
+På bilden ovanför kan du se hur det ser ut när allt är OK. Testerna har lyckats och din inlämning är registrerad i Canvas.
 
+### Sista stegen (PR)
+
+:::note
+Nu har du två punkter kvar:
+
+1. Kolla att du fått `TP` i Canvas på kmom0\<X\> inlämningen (kan ta några minuter)
+1. Skapa en branch för nästa inlämning, exempelvis har du precis lämnat in kmom03, skapar du en branch för kmom06.
+
+```bash title="Skapa en ny branch för nästa inlämning"
+git switch -c bth/submit/kmom06
+git push origin bth/submit/kmom06
+git switch main
+````
+
+:::
+
+#### Kontrollera nya branchen
+
+Dubbelkolla att den nyss skapade branchen finns med:  
+
+- i ditt lokala kursrepo; med  `git branch` då ska branchen synas, exempelvis om du precis skapade `bth/submit/kmom06` så syns den och `main` (main har en stjärna framför vilket visar att du är på main).
+När du har klickat så ser det ut så här:
+
+import local_branches from '@assets/pr/local_branches.png';
+
+<Figure 
+    src={local_branches}
+    caption="Dina brancher i ditt lokala git repo."
+/>
+
+- i ditt kursrepo på GitHub; klicka på "Branches" så ska du se att din brancher.
+
+import new_branch from '@assets/pr/new_branch.png';
+
+<Figure 
+    src={new_branch}
+    caption="Klicka på Branches för att se dina brancher."
+/>
+
+När du har klickat så ser det ut så här:
+
+import view_branches from '@assets/pr/view_branches.png';
+
+<Figure 
+    src={view_branches}
+    caption="Dina brancher på GitHub."
+/>
 
 
 ### Något gick fel
@@ -209,7 +256,7 @@ När läraren rättar din PR så får du återkoppling i kommentarer till din PR
 
 ### Approved / G
 
-Om läraren tycker att allt ser bra ut får du en kommentar, label `Approved` och `G` i Canvas. Lärare mergar din PR. Du kan jobba vidare med nästa kmom.
+Om läraren tycker att allt ser bra ut får du en kommentar, label `Approved` och `G` i Canvas. Lärare mergar och stänger då din PR. Du kan jobba vidare med nästa kmom.
 
 ### Needs improvement / Ux
 
@@ -247,7 +294,7 @@ Din inlämning kommer inte rättas mer. Din PR stängs. Du behöver göra en ny 
 
 
 
-## Vanlig fel
+## Vanliga fel
 
 ### Ett testfall gick fel
 
