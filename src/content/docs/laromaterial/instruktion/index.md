@@ -5,4 +5,4 @@ sidebar:
   order: 000
 ---
 
-Berätta kort om syftet med instruktioner och hur de fungerar.
+Här ligger instruktioner som att bra att ha för att lösa uppgifterna och göra inlämningar.

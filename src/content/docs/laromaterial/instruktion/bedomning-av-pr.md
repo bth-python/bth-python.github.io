@@ -3,7 +3,12 @@ title: "Bedömning av PR"
 description: Hur sker bedömning och betygsättning vid inlämning av PR.
 sidebar:
   order: 0037
+  hidden: true
 ---
+
+:::danger
+Denna del är under arbete och är inte klar. Stämmer inte, Ska nog bort.
+:::
 
 Detta dokument beskriver hur bedömning och betygsättning sker vid en inlämning som sker med en PR på GitHub.
 
