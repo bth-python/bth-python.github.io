@@ -59,11 +59,11 @@ Nu kan du installera wsl med följande kommando.
 wsl.exe --install
 ```
 
-När kommandot är klart kan du behöva start om din dator.
+När kommandot är klart kan du behöva starta om din dator.
 
 Om du får fel när du installerar wsl, så titta i [Leta efter felkoden](#leta-efter-felkoden) för tips.
 
-När du är klar finns wsl installerat och du kan se vilka subsystem som du har tillgängligt med följande kommando.
+När du är klar finns wsl installerat och du kan se vilka subsystem som du har tillgängliga med följande kommando.
 
 ```bash title="Visa vilka distributioner av subsystem som finns."
 wsl.exe --list
@@ -96,7 +96,7 @@ import terminal9 from '@assets/labbmiljö/terminal/terminal9.png';
 />
 
 :::note
-Om du inte har applikationen "Terminal" så kan du öppna "ubuntu" direkt via Windows meny eller genom `Windows + R` och skriva ubuntu i sökfältet.
+Om du inte har applikationen "Terminal" så kan du öppna "Ubuntu" direkt via Windows meny eller genom `Windows + R` och skriva ubuntu i sökfältet.
 :::
 
 Första gången som du öppnar din Ubuntu-terminal så behöver du ange en användare och ett lösenord som gäller i terminalen. Detta är din specifika användare inuti Ubuntu och har inget att göra med din Windows-användare. Välj ett kort användarnamn och ett kort lösenord så blir det smidigt att använda. Använd inte mellanslag eller svenska tecken i användarnamnet.
@@ -175,7 +175,7 @@ Kommandot `tree` är likt `ls` men visar en trädliknande struktur för dina fil
 
 När du är i terminalen kan du öppna vissa Windows-applikationer som till exempel filväljaren och texteditorn. Det kan vara ett bra hjälpmedel att öppna dem i den katalogen där man står för tillfället.
 
-Du kan även komma åt ditt filsystem i windows, inifrån terminalen.
+Du kan även komma åt ditt filsystem i Windows, inifrån terminalen.
 
 
 
@@ -189,23 +189,23 @@ explorer.exe .
 
 Punkten anger vilken katalog du vill öppna och punkten representerar den katalog du för tillfället står i.
 
-På detta viset kan du använda en windowsapplikation för att navigera i filträdet inuti wsl.
+På detta viset kan du använda en Windowsapplikation för att navigera i filträdet inuti wsl.
 
 Om du i explorer inte ser filändelser eller dolda filer och kataloger i din Explorer så kan du behöva konfigurera det via "Options -> View" och klicka i enligt följande.
 
-* Klicka i
+* Klicka i:
     * Display the full path in the title bar
     * Show hidden files, folders and drives
-* Klicka bort
+* Klicka bort:
     * Hide extensions for known filetypes
 
 Via explorer kan du enkelt kopiera filer och kataloger mellan filstrukturen i Windows och filstrukturen i WSL.
 
 
 
-### Öppna vscode inifrån terminalen
+### Öppna VSCode inifrån terminalen
 
-Du kan öppna texteditorn vscode inuti terminalen genom att skriva följande kommando.
+Du kan öppna texteditorn VSCode inuti terminalen genom att skriva följande kommando.
 
 ```bash title="Installera program som en del av din labbmiljö."
 code .
@@ -219,17 +219,17 @@ På detta viset kan du använda din texteditor för att hantera de filer som lig
 
 ### Var finns Windows hemma-katalog?
 
-Din ubuntu-terminal är ett eget system med ett eget filsystem, ett subsystem inuti Windows. Därav namnet “Windows Subsystem for Linux (WSL)”.
+Din Ubuntu-terminal är ett eget system med ett eget filsystem, ett subsystem inuti Windows. Därav namnet “Windows Subsystem for Linux (WSL)”.
 
 Du kan komma åt ditt vanliga Windows filsystem, din `C:` och på det sättet dela filer mellan Linux och Windows. Du hittar dina Windows-filsystem under katalogen `/mnt`.
 
 
-```bash title="Se var filerna under Windows finns, via ubuntu-terminalen."
+```bash title="Se var filerna under Windows finns, via Ubuntu-terminalen."
 cd /mnt
 ls -l
 ```
 
-För att flytta till din hemmakatalog under ubuntu-terminalen skriver du bara `cd` utan argument.
+För att flytta till din hemmakatalog under Ubuntu-terminalen skriver du bara `cd` utan argument.
 
 ```bash title="Gå till din hemmakatalog igen."
 cd
@@ -247,17 +247,17 @@ Här finns hjälp att få till vanliga problem vid installationen av wsl.
 
 ### Leta efter felkoden
 
-Om du får en felkod vid installationen så böjrar du med att leta om det finns en vanlig lösning på ditt problem. Öppna länken "[Troubleshooting Windows Subsystem for Linux: Installation issues](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#installation-issues)" och sök efter din felkod.
+Om du får en felkod vid installationen så börjar du med att leta om det finns en vanlig lösning på ditt problem. Öppna länken "[Troubleshooting Windows Subsystem for Linux: Installation issues](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#installation-issues)" och sök efter din felkod.
 
 
 
 ### Min användare är root
 
-Om din användare är rott så har du troligen missat att skapa en ny användare, det gör man första gången som terminalen startar upp ett nytt subsystem.
+Om din användare är root så har du troligen missat att skapa en ny användare, det gör man första gången som terminalen startar upp ett nytt subsystem.
 
 För att lösa det problemet så är det enklast att ta bort ditt subsystem och installera det på nytt.
 
-Börja med att se namnet på det subsystemet du vill ta bort med `wsl --list --verbose`.
+Börja med att se namnet på det subsystem du vill ta bort med `wsl --list --verbose`.
 
 Du kan stänga av systemet med `wsl --terminate Ubuntu` (om det är aktivt och startat), förutsatt att ditt subsystem heter "Ubuntu".
 
@@ -271,11 +271,11 @@ Nu kan du åter installera systemet med `wsl --install --distribution Ubuntu`. G
 
 WSL bygger på virtualizering och den tekniken är inte aktiverad på alla datorer.
 
-Lösningen är att gå in i BIOS och aktivera virtualizering. [Microsoft har en bra guide på hur man gör](https://support.microsoft.com/en-us/windows/enable-virtualization-on-windows-11-pcs-c5578302-6e43-4b4b-a449-8ced115f58e1).
+Lösningen är att gå in i BIOS och aktivera virtualisering. [Microsoft har en bra guide på hur man gör](https://support.microsoft.com/en-us/windows/enable-virtualization-on-windows-11-pcs-c5578302-6e43-4b4b-a449-8ced115f58e1).
 
 
 
-### Upgradera wsl 1 till wsl 2
+### Uppgradera wsl 1 till wsl 2
 
 Kolla vilken version du har nu.
 
@@ -284,7 +284,7 @@ wsl.exe --list --verbose
 ```
 Om det står version 2 så har du rätt version redan.
 
-Först behöver du radera ut ditt nuvarande subsystem. Stäng ner vscode och ubuntu terminalen. Starta `cmd` eller `powershell`. Exekver:
+Först behöver du radera ut ditt nuvarande subsystem. Stäng ner VSCode och Ubuntu-terminalen. Starta `cmd` eller `powershell`. Exekvera:
 
 ```bash title="Ta bort ditt nuvarande subsystem."
 wsl --terminate Ubuntu
