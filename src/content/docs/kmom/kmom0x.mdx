@@ -14,10 +14,6 @@ I detta kursmoment ska du repetera allt du lärt har dig i de tre första kursmo
 
 “Repetition är kunskapens moder” är ett ordspråk som betyder att upprepad övning är nödvändig för att lära sig och behärska något. Ordspråket kommer ursprungligen från latinets “Repetitio est mater studiorum” och betonar att kunskap byggs upp och befästs genom att upprepa information, vilket skapar bestående minnen och färdigheter.
 
-:::danger
-Materialet är inte klart. Påbörjar inte arbete. 
-:::
-
 För att repetera och befästa dina kunskaper bör du gå igenom de övningar, uppgifter och seminarier som ingått i kmom01, kmom02 och kmom03. Du hittar dessutom några extra implementationsuppgifter här:
 
 #### Inmatning, utmatning, beräkning, selektion, iteration
@@ -114,17 +110,18 @@ För att repetera och befästa dina kunskaper bör du gå igenom de övningar, u
     ```
     Gör ett anrop med namnet "Kalle" och ett anrop med namnet "Lisa Larsson"  
 
-1. Skriv en funktion `calculate_price` som beräknar och returnerar 15 % rabatt om priset är mellan 100 och 500 kronor. Är priset däremot 500 eller mer ges istället 20 % rabatt. Ingen utskrift eller inmatning får utföras inom funktionen. Funktionen ska ta priset som parameter. 
+1. Skriv en funktion `calculate_price` som beräknar och returnerar 15 % rabatt om priset är mellan 100 och 500 kronor. Är priset däremot 500 eller mer ges istället 20 % rabatt. Ingen utskrift eller inmatning får utföras inom funktionen. Funktionen ska ta priset som parameter och returnera den summa som rabatten motsvarar (inte ändra priset). 
 
-    Anropa funktionen för de olika priserna 50, 300 och 900 och presentera resultatet med max två decimaler. 
+    Anropa funktionen för de olika priserna 50, 333 och 900 och presentera resultatet med max två decimaler. 
 
 1. Skriv en funktion `ok_password` som kontrollerar att ett lösenord uppfyller kraven:  
     - är minst 8 tecken långt
     - innehåller minst ett av tecknen #, ?, &
-    - har inga blanka tecken (mellanslag)
-Funktionen ska returnera sant (True) om kraven är uppfyllda och falskt (False) annars. Ingen utskrift eller inmatning får utföras inom funktionen.
+    - har inga blanka tecken (mellanslag)  
 
-Anropa funktionen och kontrollera att det blir korrekt resultat genom att testa olika varianter av fel lösenord och några varianter som är korrekta.
+    Funktionen ska returnera sant (True) om kraven är uppfyllda och falskt (False) annars. Ingen utskrift eller inmatning får utföras inom funktionen.
+
+    Anropa funktionen och kontrollera att det blir korrekt resultat genom att testa olika varianter av fel lösenord och några varianter som är korrekta.
 
 1. Skriv en funktion `isoceles_right_angle_triangle` som tar emot en sidlängd och presenterar en likbent rätvinklig triangel genom att skriva ut #. Några exempel:
 
@@ -157,6 +154,8 @@ Anropa funktionen och kontrollera att det blir korrekt resultat genom att testa 
 
 1. Skriv en funktion som slumpar och returnerar ett spelkort. Ett spelkort har en av färgerna Spader, Ruter, Hjärter och Klöver. Det finns 13 kort i varje färg och dessa 13 kort har värdena 2 till och med 14. 
 
+    Anropa funktionen det antal gånger användaren matar in.
+
     Exempel på en körning:
     ``` 
     Hur många kort vill du slumpa? 3
@@ -166,7 +165,7 @@ Anropa funktionen och kontrollera att det blir korrekt resultat genom att testa 
     ```
     Obs: Det kan bli så att samma kort slumpas flera gånger. Det är ok.
 
-1. Ändra så att kortens värden istället blir 2 t.o.m 10 och dessutom Knekt, Dam, Kung, Ess.
+1. Ändra så att kortens värden istället blir 2 t.o.m 10 och dessutom Knekt (tidigare värde 11), Dam (tidigare värde 12), Kung (tidigare värde 13), Ess (tidigare värde 14).
 
     Exempel på en körning:
     ``` 
