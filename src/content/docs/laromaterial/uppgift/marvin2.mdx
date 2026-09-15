@@ -100,7 +100,7 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
 
     {/* Börja menyval på 7 */}
 
-1. Menyval **5** - `create_ssn`: Skapa de fyra sista siffrorna till ett födelsedatum. Skapa ett nytt menyval där Marvin ber om en sträng som innehåller ett födelse datum, t.ex. `"910813"`. Din funktion ska skapa de fyra sista siffrorna till det, `"910813-NNNN"`. För att skapa dem, använda [random modulen](https://docs.python.org/3.8/library/random.html) och slumpa fram de tre första siffrorna. Använd sen Luhnalgoritmen för att räkna ut den fjärde. Den funkar nästa på samma sätt som i menyval 5. 
+1. Menyval **5** - `create_ssn`: Skapa de fyra sista siffrorna till ett födelsedatum. Skapa ett nytt menyval där Marvin ber om en sträng som innehåller ett födelse datum, t.ex. `"910813"`. Din funktion ska skapa de fyra sista siffrorna till det, `"910813-NNNN"`. För att skapa dem, använda [random modulen](https://docs.python.org/3.8/library/random.html) och slumpa fram de tre första siffrorna. Använd sen Luhnalgoritmen för att räkna ut den fjärde. Den funkar nästa på samma sätt som i menyval 4. 
 
     Algoritmen funkar på så sätt att varannan siffra multipliceras med 2 och 1, med start på första siffran i personnumret. Om något tal vid multiplikationen blir större än 9 ersätts det talet med dess siffersumma. Därefter summeras alla tal och här skiljer sig funktionen från menyval 5. Sista siffran erhålls genom att summan subtraheras från närmaste högre tiotal. Exempel med `811218-987`:
 
