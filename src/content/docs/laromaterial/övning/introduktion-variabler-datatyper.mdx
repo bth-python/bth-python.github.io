@@ -98,10 +98,14 @@ Då vi programmerar på engelska i Python använder vi oss det engelskspråkiga 
 6.28
 >>> 3.14 + 3
 6.140000000000001
+>>> 0.1 + 0.2
+0.30000000000000004
 >>> 2.5 * 4
 10.0
 >>>
 ```
+
+**Notera** att rent matematiskt borde 3.14 + 3 bli 6.14 och 0.1 + 0.2 bli 0.3. Datorn kan inte lagra alla decimaltal exakt, så den lagrar den närmaste möjliga approximationen. Till exempel kan inte talen 0.1 och 3.14 representeras exakt. Därför uppstår ibland små avrundningsfel som syns när talen skrivs ut.
 
 Ibland vill vi bara visa några få decimaler genom att avrunda decimaltalen. I Python kan detta göras med hjälp av funktionen `round()`. Vi skickar först in siffran som ska avrundas och sedan antalet decimaler vi vill ha efter ett kommatecken. Om vi inte skickar in hur många decimaler vi vill ha så avrundas siffran till ett heltal, dvs inga decimaler alls.
 
