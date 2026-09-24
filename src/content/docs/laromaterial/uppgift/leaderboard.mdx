@@ -36,7 +36,8 @@ Varje uppgift ska lösas med grundläggande Python konstruktioner som vi går ig
     - Strukturera `main.py` på liknande sätt som Marvin fungerar.
     - Ditt program ska inte starta om man importerar filen `main.py`. Man måste anropa `main()` för att starta programmet.
     - `main.py` ska anropa en modul som heter `leaderboard.py` med hjälpfunktioner.
-
+    - All inmatning (`input()`) ska ske i `main.py`.  
+<br/>  
 1. Du ska strukturera din kod i passande moduler. Du måste skapa minst en modul utöver `main.py`.
 
 1. Utgå ifrån följande dataset i din kod. `leaderboard` är en dictionary där spelarens namn är nyckeln och värdet är en dictionary med poäng och nivå.
@@ -126,11 +127,7 @@ Rätta eventuella fel som dyker upp och ladda upp igen. När det ser grönt ut s
         Antal: 2
         ```
 
-- **3 — Lägg till eller uppdatera spelare**: Lägg till en ny spelare eller uppdatera en befintlig. Om en spelare med samma namn redan finns i listan ska du uppdatera deras poäng och nivå.
-    - Menyvalet ska ta tre `input()`:
-        - namn
-        - poäng
-        - nivå
+- **3 — Lägg till eller uppdatera spelare**: Be om namn, poäng och nivå som input och lägg sedan till en ny spelare eller uppdatera en befintlig. Om en spelare med samma namn redan finns i listan ska du uppdatera deras poäng och nivå.
     - När datan har lagts till eller uppdaterats ska du skriva ut `<namn> har lagts till.` för en ny spelare och `Data uppdaterad för <namn>.` om spelaren redan fanns.
     - Exempel:
         ```
@@ -140,9 +137,7 @@ Rätta eventuella fel som dyker upp och ladda upp igen. När det ser grönt ut s
         Erik har lagts till.
         ```
 
-- **4 — Ta bort spelare**: Ta bort en spelare från listan med hjälp av deras namn.
-    - Menyvalet ska ta ett `input()`:
-        - namn
+- **4 — Ta bort spelare**: Be om namn som input och ta sedan bort en spelare från listan med hjälp av namnet.
     - Om spelaren finns och tas bort ska du skriva ut `<namn> har tagits bort.`
     - Om spelaren inte finns ska du skriva ut `Spelaren <namn> hittades inte.`
 
