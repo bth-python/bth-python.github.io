@@ -129,16 +129,12 @@ Börja med att planera er lösning, vilken kod behövs och vilka datatyper er da
             list: Game board.
         """
         board = []
-        i = 0
-        while i < 3:
-            row = []
-            j = 0
-            while j < 3:
-                row.append(" ")
-                j += 1
-            board.append(row)
-            i += 1
-        return board
+    for _i in range(3):
+        row = []
+        for _j in range(3):
+            row.append(" ")
+        board.append(row)
+    return board
 
     def print_board(board):
         """
@@ -178,38 +174,38 @@ Börja med att planera er lösning, vilken kod behövs och vilka datatyper er da
     def tic_tac_toe():
         board = create_board()
         current_player = "X"
-
-        while True:
+        game_over = False
+        while not game_over:
             print_board(board)
             try:
                 row = int(input(f"Player {current_player}, enter row (0-2): "))
                 col = int(input(f"Player {current_player}, enter col (0-2): "))
+
+                if not (0 <= row <= 2 and 0 <= col <= 2):
+                    print("Coordinates out of range.")
+                    #continue
+
+                elif board[row][col] != " ":
+                    print("Cell already taken. Choose another.")
+                    #continue
+                else: 
+                    board[row][col] = current_player
+
+                    if check_winner(board, current_player):
+                        print_board(board)
+                        print(f"Player {current_player} wins!")
+                        game_over = True
+                    elif is_full(board):
+                        print_board(board)
+                        print("It's a tie!")
+                        game_over = True
+                    
+                    if current_player == "O":
+                        current_player = "X"
+                    else:
+                        current_player = "O"
             except ValueError:
                 print("Invalid input. Enter numbers 0-2.")
-                continue
-
-            if not (0 <= row <= 2 and 0 <= col <= 2):
-                print("Coordinates out of range.")
-                continue
-
-            if board[row][col] != " ":
-                print("Cell already taken. Choose another.")
-                continue
-
-            board[row][col] = current_player
-
-            if check_winner(board, current_player):
-                print_board(board)
-                print(f"Player {current_player} wins!")
-                break
-
-            if is_full(board):
-                print_board(board)
-                print("It's a tie!")
-                break
-
-            # Switch player
-            current_player = "O" if current_player == "X" else "X"
 
     if __name__ == "__main__":
         tic_tac_toe()
