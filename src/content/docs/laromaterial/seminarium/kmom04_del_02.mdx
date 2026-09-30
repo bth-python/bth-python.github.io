@@ -129,12 +129,12 @@ Börja med att planera er lösning, vilken kod behövs och vilka datatyper er da
             list: Game board.
         """
         board = []
-    for _i in range(3):
-        row = []
-        for _j in range(3):
-            row.append(" ")
-        board.append(row)
-    return board
+        for _i in range(3):
+            row = []
+            for _j in range(3):
+                row.append(" ")
+            board.append(row)
+        return board
 
     def print_board(board):
         """
