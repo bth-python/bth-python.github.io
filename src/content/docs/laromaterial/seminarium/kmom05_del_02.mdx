@@ -1,0 +1,140 @@
+---
+title: "kmom05 del 2"
+description: "Handlar om dictionary och tupler"
+sidebar:
+  order: 0520
+  hidden: true
+---
+
+import { YouTube } from 'astro-embed';
+import Figure from '@components/CustomFigure.astro';
+import { Icon } from '@astrojs/starlight/components';
+
+Detta seminarium tar upp följande områden: Dictionaries och tupler
+
+## Förberedelser
+
+{/*
+## <Icon name="open-book" class="inline-icon" label="Interpret code" /> Teori
+
+1. Beskriv med egna ord vad ett **dictionary** är.
+
+1. Vad menas med **nyckel**(key) resp **värde**(value) när man använder dictionary? Hur skiljer det sig mot index i listor?
+
+1. Ge exempel på datatyper som går att använda som nyckel i en dictionary? Varför funkar vissa och andra inte?
+
+1. Kan man ha en lista, dvs datatypen `list` som nyckel och/eller värde i en dictionary? 
+
+1. Vad "får man" om man  för ett dictionary anropar funktionerna `items()`, `keys()`respektive `values()`?
+
+1. Vilken/Vilka fördelar finns det med dictionary mot listor om du t.ex vill skapa en telefonbok?
+
+1. Beskriv med egna ord vad en **tupel** är.
+
+1. Hur många olika "värden/element" kan en tupel innehålla? Måste dessa vara av samma datatyp?
+
+1. Kan en tupel innehålla listor? 
+
+1. Vilken ordning har listan `[(3, "britt", 77), (2, "bert", 65), (3, "arvid", 11)]` efter det att den sorterats med listans sort()-funktion. 
+*/}
+
+### Hur kod funkar
+
+1. Vad är skillnaden på 
+
+    ```python
+    tup1 = (5, 3, 1)
+    (a, x, k) = tup1
+    ```
+    och 
+
+    ```python
+    tup1 = (5, 3, 1)
+    tup2 = tup1
+    ```
+
+1. Är koden nedan korrekt?
+
+    ```python
+    tup1 = (5, 3, 1)
+    tup2 = 6, 8, 2
+    tup1, tup2 = tup2, tup1
+    ```
+    Om ja - vad blir resultatet?
+    Om nej - vad är det som är fel?
+
+1. Vad är fel i koden nedan?
+
+    ```python
+    a_list = [1, 2, 3]
+    b_list = ["a", "b"]
+    my_dict = {a_list: b_list}
+    print(my_dict)
+    ```
+
+1. Är koden nedan korrekt?
+
+    ```python
+    d = {(1, 2): "värde", (3, 4): "annat"}
+    print(d[(3, 4)])
+    ```
+
+    Om ja - vad blir resultatet?
+    Om nej - vad är det som är fel?
+
+### <Icon name="open-book" class="inline-icon" label="Interpret code" /> Tolka kod
+
+1. Vad blir det för utskrift om koden nedan körs?
+
+    ```python
+    a = (1, 2)
+    b = (a, 3, 4)
+    print(b[0][1])
+    ```
+
+    ```python
+    data = {
+        "Anna": (25, "Stockholm"),
+        "Erik": (30, "Göteborg")
+    }
+    print(data["Anna"][1])
+    ```
+2. Vad skrivs ut när koden körs?
+
+    ```python
+    # glassar med volym och pris, t.ex Glassen piggelin med volymen 55 ml och priset 24 kronor
+    ice_cream_dict = {"Piggelin" : (55, 24), "Magnum classic" : (110 , 34), "Nogger" : (87, 15), "Sandwich": (100, 35), "Daimstrut" : (150, 35), "88:an" : (95, 24)}
+    for elem in ice_cream_dict.keys():
+        print(elem)
+
+    for elem in ice_cream_dict.values():
+        print(elem)
+
+    for elem in ice_cream_dict.items():
+        print(elem)
+
+    ```
+
+
+## <Icon name="seti:python" class="inline-icon" label="Write code" /> Praktiska uppgifter
+
+1. Skriv ett program som använder dictionary för att analyser en text och bestämmer antalet förekomster av respektive ord i texten. Observera att skiljetecknen ".,;:!?" inte ska ingå.
+
+   - visa resultatet, dvs vilka ord som finns i texten och hur många gånger respektive ord förekommer i texten.
+   - visa det ord som förekommer flest gånger 
+   - visa de ord som har färre förekomster än ett visst värde 
+   - visa orden tillsammans med ordens antal förekomster sorterade alfabetiskt 
+   - visa orden tillsammans med ordens antal sorterade efter antal förekomster
+   - visa resultatet som ett horisontellt stapeldiagram
+    
+   Följande funktioner ska finnas och användas i lösningen:
+    
+   - `word_frequency(text)` returnerar ett dictionary med orden (*key*)och deras antal förekomster, dvs frekvens (*value*) i strängen `text`
+   - `show_frequency(freq_dictionary)` skriver ut alla ord med frekvens
+   - `word_with_most_occurrences(freq_dictionary)` returnerar det ord som förekommer flest gånger
+   - `words_with_occurrences_less_than(freq_value, freq_dictionary)` returnerar en lista med de ord som har lägre frekvens än `freq_value` 
+   - `show_words_sorted_in_alphabetical_order(freq_dictionary)`skriver ut orden med frekvens sorterade i alfabetisk ordning
+   - `show_words_histogram(freq_dictionary)` skriver ut ett horisontell stapeldiagram. Tips: Du kan vänsterjustera en text i en f-string genom `f"{variabel: < n}"` där n står för antalet tecken. Exempelvis ger `print(f"{word: < 15} ": ")` att strängen i variabeln word vänsterjusteras och : placeras efter 20 "positioner". 
+
+Obs! Lösningen får inte innehålla list comprehension och inte heller lambda-uttryck.
+
