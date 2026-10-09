@@ -77,50 +77,46 @@ Läs [Om seminarier](../).
 
 ## <Icon name="seti:python" class="inline-icon" label="Write code" /> Praktiska uppgifter
 
-Skapa ett program som har följande funktionalitet:
+Skapa ett program som har en meny med alternativen:
 
-    - Läser in frågor och svar från en textfil.
-    - Slumpar fram frågor givet antalet.
-    - Skapar och kör ett quiz.
-    - kontrollerar 
-    - Räknar poäng.
-    - Hanterar att spara de 3 bästa resultatet för respektive quiz baserat på antalet frågor.
+- Visa alla böcker
+- Lägg till en bok
+- Sök bok givet titel
+- Ta bort bok givet titel
+- Avsluta
 
-De funktioner som ska finnas är: 
+Titel, författare och utgivningsår för alla böcker finns på en textfil men namnet `books.txt`.
 
-`load_questions_from_file(filename)`: läser alla frågor inklusive svar från filen namngiven filename till en lista och returnerar listan  
-`shuffle_questions(question_list)`: blandar frågorna i listan question_list  
-`create_quiz(nr_of_questions, question_list)`: skapar en dictionary där nycken är frågan och värdet är svaret, denna returneras  
-`quiz(quiz_dict)`: användaren ser en fråga i taget och matar in sitt svar efter hand. När all frågor besvarats skrivs poängen ut (antalet rätta svar) och användaren matar in sitt namn. Antalet poäng sparas på fil tillsammans med frågor, rätt svar och användarens svar. Filen namnges  `<användarensnamn>_<antalet frågor>.txt`  
-`show_result(filename)`: namnet på användaren, antalet frågor och poäng visas följt av att varje fråga tillsammans med användarens svar och korrekt svar visas och för varje fråga som inte är korrekt skrivs även texten FEL.  
-`update_highscore(name: str, user_points: int, nr_of_questions: int)`: uppdaterar filen med highscore som endast innehåller de 3 bästa resultaten sorterade så att bästa är överst. Filerna med highscore är namngivna `highscore_<antalet frågor>.txt`.  
+<details>
+<summary>Här finns ett exempel på innehåll på filen `books.txt`</summary>  
 
-Börja med att skapa textfilen namngiven questions.txt och klistra in dessa frågor inklusive rätt svar och placera dem i en undermapp namngiven data:
-    ```bash
-    Vad heter huvudstaden i Sverige?|Stockholm
-    Hur många landskap finns det i Sverige?|25
-    Vad är 5 * 7?|35
-    Vilket år blev Sverige medlem i EU?|1995
-    Vad heter världens största hav?|Stilla havet
-    Vad kallas programmeringsspråket som börjar med 'P' och används ofta i undervisning?|Python
-    Vad är huvudstaden i Norge?|Oslo
-    Hur många ben har en insekt?|6
-    Vad är summan av vinklarna i en triangel?|180
-    Vilket land kommer pizzan ursprungligen från?|Italien
-    Vad heter världens högsta berg?|Mount Everest
-    Hur många kontinenter finns det?|7
-    Vad är det kemiska tecknet för vatten?|H2O
-    Vem skrev Harry Potter-böckerna (efternamnet efterfrågas)?|Rowling
-    Vilken planet är närmast solen?|Merkurius
-    Hur många sekunder är det på en minut?|60
-    Vad heter färgen man får om man blandar blått och gult?|Grön
-    Hur många strängar har en gitarr?|6
-    Vilket språk talas i Brasilien?|Portugisiska
-    Vad är 12 delat med 4?|3
-    ```
+```
+Sagan om ringen;J.R.R. Tolkien;1954
+Dune;Frank Herbert;1965
+Harry Potter och de vises sten;J.K. Rowling;1997
+Liftarens guide till galaxen;Douglas Adams;1979
+1984;George Orwell;1949
+Stolthet och fördom;Jane Austen;1813
+Möss och människor;John Steinbeck;1937
+Moby Dick;Herman Melville;1851
+Brott och straff;Fjodor Dostojevskij;1866
+Mio, min Mio;Astrid Lindgren;1954
+Bröderna Lejonhjärta;Astrid Lindgren;1973
+Rosens namn;Umberto Eco;1980
+```
 
+</details>  
+</br>
 
-***Extra***:
-- skriv ut en sammanfattning efter quizet är klart. Skriv ut spelarens namn, hur många frågor som svarades på, hur många rätt spelaren fick och alla frågor med det rätta svaret, spelarens svar och om svaret var rätt eller fel.
-- hålla highscore sorterad efter poäng
-- begränsa till ett viss antal resultat på highscore-filer
+När programmet startar ska ett dictionary med bok-information skapas baserat på den information som finns på textfilen `books.txt`. På textfilen används separatorn semikolon (;) mellan titel, författare och utgivningsår, dvs  
+< titel>;<författare>;<utgivningsår>.  
+Nyckeln ska vara boktitel (sträng). Värdet ska vara en tupel med författare (sträng) och utgivningsår (heltal).
+När programmet avslutas ska innehållet i dictionaryt sparas på textfilen `books.txt`
+
+Följande funktioner ska finnas:
+
+- `read_books_from_file(filename: str)`: läser bok-information från filen med namnet filename och returnerar ett dictionary (enligt ovan) med alla böcker.  
+- `save_books_on_file(filename: str, books: dict)`: sparar innehållet i books på filen med namnet filename
+- `add_book(books: dict, title: str, author: str, publ_year: int)`: lägger till en bok enligt parametrarna i dictionaryt books
+- `show_all_books(books: dict)`: Skriver ut alla böcker. Inledningsvis görs en utskrift av antalet böcker som finns i dictionaryt. Därefter presenteras en bok i taget på formen: < titel> är skriven av < författare > och gavs ut < year>
+- `find_book(books: dict, title: str)`: lägger till resultatet som finns i tupeln info (antalet frågor, namnet, antalet rätt) på filen namngiven highscore_<antalet frågor>.txt.  
