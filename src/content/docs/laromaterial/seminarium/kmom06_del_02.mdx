@@ -1,0 +1,98 @@
+---
+title: "kmom06 del 1"
+description: "Handlar om att läsa och skriva till filer"
+sidebar:
+  order: 0520
+  hidden: true
+---
+
+import { YouTube } from 'astro-embed';
+import Figure from '@components/CustomFigure.astro';
+import { Icon } from '@astrojs/starlight/components';
+
+Detta seminarium tar upp följande områden: Skriva till och läsa från textfil
+
+## Förberedelser (del 2)
+
+### Hur kod funkar
+
+1. Vad gör följande kod? Finns det några potentiella problem?
+
+    ```python
+        f = open("data.txt", "r")
+        lines = f.readlines()
+
+    ```
+
+2. Vad kan vara fel i koden nedan och hur kan det åtgärdas?
+
+    ```python
+        #lines är en lista med strängar 
+        with open("output.txt", "w") as file:
+            file.write(lines)
+
+    ```
+
+### <Icon name="open-book" class="inline-icon" label="Interpret code" /> Tolka kod
+
+1. Vad blir det för utskrift om koden nedan körs?
+
+    ```python
+    with open("exempel.txt", "w") as f:
+        f.write("I am happy!\n")
+        f.write("You are happy!\n")
+
+    with open("exempel.txt", "a") as f:
+        f.write("We are happy!\n")
+
+    with open("exempel.txt", "r") as f:
+        content = f.read()
+        print(content)
+
+    ```
+
+## <Icon name="seti:python" class="inline-icon" label="Write code" /> Praktiska uppgifter
+
+Skapa ett program som har en meny med alternativen:
+
+- Visa alla böcker
+- Lägg till en bok
+- Sök bok givet titel
+- Ta bort bok givet titel
+- Avsluta
+
+Titel, författare och utgivningsår för alla böcker finns på en textfil men namnet `books.txt`.
+
+<details>
+<summary>Här finns ett exempel på innehåll på filen `books.txt`</summary>  
+
+```
+Sagan om ringen;J.R.R. Tolkien;1954
+Dune;Frank Herbert;1965
+Harry Potter och de vises sten;J.K. Rowling;1997
+Liftarens guide till galaxen;Douglas Adams;1979
+1984;George Orwell;1949
+Stolthet och fördom;Jane Austen;1813
+Möss och människor;John Steinbeck;1937
+Moby Dick;Herman Melville;1851
+Brott och straff;Fjodor Dostojevskij;1866
+Mio, min Mio;Astrid Lindgren;1954
+Bröderna Lejonhjärta;Astrid Lindgren;1973
+Rosens namn;Umberto Eco;1980
+```
+
+</details>  
+</br>
+
+När programmet startar ska ett dictionary med bok-information skapas baserat på den information som finns på textfilen `books.txt`. På textfilen används separatorn semikolon (;) mellan titel, författare och utgivningsår, dvs  
+< titel>;<författare>;<utgivningsår>.  
+Nyckeln ska vara boktitel (sträng). Värdet ska vara en tupel med författare (sträng) och utgivningsår (heltal).
+När programmet avslutas ska innehållet i dictionaryt sparas på textfilen `books.txt`
+
+Följande funktioner ska finnas:
+
+- `read_books_from_file(filename: str)`: läser bok-information från filen med namnet filename och returnerar ett dictionary (enligt ovan) med alla böcker.  
+- `save_books_on_file(filename: str, books: dict)`: sparar innehållet i books på filen med namnet filename
+- `add_book(books: dict, title: str, author: str, publ_year: int)`: lägger till en bok enligt parametrarna i dictionaryt books
+- `show_all_books(books: dict)`: Skriver ut alla böcker. Inledningsvis görs en utskrift av antalet böcker som finns i dictionaryt. Därefter presenteras en bok i taget på formen: < titel> är skriven av < författare > och gavs ut < year>
+- `find_book(books: dict, title: str)`: lägger till resultatet som finns i tupeln info (antalet frågor, namnet, antalet rätt) på filen namngiven highscore_<antalet frågor>.txt.  
