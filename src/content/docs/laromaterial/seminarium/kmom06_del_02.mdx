@@ -27,7 +27,7 @@ Detta seminarium tar upp följande områden: Skriva till och läsa från textfil
 2. Vad kan vara fel i koden nedan och hur kan det åtgärdas?
 
     ```python
-        lines = [ "hej", "på", "dej"] 
+        lines = [ "hej\n", "på\n", "dej\n"] 
         with open("output.txt", "w") as file:
             file.write(lines)
 
@@ -89,10 +89,12 @@ När programmet startar ska ett dictionary med bok-information skapas baserat p�
 Nyckeln ska vara boktitel (sträng). Värdet ska vara en tupel med författare (sträng) och utgivningsår (heltal).
 När programmet avslutas ska innehållet i dictionaryt sparas på textfilen `books.txt`
 
-Följande funktioner ska finnas:
+Följande funktioner ska finnas (i detta fall anges datatyperna på parametrarna men du kan göra som du vill):
 
 - `read_books_from_file(filename: str)`: läser bok-information från filen med namnet filename och returnerar ett dictionary (enligt ovan) med alla böcker.  
 - `save_books_on_file(filename: str, books: dict)`: sparar innehållet i books på filen med namnet filename
-- `add_book(books: dict, title: str, author: str, publ_year: int)`: lägger till en bok enligt parametrarna i dictionaryt books
 - `show_all_books(books: dict)`: Skriver ut alla böcker. Inledningsvis görs en utskrift av antalet böcker som finns i dictionaryt. Därefter presenteras en bok i taget på formen: < titel> är skriven av < författare > och gavs ut < year>
-- `find_book(books: dict, title: str)`: lägger till resultatet som finns i tupeln info (antalet frågor, namnet, antalet rätt) på filen namngiven highscore_<antalet frågor>.txt.  
+- `add_book(books: dict, title: str, author: str, publ_year: int)`: lägger till en bok enligt parametrarna i dictionaryt books
+- `find_book(books: dict, title: str)`: om boken med titeln `title` skrivs författare och utgivningsår ut. Om den inte finns, skrivs en text ut som meddelar detta.
+- `remove_book(books: dict, title: str)`: tar bort en boken med titeln `title` och en text om att boken tagits bort. Om den inte finns, skrivs en text ut som meddelar detta.
+
