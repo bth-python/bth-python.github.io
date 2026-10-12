@@ -95,6 +95,5 @@ Följande funktioner ska finnas (i detta fall anges datatyperna på parametrarna
 - `save_books_on_file(filename: str, books: dict)`: sparar innehållet i books på filen med namnet filename
 - `show_all_books(books: dict)`: Skriver ut alla böcker. Inledningsvis görs en utskrift av antalet böcker som finns i dictionaryt. Därefter presenteras en bok i taget på formen: < titel> är skriven av < författare > och gavs ut < year>
 - `add_book(books: dict, title: str, author: str, publ_year: int)`: lägger till en bok enligt parametrarna i dictionaryt books
-- `find_book(books: dict, title: str)`: om boken med titeln `title` skrivs författare och utgivningsår ut. Om den inte finns, skrivs en text ut som meddelar detta.
-- `remove_book(books: dict, title: str)`: tar bort en boken med titeln `title` och en text om att boken tagits bort. Om den inte finns, skrivs en text ut som meddelar detta.
-
+- `find_book(books: dict, title: str)`: om boken med titeln `title` finns skrivs författare och utgivningsår ut. Om den inte finns, skrivs en text ut som meddelar detta.
+- `remove_book(books: dict, title: str)` : tar bort boken med titeln `title` om den finns och text om att boken tagits bort. Om den inte finns, skrivs en text ut som meddelar detta.
