@@ -64,7 +64,7 @@ Vi har en funktion för skriva ut valen som finns och en för kolla vilket val s
 
 Börjar med att öppna filen `items.txt` och kolla på innehållet. Den innehåller tre produkter, "cookie", "cake" och "tea", en produkt på varje rad. Innehållet i filen är egentligen en sträng, `"cookie\ncake\ntea"`, där din texteditor tolkar "\n" som en ny rad. Vi kommer återkomma till detta senare i övningen.
 
-Vidare till koden, vi börjar med val 1, att läsa filens innehåll. När man jobbar med filer behöver man öppna dem, det görs med funktionen `open("filnamn")` där man skickar sökvägen till filen som argument. Funktionen returnerar ett fil objekt som blir kopplingen till filen. Efter man har jobbat färdig med filen behöver man stänga kopplingen. Vi kommer använda oss av nyckelordet `with` för att stänga kopplingen automatisk så vi inte behöver komma ihåg att göra det manuellt.
+Vidare till koden, vi börjar med val 1, att läsa filens innehåll. När man jobbar med filer behöver man öppna dem, det görs med funktionen `open("filnamn")` där man skickar sökvägen till filen som argument. Funktionen returnerar ett fil-objekt som blir kopplingen till filen. Efter man har jobbat färdig med filen behöver man stänga kopplingen. Vi kommer använda oss av nyckelordet `with` för att stänga kopplingen automatisk så vi inte behöver komma ihåg att göra det manuellt.
 Vi kolla på hur koden kan se ut för att läsa en fil.
 
 ```python
