@@ -102,7 +102,7 @@ Vi börjar med att importera `Path` och skapa huvudet till funktion
 #filen example.py
 from pathlib import Path
 
-def writeBookInfoOnFile(filename, book_info):
+def write_book_info_on_file(filename, book_info):
     """ writes the content in the list book_info on the file with the name contained in
         the variable filename
     """
@@ -113,12 +113,12 @@ Det första vi gör är att ta reda på sökvägen till arbetskatalogen (MainDir
 ```python
 from pathlib import Path
 
-def writeBookInfoOnFile(filename, book_info : list):
+def write_book_info_on_file(filename, book_info : list):
     cwd = Path.cwd() #sökvägen till aktuell arbetskatalog, dvs till MainDirectory
     print(cwd)
 
 #testkör
-writeBookInfoOnFile("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
+write_book_info_on_file("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
 ```
 Detta ger (i mitt fall) utskriften 
 '\home\Folder\MainDirectory'
@@ -131,7 +131,7 @@ Vi skriver dessutom ut resultatet för att se att det stämmer
 ```python
 from pathlib import Path
 
-def writeBookInfoOnFile(filename, book_info : list):
+def write_book_info_on_file(filename, book_info : list):
     """ writes the content in the list book_info on the file with the name contained in
         the variable filename
     """
@@ -140,7 +140,7 @@ def writeBookInfoOnFile(filename, book_info : list):
     print(abs_path)
 
 #testkör
-writeBookInfoOnFile("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
+write_book_info_on_file("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
 ```
 Detta ger (i mitt fall) utskriften 
 '\home\Folder\MainDirectory\Articles\Books'
@@ -150,7 +150,7 @@ Det finns bl.a en möjlighet att kontrollera om en sökväg existerar genom att 
 ```python
 from pathlib import Path
 
-def writeBookInfoOnFile(filename, book_info : list):
+def write_book_info_on_file(filename, book_info : list):
     """ writes the content in the list book_info on the file with the name contained in
         the variable filename
     """
@@ -160,7 +160,7 @@ def writeBookInfoOnFile(filename, book_info : list):
         pass: #här kan man göra en utskrift för att se att det är ok
 
 #testkör
-writeBookInfoOnFile("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
+write_book_info_on_file("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
 ```
 Nu är det dags att skapa filen. Då behöver vi hela sökvägen följt av filnamnet som en sträng.
 Vi behöver omvandla `abs_path` till en sträng och addera `'/'` vilket vi fixar genom att konkatenera absoluta sökvägen med `'/'` och filnamnet.  
@@ -168,7 +168,7 @@ Vi behöver omvandla `abs_path` till en sträng och addera `'/'` vilket vi fixar
 ```python
 from pathlib import Path
 
-def writeBookInfoOnFile(filename, book_info : list):
+def write_book_info_on_file(filename, book_info : list):
     """ writes the content in the list book_info on the file with the name contained in
         the variable filename
     """
@@ -178,14 +178,14 @@ def writeBookInfoOnFile(filename, book_info : list):
         total_path = str(abs_path) + '/' + filename
 
 #testkör
-writeBookInfoOnFile("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
+write_book_info_on_file("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
 ```
 Nu är det dags att öppna filen och skriva innehållet i listan radvis.
 
 ```python
 from pathlib import Path
 
-def writeBookInfoOnFile(filename, book_info : list):
+def write_book_info_on_file(filename, book_info : list):
     """ writes the content in the list book_info on the file with the name contained in
         the variable filename
     """
@@ -199,7 +199,7 @@ def writeBookInfoOnFile(filename, book_info : list):
 
 
 #testkör
-writeBookInfoOnFile("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
+write_book_info_on_file("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
 ```
 Nu kan vi kontrollera att filen `'Emil.txt'` finns i katalogen Books och har innehållet  
 Astrid Lindgren  
@@ -211,7 +211,7 @@ Slutligen fixar vi att `lyfta ett undantag` om sökvägen inte finns.
 ```python
 from pathlib import Path
 
-def writeBookInfoOnFile(filename, book_info : list):
+def write_book_info_on_file(filename, book_info : list):
     """ writes the content in the list book_info on the file with the name contained in
         the variable filename
     """
@@ -226,7 +226,7 @@ def writeBookInfoOnFile(filename, book_info : list):
         raise FileNotFoundError("Could not find " + str(abs_path))
         
 #testkör        
-writeBookInfoOnFile("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
+write_book_info_on_file("Emil.txt", ['Astrid Lindgren', 'ISBN: 9789129729887', '229 SEK'])
 ```
 #### För dig som vill veta lite mer ....
 
